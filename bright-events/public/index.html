@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#000000">
     <!--
       manifest.json provides metadata used when your web app is added to the
@@ -10,6 +11,8 @@
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <link rel = "stylesheet" type="text/css" href = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" >
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -19,22 +22,60 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Bright Events</title>
   </head>
   <body>
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+          <nav class="navbar navbar-default">
+         <div class="container">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-target="#mynav" name="button" data-toggle="collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+               </button>
+               <a href="#" class="navbar-brand">Bright Events</a>
+            </div>
+             <div class="collapse navbar-collapse" id="mynav">
+             <ul class="nav navbar-nav navbar-right">
+                 <li class="active">
+                     <a href="/">Home</a>
+                 </li>
+                 <li>
+                     <a href="/api/v1/about/">About</a>
+                 </li>
+                 <li>
+                     <a href="/api/v1/auth/login">Log In</a>
+                 </li>
+                 <li>
+                     <a href="/api/v1/auth/register">Sign Up</a>
+                 </li>
+             </ul>
+             </div>
+         </div>
+      </nav>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <div class="container">
+    <div class="jumbotron">
+      <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+              <h1>Welcome to EventHub</h1>
+               EventHub is a Bright Events offshoot<br /> that enables you to create,manage and attend<br /> events with ease. We provide a platform for event organisers to get creative with their<br /> marketing.
+                <a href="login.html" title="Registration">
+               <button type="button" name="button" class="btn btn-primary">Sign up</button>
+                </a>
+            </div> 
+        </div>
+      </div>
+    </div>      
+    </div>
   </body>
 </html>
