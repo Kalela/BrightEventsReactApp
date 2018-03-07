@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './AboutUs.css';
+import '../css/AboutUs.css';
 
 class AboutUs extends Component {
 //    constructor(props){
@@ -16,7 +16,7 @@ class AboutUs extends Component {
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                </button>
-               <a href="#" class="navbar-brand">Bright Events</a>
+               <a href="/" class="navbar-brand">Bright Events</a>
             </div>
              <div class="collapse navbar-collapse" id="mynav">
              <ul class="nav navbar-nav navbar-right">

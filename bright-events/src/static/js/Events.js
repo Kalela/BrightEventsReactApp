@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './styles.css';
+import '../css/styles.css';
 
 class Events extends Component {
   constructor(props){
@@ -9,22 +9,22 @@ class Events extends Component {
       };
   }
     
-  componentWillMount() {
-      fetch('https://bright-events-api-.herokuapp.com/api/v2/events')
-      .then(results => {
-          return results.json();
-      }).then(data => {
-          let events = data.results.map((Event) => {
-              return(
-              <div key={Event.results}>
-                  <label> Event.events </label>
-              </div>
-              )
-          })
-      this.setState({events: events});
-      console.log("state", this.state.events);
-      })
-  }
+//  componentWillMount() {
+//      fetch('https://bright-events-api-.herokuapp.com/api/v2/events')
+//      .then((resp) => resp.json())
+//      .then(data){
+//          let events = data.resp;
+//          console.log(events);
+////          return events.map(
+////              <div key={events.results}>
+////                  <label> Event.events </label>
+////              </div>
+////              )
+//          }
+//      this.setState({events: events});
+//      console.log("state", this.state.events);
+//      })
+//  }
   render(){
     return (
     <div className="Events">
@@ -36,7 +36,7 @@ class Events extends Component {
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
            </button>
-           <a href="index.html" class="navbar-brand">Bright Events</a>
+           <a href="/" class="navbar-brand">Bright Events</a>
         </div>
          <div class="collapse navbar-collapse" id="mynav">
          <ul class="nav navbar-nav navbar-right">
@@ -44,13 +44,13 @@ class Events extends Component {
                  <a href="/">Home</a>
              </li>
              <li>
-                 <a href="/api/v1/about">About</a>
+                 <a href="/aboutus">About</a>
              </li>
              <li>
-                 <a href="/api/v1/auth/login">Log In</a>
+                 <a href="/login">Log In</a>
              </li>
              <li>
-                 <a href="/api/v1/auth/register">Sign Up</a>
+                 <a href="/register">Sign Up</a>
              </li>
          </ul>
          </div>
@@ -115,11 +115,11 @@ class Events extends Component {
                     <div class="row">
                         <div class="col-sm-6">
                            Sign in to Create and Manage events
-                            <a href="/api/v1/auth/login" title="Log In">
+                            <a href="/login" title="Log In">
                            <button type="button" name="button" class="btn btn-primary">Sign in</button>
                             </a>
                             Or
-                            <a href="/api/v1/auth/register"> Sign Up</a>
+                            <a href="/register"> Sign Up</a>
                         </div>
                     </div>
                   </div>
