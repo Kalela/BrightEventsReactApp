@@ -29,7 +29,7 @@ class Register extends Component {
                           <input class="form-control" id="password" name="password" required type="text" value=""></input>
                         </div>
                         <button class="btn btn-info">Sign Up</button>
-                        <p>Already have an Account? <a href="/api/v1/auth/login">Log In</a></p>
+                        <p>Already have an Account? <a href="/login">Log In</a></p>
                     </form>
                 </div>
                 </div> 

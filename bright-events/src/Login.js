@@ -26,7 +26,7 @@ class Login extends Component {
                           <input class="form-control" id="password" name="password" required type="text" value=""></input>
                         </div>
                         <button class="btn btn-info">Log In</button>
-                        <p>Dont have an Account? <a href="/api/v1/auth/register">Sign Up</a></p>
+                        <p>Dont have an Account? <a href="/register">Sign Up</a></p>
                     </form>
                 </div>
                 </div> 

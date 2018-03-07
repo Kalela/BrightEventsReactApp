@@ -24,13 +24,13 @@ class AboutUs extends Component {
                      <a href="/">Home</a>
                  </li>
                  <li>
-                     <a href="/api/v1/about/">About</a>
+                     <a href="/aboutus">About</a>
                  </li>
                  <li>
-                     <a href="/api/v1/auth/login">Log In</a>
+                     <a href="/login">Log In</a>
                  </li>
                  <li>
-                     <a href="/api/v1/auth/register">Sign Up</a>
+                     <a href="/register">Sign Up</a>
                  </li>
              </ul>
              </div>
@@ -48,7 +48,7 @@ class AboutUs extends Component {
             <div class="col-sm-6">
               <h1>Welcome to EventHub</h1>
                EventHub is a Bright Events offshoot<br /> that enables you to create,manage and attend<br /> events with ease. We provide a platform for event organisers to get creative with their<br /> marketing.
-                <a href="login.html" title="Registration">
+                <a href="/login" title="Registration">
                <button type="button" name="button" class="btn btn-primary">Sign up</button>
                 </a>
             </div> 
