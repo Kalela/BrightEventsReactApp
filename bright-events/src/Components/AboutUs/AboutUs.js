@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../css/AboutUs.css';
+import './AboutUs.css';
 
 class AboutUs extends Component {
 //    constructor(props){
@@ -8,18 +8,18 @@ class AboutUs extends Component {
   render(){
     return (
     <div className="AboutUs">
-                <nav class="navbar navbar-default">
-         <div class="container">
-            <div class="navbar-header">
-               <button type="button" class="navbar-toggle" data-target="#mynav" name="button" data-toggle="collapse">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
+                <nav className="navbar navbar-default">
+         <div className="container">
+            <div className="navbar-header">
+               <button type="button" className="navbar-toggle" data-target="#mynav" name="button" data-toggle="collapse">
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>
                </button>
-               <a href="/" class="navbar-brand">Bright Events</a>
+               <a href="/" className="navbar-brand">Bright Events</a>
             </div>
-             <div class="collapse navbar-collapse" id="mynav">
-             <ul class="nav navbar-nav navbar-right">
+             <div className="collapse navbar-collapse" id="mynav">
+             <ul className="nav navbar-nav navbar-right">
                  <li class="active">
                      <a href="/">Home</a>
                  </li>
