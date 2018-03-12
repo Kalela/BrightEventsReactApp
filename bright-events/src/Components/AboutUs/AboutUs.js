@@ -20,7 +20,7 @@ class AboutUs extends Component {
             </div>
              <div className="collapse navbar-collapse" id="mynav">
              <ul className="nav navbar-nav navbar-right">
-                 <li class="active">
+                 <li className="active">
                      <a href="/">Home</a>
                  </li>
                  <li>
@@ -41,15 +41,15 @@ class AboutUs extends Component {
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-    <div class="container">
-    <div class="jumbotron">
-      <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
+    <div className="container">
+    <div className="jumbotron">
+      <div className="container">
+        <div className="row">
+            <div className="col-sm-6">
               <h1>Welcome to EventHub</h1>
                EventHub is a Bright Events offshoot<br /> that enables you to create,manage and attend<br /> events with ease. We provide a platform for event organisers to get creative with their<br /> marketing.
                 <a href="/register" title="Registration">
-               <button type="button" name="button" class="btn btn-primary">Sign up</button>
+               <button type="button" name="button" className="btn btn-primary">Sign up</button>
                 </a>
             </div> 
         </div>

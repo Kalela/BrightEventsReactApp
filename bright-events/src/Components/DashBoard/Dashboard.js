@@ -28,18 +28,18 @@ class Events extends Component {
   render(){
     return (
         <div className="Events">
-        <nav class="navbar navbar-default">
-          <div class="container">
-            <div class="navbar-header">
-               <button type="button" class="navbar-toggle" data-target="#mynav" name="button" data-toggle="collapse">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
+        <nav className="navbar navbar-default">
+          <div className="container">
+            <div className="navbar-header">
+               <button type="button" className="navbar-toggle" data-target="#mynav" name="button" data-toggle="collapse">
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>
                </button>
-               <a href="/dashboard" class="navbar-brand">Dashboard</a>
+               <a href="/dashboard" className="navbar-brand">Dashboard</a>
             </div>
-             <div class="collapse navbar-collapse" id="mynav">
-                 <ul class="nav navbar-nav navbar-right">
+             <div className="collapse navbar-collapse" id="mynav">
+                 <ul className="nav navbar-nav navbar-right">
                      <li>
                          <a href="/logout">Logout</a>
                      </li>
@@ -62,31 +62,31 @@ class Events extends Component {
 
         <div className="container">
             <div className="row profile">
-                <div class="col-md-3">
-                    <div class="profil-sidebar">
-                    <div class="profile-user-pic">
+                <div className="col-md-3">
+                    <div className="profil-sidebar">
+                    <div className="profile-user-pic">
                         <img src="https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png"/>
                         </div>
-                        <div class="profile-user-title">
-                        <div class="profile-user-name">
+                        <div className="profile-user-title">
+                        <div className="profile-user-name">
                             <p>Welcome Kalela </p>
                             </div>
                         </div>
-                        <div class="profile-user-buttons">
-                        <button class="btn btn-success btn-sm">
+                        <div className="profile-user-buttons">
+                        <button className="btn btn-success btn-sm">
                             Follow
                             </button>
-                        <button class="btn btn-danger btn-sm">
+                        <button className="btn btn-danger btn-sm">
                             Message
                             </button>
 
                         </div>
-                       <div class="profile-user-menu">
-                        <ul class="nav">
-                            <li class="active"><a href=""><i class="glyphicon glyphicon-home"></i>  Overview</a></li>
-                            <li><a href=""><i class="glyphicon glyphicon-user"></i>  Account Status</a></li>
-                            <li><a href="/api/v1/events/view"><i class="glyphicon glyphicon-calendar"></i>  My Events</a></li>
-                            <li><a href=""><i class="glyphicon glyphicon-flag"></i>  My RSVPs</a></li>
+                       <div className="profile-user-menu">
+                        <ul className="nav">
+                            <li className="active"><a href=""><i className="glyphicon glyphicon-home"></i>  Overview</a></li>
+                            <li><a href=""><i className="glyphicon glyphicon-user"></i>  Account Status</a></li>
+                            <li><a href="/api/v1/events/view"><i className="glyphicon glyphicon-calendar"></i>  My Events</a></li>
+                            <li><a href=""><i className="glyphicon glyphicon-flag"></i>  My RSVPs</a></li>
 
                             </ul>
                         </div>

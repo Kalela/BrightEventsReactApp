@@ -30,9 +30,9 @@ class Events extends Component {
 //        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 //        <script src = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-         <nav class="navbar navbar-default">
-            <div class="navbar-header">
-             <a href="/" class="navbar-brand">EventHub</a>
+         <nav className="navbar navbar-default">
+            <div className="navbar-header">
+             <a href="/" className="navbar-brand">EventHub</a>
              </div>
             </nav>   
 
@@ -47,19 +47,19 @@ class Events extends Component {
 //        {% endwith %}  
 
 
-        <div class="container">
-            <div class="col-md-6 text-center">
-                <div class="g">
-                  <h1 class="head">Create New</h1>
+        <div className="container">
+            <div className="col-md-6 text-center">
+                <div className="g">
+                  <h1 className="head">Create New</h1>
                     <p></p>
-                        <form action="/api/v1/new_event" class="login" method="POST">
+                        <form action="/api/v1/new_event" className="login" method="POST">
                             {{ form.hidden_tag() }}
                             {{ wtf.form_field(form.eventname)}} 
                             {{ wtf.form_field(form.eventdate)}}
                             {{ wtf.form_field(form.eventlocation)}}
                             {{ wtf.form_field(form.eventcategory)}}
 
-                        <button class="btn btn-info">Create</button>
+                        <button className="btn btn-info">Create</button>
 
                     </form>
                 </div>

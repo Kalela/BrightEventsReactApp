@@ -9,34 +9,29 @@ class Events extends Component {
       };
   }
     
-//  componentWillMount(){
-//      fetch('https://bright-events-api-.herokuapp.com/api/v2/events')
-//      .then((resp) => resp.json())
-//      .then((data){
-//          let events = data.resp;
-//          console.log(events);
-//          return events
-//          }
-//      this.setState({events: events});
-//      console.log("state", this.state.events);
-//      })
-//}
+  componentDidMount(){
+      fetch('http//:facebook.github.io/react-native/movies.json')
+      .then((resp) => resp.json())
+      .then((findresponse) => {
+          console.log(findresponse);
+      })
+}
   render(){
     return (
         <div className="Events">
           <nav className="navbar navbar-default">
             <div className="container">
-            <div class="navbar-header">
-               <button type="button" class="navbar-toggle" data-target="#mynav" name="button" data-toggle="collapse">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
+            <div className="navbar-header">
+               <button type="button" className="navbar-toggle" data-target="#mynav" name="button" data-toggle="collapse">
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>
                </button>
-               <a href="/" class="navbar-brand">Bright Events</a>
+               <a href="/" className="navbar-brand">Bright Events</a>
             </div>
-             <div class="collapse navbar-collapse" id="mynav">
-             <ul class="nav navbar-nav navbar-right">
-                 <li class="active">
+             <div className="collapse navbar-collapse" id="mynav">
+             <ul className="nav navbar-nav navbar-right">
+                 <li className="active">
                      <a href="/">Home</a>
                  </li>
                  <li>
@@ -57,42 +52,41 @@ class Events extends Component {
         <script src = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 
-        <div class="container">
-        <div class="jumbotron">
-          <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
+        <div className="container">
+        <div className="jumbotron">
+          <div className="container">
+            <div className="row">
+                <div className="col-sm-6">
                   <h2>Popular Events</h2>
-                     <div class="panel-group">
-                      <div class="panel panel-default">
-                         <div class="panel-body">
-                          Mt. Kenya Marathon(Event 1)<button class="btn btn-danger btn-xs">
+                     <div className="panel-group">
+                      <div className="panel panel-default">
+                         <div className="panel-body">
+                          Mt. Kenya Marathon(Event 1)<button className="btn btn-danger btn-xs">
                             Send RSVP
                             </button>
                           </div>
-                          <div class="panel-body">
-                          Safaricom Sevens(Event 2)<button class="btn btn-danger btn-xs">
+                          <div className="panel-body">
+                          Safaricom Sevens(Event 2)<button className="btn btn-danger btn-xs">
                             Send RSVP
                             </button>
                           </div>
-                          <div class="panel-body">
-                          Naiconn(Event 3)<button class="btn btn-danger btn-xs">
+                          <div className="panel-body">
+                          Naiconn(Event 3)<button className="btn btn-danger btn-xs">
                             Send RSVP
                             </button>
                           </div>
-                          <div class="panel-body">
-                          Python Charmers(Event 4)<button class="btn btn-danger btn-xs">
+                          <div className="panel-body">
+                          Python Charmers(Event 4)<button className="btn btn-danger btn-xs">
                             Send RSVP
                             </button>
                           </div>
-                          <div class="panel-body">
-                          Jameson Rugby League(Event 5)<button class="btn btn-danger btn-xs">
+                          <div className="panel-body">
+                          Jameson Rugby League(Event 5)<button className="btn btn-danger btn-xs">
                             Send RSVP
                             </button>
                           </div>
-                          <div class="panel-body">
-                          {this.state.events}
-                          <button class="btn btn-danger btn-xs">
+                          <div className="panel-body">
+                          <button className="btn btn-danger btn-xs">
                             Send RSVP
                             </button>
                           </div>
@@ -105,14 +99,14 @@ class Events extends Component {
 
         </div>
 
-                <div class="container">
-                    <div class="jumbotron">
-                      <div class="container">
-                        <div class="row">
-                            <div class="col-sm-6">
+                <div className="container">
+                    <div className="jumbotron">
+                      <div className="container">
+                        <div className="row">
+                            <div className="col-sm-6">
                                Sign in to Create and Manage events
                                 <a href="/login" title="Log In">
-                               <button type="button" name="button" class="btn btn-primary">Sign in</button>
+                               <button type="button" name="button" className="btn btn-primary">Sign in</button>
                                 </a>
                                 Or
                                 <a href="/register"> Sign Up</a>
