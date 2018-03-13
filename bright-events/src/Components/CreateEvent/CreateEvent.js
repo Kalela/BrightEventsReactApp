@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../css/styles.css';
+import './styles.css';
 
 class Events extends Component {
   constructor(props){
@@ -9,22 +9,14 @@ class Events extends Component {
       };
   }
     
-//  componentWillMount() {
-//      fetch('https://bright-events-api-.herokuapp.com/api/v2/events')
-//      .then((resp) => resp.json())
-//      .then(data){
-//          let events = data.resp;
-//          console.log(events);
-////          return events.map(
-////              <div key={events.results}>
-////                  <label> Event.events </label>
-////              </div>
-////              )
-//          }
-//      this.setState({events: events});
-//      console.log("state", this.state.events);
-//      })
-//  }
+  componentDidMount(){
+      fetch('https://bright-events-api-.herokuapp.com/api/v2/events', {method:POST})
+      .then(response => response.json())
+      .then((parsedJSON) => {
+         console.log(parsedJSON) 
+      })
+      .catch(error => console.log('parsing failed', error))
+  }
   render(){
     return (
         <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -36,18 +28,15 @@ class Events extends Component {
              <a href="/" class="navbar-brand">EventHub</a>
              </div>
             </nav>   
-
-        {% with messages = get_flashed_messages() %}
-          {% if messages %}
-            <ul class=flashes>
-            {% for message in messages %}
-              <li>{{ message }}</li>
-            {% endfor %}
-            </ul>
-          {% endif %}
-        {% endwith %}  
-
-
+//        {% with messages = get_flashed_messages() %}
+//          {% if messages %}
+//            <ul class=flashes>
+//            {% for message in messages %}
+//              <li>{{ message }}</li>
+//            {% endfor %}
+//            </ul>
+//          {% endif %}
+//        {% endwith %}  
         <div class="container">
             <div class="col-md-6 text-center">
                 <div class="g">

@@ -8,23 +8,15 @@ class Events extends Component {
           events: []
       };
   }
+  componentDidMount(){
+      fetch('https://bright-events-api-.herokuapp.com/api/v2/events')
+      .then(response => response.json())
+      .then((parsedJSON) => {
+         console.log(parsedJSON) 
+      })
+      .catch(error => console.log('parsing failed', error))
+  }
     
-//  componentWillMount() {
-//      fetch('https://bright-events-api-.herokuapp.com/api/v2/events')
-//      .then((resp) => resp.json())
-//      .then(data){
-//          let events = data.resp;
-//          console.log(events);
-////          return events.map(
-////              <div key={events.results}>
-////                  <label> Event.events </label>
-////              </div>
-////              )
-//          }
-//      this.setState({events: events});
-//      console.log("state", this.state.events);
-//      })
-//  }
   render(){
     return (
 //        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

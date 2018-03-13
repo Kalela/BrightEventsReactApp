@@ -10,11 +10,12 @@ class Events extends Component {
   }
     
   componentDidMount(){
-      fetch('http//:facebook.github.io/react-native/movies.json')
-      .then((resp) => resp.json())
-      .then((findresponse) => {
-          console.log(findresponse);
+      fetch('https://bright-events-api-.herokuapp.com/api/v2/events')
+      .then(response => response.json())
+      .then((parsedJSON) => {
+         console.log(parsedJSON) 
       })
+      .catch(error => console.log('parsing failed', error))
 }
   render(){
     return (
