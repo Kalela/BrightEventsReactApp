@@ -26,7 +26,7 @@ $ npm test
 
 ## Maintainer
 
-[@philipkalela](https://github.com/Kalela) 
+[@Kalela](https://github.com/Kalela) 
 
 ## License
 
