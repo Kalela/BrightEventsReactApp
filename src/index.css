@@ -1,16 +1,35 @@
+/*
 html,
-body{
+body {
     font-family: 'Lato', sans-serif;
-    background-image:url('https://image.ibb.co/cD7s9b/party_supplies_light.jpg');
+    background-image:url('https://image.ibb.co/hF9ENw/climate_kic_350836.jpg');
+    background-position: center;
+    background-color: #6B8175;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+*/
+#eventsJumbotron {
+    position: absolute;
+    bottom: 0;
+    width: 1160px;
+    opacity: 0.8;
+}
+#eventsSigninText {
+    position: relative;
+    left:300px;
+    top: 50%;
+}
+/*
+#eventPage {
+    font-family: 'Lato', sans-serif;
+    background-image:url('https://image.ibb.co/hF9ENw/climate_kic_350836.jpg');
     background-position: center;
     background-color: #43304C;
     background-repeat: no-repeat;
     background-size: cover;
-
 }
-.container{
-    padding: 0 70px;
-}
+*/
 .navbar{
     margin-bottom: 0;
     background-color: #6B8175;
@@ -28,15 +47,20 @@ body{
     background-color: transparent;
     color: #fff;
 }
+/*
 form {color: white !important;
 }
-h1{
-    color: #43304C!important;
-}
-
-.login{
+*/
+.formnow{
     padding: 5px 120px;
     
+}
+.g{
+    padding: 80px 0;
+    
+}
+.h{
+    margin: 15px 0;
 }
 .btn-info{
     background-color: #43304C;
@@ -50,22 +74,10 @@ h1{
     color: #43304C;
     
 }
-.g{
-    padding: 80px 0;
-    
-}
-.h{
-    margin: 15px 0;
-}
 .col-md-6{
   min-height: 100%;
   min-height: 100vh; 
 
   display: flex;
   align-items: center;
-}
-.flashes{
-    margin-left: 600px;
-    color: red;
-    font-weight: bolder;
 }
