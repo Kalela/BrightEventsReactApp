@@ -4,29 +4,27 @@ class Register extends Component {
   constructor(props){
     super(props);
     this.runRegistration = this.runRegistration.bind(this)
-  }     
-  runRegistration(e){
-      e.preventDefault();
-    
-      let username = document.getElementById('username').value;
-      let email = document.getElementById('email').value;
-      let password = document.getElementById('password').value;
-      let confirmpassword = document.getElementById('confirmpassword').value;
-
-      fetch('https://localhost:5000/api/v2/auth/register', {
+  }
+  runRegistration = (event) => {
+      event.preventDefault();
+      const newUser = {
+      username: this.refs.username.value,
+      email: this.refs.email.value,
+      password: this.refs.password.value,
+      confirmpassword: this.refs.confirmpassword.value,  
+      }
+      
+      console.log(newUser);
+      fetch('http://localhost:5000/api/v2/auth/register', {
           method:'POST',
           headers:{
               'Accept':'application/json, text/plain, */*',
               'Content-type':'application/json'
           },
-          body:JSON.stringify({username:username, email:email, password:password, confirmpassword:confirmpassword})
-          .then((res) => res.json())
-          .then((findres) => console.log(findres))
+          body:JSON.stringify(newUser)
       })
   }
-//    getUserData(){
-//     .getElementById('sendRegister').addEventListener('click', runRegistration);
-//    }
+
   render(){                    
     return (
     <div className="Register">
@@ -39,24 +37,24 @@ class Register extends Component {
             <div className="col-md-6 text-center">
                 <div className="g">
                 <h1 className="head">Sign Up</h1>
-                    <form id="RegisterForm" className="formnow" method="POST">
+                    <form id="RegisterForm" className="formnow" onSubmit={ this.runRegistration} >
                         <div className="form-group required">
                           <label className="control-label">Username</label>
-                            <input type="text" className="form-control" id="username" required/>
+                            <input type="text" ref="username" className="form-control" id="username" required/>
                         </div>
                         <div className="form-group required">
                           <label className="control-label">Email</label>
-                            <input className="form-control" id="email" required type="text"/>
+                            <input className="form-control" ref="email" id="email" required type="text"/>
                         </div>
                         <div className="form-group required">
                           <label className="control-label">Password</label>
-                            <input className="form-control" id="password" required type="text"/>
+                            <input className="form-control" ref="password" id="password" required type="text"/>
                         </div>
                         <div className="form-group required">
                           <label className="control-label">Confirm Password</label>
-                            <input className="form-control" id="confirmpassword" required type="text"/>
+                            <input className="form-control" ref="confirmpassword" id="confirmpassword" required type="text"/>
                         </div>
-                        <button className="btn btn-info" id="sendRegister" onClick={ this.runRegistration() }>
+                        <button className="btn btn-info" id="sendRegister" >
                           Sign Up
                         </button>
                         <p>Already have an Account? <a href="/login">Log In</a></p>

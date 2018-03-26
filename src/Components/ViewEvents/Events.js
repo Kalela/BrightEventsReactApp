@@ -51,11 +51,6 @@ class Events extends Component {
                  </div>
              </div>
                </nav>
-
-            <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-            <script src = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-
             <div className="container">
               <h2>Popular Events</h2>
               <div>
@@ -68,7 +63,7 @@ class Events extends Component {
                           </div>
                           <div className="card-body">
                               <p className="card-text">
-                                  Eventname: {dynamicData.eventname}
+                                  {dynamicData.eventname}
                               </p>
                               <a href="#" className="btn btn-danger btn-xs">Send RSVP</a>
                           </div>
