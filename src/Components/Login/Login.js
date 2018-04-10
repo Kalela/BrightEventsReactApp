@@ -14,13 +14,17 @@ class Login extends Component {
       }
       
       console.log(user);
-      fetch('http://localhost:5000/api/v2/auth/register', {
+      fetch('http://localhost:5000/api/v2/auth/login', {
           method:'POST',
           headers:{
               'Accept':'application/json, text/plain, */*',
               'Content-type':'application/json'
           },
           body:JSON.stringify(user)
+      })
+      .then(response => response.json())
+      .then((findresp) => {
+         console.log(findresp.access_token)
       })
   }
   render(){
