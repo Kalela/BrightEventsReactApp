@@ -37,10 +37,6 @@ class AboutUs extends Component {
          </div>
       </nav>
 
-
-    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
     <div className="container">
     <div className="jumbotron">
       <div className="container">
@@ -57,12 +53,12 @@ class AboutUs extends Component {
                 <a href="/events" title="Registration">
                <button type="button" className="btn btn-primary">See Events </button>
                 </a>
-            </div> 
+            </div>
         </div>
       </div>
-    </div>      
     </div>
-    </div>  
+    </div>
+    </div>
          );
   }
 };

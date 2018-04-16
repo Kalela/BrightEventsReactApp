@@ -3,23 +3,35 @@ import React, { Component } from 'react';
 class Events extends Component {
   constructor(props){
     super(props);
+    this.state = {
+        events: [],
+        JWTtoken: ""
+    };
     this.addEvent = this.addEvent.bind(this)
   }
+
+  componentWillMount(){
+      localStorage.getItem("BrightEventsJWTtoken") && this.setState({
+          JWTtoken: localStorage.getItem("BrightEventsJWTtoken")
+      })
+  }
+
   addEvent = (event) => {
       event.preventDefault();
       const new_event = {
       eventname: this.refs.eventname.value,
-      location: this.refs.location.value, 
+      location: this.refs.location.value,
       date: this.refs.date.value,
       category: this.refs.category.value,
       }
-      
+
       console.log(new_event);
       fetch('http://localhost:5000/api/v2/events', {
           method:'POST',
           headers:{
               'Accept':'application/json, text/plain, */*',
               'Content-type':'application/json',
+              'x-access-token': this.state.JWTtoken
           },
           body:JSON.stringify(new_event)
       })
@@ -49,17 +61,20 @@ class Events extends Component {
                             <input className="form-control" ref="date" id="date" required type="text"/>
                         </div>
                         <div className="dropdown">
-                          <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                             Category
+                            <span className="caret"></span>
                           </button>
-                          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a className="dropdown-item" ref="category">Bridal</a>
-                            <a className="dropdown-item" ref="category">Educational</a>
-                            <a className="dropdown-item" ref="category">Commemorative</a>
-                            <a className="dropdown-item" ref="category">Product Launch</a>
-                            <a className="dropdown-item" ref="category">Social</a>
-                            <a className="dropdown-item" ref="category">VIP</a>
-                          </div>
+                          <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a ref="category">Bridal</a></li>
+                            <li><a ref="category">Commemorative</a></li>
+                            <li><a ref="category">Educational</a></li>
+                            <li><a ref="category">Product Launch</a></li>
+                            <li><a ref="category">Social</a></li>
+                            <li><a ref="category">VIP</a></li>
+                            <li role="separator" className="divider"></li>
+                            <li><a href="category">Other</a></li>
+                          </ul>
                         </div>
                         <button className="btn btn-info" id="createEvent" >
                           Create Event

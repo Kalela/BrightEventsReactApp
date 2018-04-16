@@ -8,7 +8,6 @@ import CreateEvent from './Components/CreateEvent/CreateEvent';
 import Dashboard from './Components/DashBoard/Dashboard';
 import EditEvent from './Components/EditEvent/EditEvent';
 
-
 export default (
     <Switch>
       <Route exact path='/' component={ AboutUs }/>

@@ -25,6 +25,7 @@ class Login extends Component {
       .then(response => response.json())
       .then((findresp) => {
          console.log(findresp.access_token)
+         localStorage.setItem("BrightEventsJWTtoken", findresp.access_token)
       })
   }
   render(){
