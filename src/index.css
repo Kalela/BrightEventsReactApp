@@ -1,0 +1,33 @@
+html,
+body {
+    font-family: 'Lato', sans-serif;
+    background-position: center;
+    background-color: #6B8175;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.navbar{
+    margin-bottom: 0;
+    background-color: #6B8175;
+    border: 0;
+    border-radius: 0;
+    font-size: 18px !important;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+#aboutUs {
+    background-image:url('https://image.ibb.co/hF9ENw/climate_kic_350836.jpg');
+}
+#landingFooter {
+    position: relative;
+    left:500px;
+    bottom:-340px;
+    color:#fff;
+}
+#landingPageJumbotron {
+    opacity: 0.8;
+    background-image:url('https://image.ibb.co/hF9ENw/climate_kic_350836.jpg');
+}
+#loginButton {
+    left:500px;
+}
