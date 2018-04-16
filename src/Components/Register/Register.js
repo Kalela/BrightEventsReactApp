@@ -11,9 +11,9 @@ class Register extends Component {
       username: this.refs.username.value,
       email: this.refs.email.value,
       password: this.refs.password.value,
-      confirmpassword: this.refs.confirmpassword.value,  
+      confirmpassword: this.refs.confirmpassword.value,
       }
-      
+
       console.log(newUser);
       fetch('http://localhost:5000/api/v2/auth/register', {
           method:'POST',
@@ -25,44 +25,10 @@ class Register extends Component {
       })
   }
 
-  render(){                    
+  render(){
     return (
-    <div className="Register">
-        <nav className="navbar navbar-default">
-          <div className="navbar-header">
-            <a href="/" className="navbar-brand"> EventHub </a>
-            </div>
-        </nav>
-        <div className="container">
-            <div className="col-md-6 text-center">
-                <div className="g">
-                <h1 className="head">Sign Up</h1>
-                    <form id="RegisterForm" className="formnow" onSubmit={ this.runRegistration} >
-                        <div className="form-group required">
-                          <label className="control-label">Username</label>
-                            <input type="text" ref="username" className="form-control" id="username" required/>
-                        </div>
-                        <div className="form-group required">
-                          <label className="control-label">Email</label>
-                            <input className="form-control" ref="email" id="email" required type="text"/>
-                        </div>
-                        <div className="form-group required">
-                          <label className="control-label">Password</label>
-                            <input className="form-control" ref="password" id="password" required type="text"/>
-                        </div>
-                        <div className="form-group required">
-                          <label className="control-label">Confirm Password</label>
-                            <input className="form-control" ref="confirmpassword" id="confirmpassword" required type="text"/>
-                        </div>
-                        <button className="btn btn-info" id="sendRegister" >
-                          Sign Up
-                        </button>
-                        <p>Already have an Account? <a href="/login">Log In</a></p>
-                    </form>
-                </div>
-                </div> 
-            </div>
-        </div>
+      <div className="Register">
+      </div>
          );
   }
 };
