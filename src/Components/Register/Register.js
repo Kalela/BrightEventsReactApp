@@ -37,12 +37,37 @@ class Register extends Component {
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search Events" aria-label="Search" />
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
           </div>
         </nav>
+        <div className="container">
+            <div className="col-md-6 text-center">
+                <div className="g">
+                <h1 className="head">Sign Up</h1>
+                    <form id="RegisterForm" className="formnow" onSubmit={ this.runRegistration} >
+                        <div className="form-group required">
+                          <label className="control-label">Username</label>
+                            <input type="text" ref="username" className="form-control" id="username" required/>
+                        </div>
+                        <div className="form-group required">
+                          <label className="control-label">Email</label>
+                            <input className="form-control" ref="email" id="email" required type="text"/>
+                        </div>
+                        <div className="form-group required">
+                          <label className="control-label">Password</label>
+                            <input className="form-control" ref="password" id="password" required type="text"/>
+                        </div>
+                        <div className="form-group required">
+                          <label className="control-label">Confirm Password</label>
+                            <input className="form-control" ref="confirmpassword" id="confirmpassword" required type="text"/>
+                        </div>
+                        <button className="btn btn-info" id="sendRegister" >
+                          Sign Up
+                        </button>
+                        <p>Already have an Account? <a href="/login">Log In</a></p>
+                    </form>
+                </div>
+                </div>
+            </div>
       </div>
          );
   }
