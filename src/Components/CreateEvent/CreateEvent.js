@@ -6,7 +6,7 @@ class Events extends Component {
     this.state = {
         events: [],
         JWTtoken: "",
-        category: "dffsf"
+        category: "Other"
     };
     this.addEvent = this.addEvent.bind(this)
     this.handleDropdown = this.handleDropdown.bind(this)
