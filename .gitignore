@@ -1,1 +1,9 @@
 desktop.ini
+node_modules/*
+AddGreeter.js
+AddGreeter.css
+HelloWorld.js
+HelloWorld.test.js
+HelloWorld.css
+HelloWorldList.js
+HelloWorldList.css

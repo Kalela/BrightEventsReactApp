@@ -1,0 +1,61 @@
+html,
+body {
+    font-family: 'Lato', sans-serif;
+    background-position: center;
+    background-color: #6B8175;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.navbar{
+    margin-bottom: 0;
+    background-color: #6B8175;
+    border: 0;
+    border-radius: 0;
+    font-size: 18px !important;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+.login{
+    padding: 5px 120px;
+}
+.g{
+    padding: 80px 0;
+}
+.btn-info{
+    background-color: #43304C;
+    margin: 20px 0;
+    border: 0;
+    transition: all 0.7s;
+    border: 1px solid #43304C;
+}
+.btn-info:hover{
+    background-color: #fff;
+    color: #43304C;
+
+}
+.container{
+    padding: 0 70px;
+}
+.col-md-6{
+  min-height: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+}
+#aboutUs {
+    background-image:url('https://image.ibb.co/hF9ENw/climate_kic_350836.jpg');
+}
+#landingFooter {
+    position: relative;
+    left:500px;
+    bottom:-340px;
+    color:#fff;
+}
+#landingPageJumbotron {
+    opacity: 0.8;
+    background-image:url('https://image.ibb.co/hF9ENw/climate_kic_350836.jpg');
+}
+#loginButton {
+    left:500px;
+}
