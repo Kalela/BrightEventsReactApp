@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 
+import NavbarOptions from '../NavbarOptions/NavbarOptions';
+
 class LandingPage extends Component {
     constructor(props){
-        super();
+        super(props);
         this.state = {
           events: [],
-          search: ""
+          search: "",
+          current_user: ""
+
         };
 
         this.onChange = this.onChange.bind(this)
@@ -23,7 +27,6 @@ class LandingPage extends Component {
       fetch('http://localhost:5000/api/v2/events')
       .then(response => response.json())
       .then((findresp) => {
-          console.log(findresp.Events)
           this.setState({
               events:findresp.Events
           })
@@ -49,6 +52,12 @@ class LandingPage extends Component {
                 <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
               </a>
             </form>
+            {
+              this.state.current_user ?
+              < NavbarOptions current_user={this.state.current_user}/>
+              :
+              ""
+            }
           </div>
         </nav>
         <div className="jumbotron jumbotron-fluid" id="landingPageJumbotron">

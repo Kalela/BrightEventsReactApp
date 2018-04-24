@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom'
+import { Redirect, browserHistory } from 'react-router-dom';
 
 class Login extends Component {
   constructor(props){
     super(props);
     this.state = {
-      logged_in_users: [],
-      redirect: false
+      logged_in_users: []
     }
     this.runLogin = this.runLogin.bind(this)
   }
@@ -16,8 +15,6 @@ class Login extends Component {
       username: this.refs.username.value,
       password: this.refs.password.value,
       }
-
-      console.log(user);
       fetch('http://localhost:5000/api/v2/auth/login', {
           method:'POST',
           headers:{
@@ -28,13 +25,13 @@ class Login extends Component {
       })
       .then(response => response.json())
       .then((findresp) => {
-         console.log(findresp.access_token)
          localStorage.setItem("BrightEventsJWTtoken", findresp.access_token)
+         localStorage.setItem("Logged_in", user.username)
          if (findresp.access_token) {
            this.setState({
              logged_in_users:user.username,
-             redirect: true
            })
+           this.props.history.push("/dashboard")
          }
       })
   }
@@ -67,7 +64,7 @@ class Login extends Component {
                         <input className="form-control" ref="password" name="password" required type="text"/>
                     </div>
                     <button className="btn btn-info">Log In</button>
-                    <p>Dont have an Account? <a href="/register">Sign Up</a></p>
+                    <p>Dont have an Account? <a href="/register" styles="{{color:blue}}" >Sign Up</a></p>
                 </form>
               </div>
             </div>

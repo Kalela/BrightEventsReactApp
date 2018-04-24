@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import Login from './Components/Login/Login'
 import Register from './Components/Register/Register'
 import LandingPage from './Components/LandingPage/LandingPage';
@@ -11,7 +11,13 @@ import SearchPage from './Components/SearchPage/SearchPage';
 
 export default (
     <Switch>
-      <Route exact path='/' component={ LandingPage }/>
+      <Route exact path="/" render={() => (
+          localStorage.getItem("Logged_in") ? (
+          <Redirect to="/dashboard"/>
+        ) : (
+          <LandingPage/>
+        )
+      )}/>
       <Route exact path='/register' component={ Register }/>
       <Route exact path='/login' component={ Login }/>
       <Route exact path='/events' component={ Events }/>
@@ -22,5 +28,3 @@ export default (
       <Route exact path='*' render={() => (<h1> 404 Not Found </h1>)}/>
     </Switch>
 );
-
-// <Route exact path='/aboutus' component={ AboutUs }/>

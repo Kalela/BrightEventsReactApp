@@ -14,7 +14,6 @@ class Register extends Component {
       confirmpassword: this.refs.confirmpassword.value,
       }
 
-      console.log(newUser);
       fetch('http://localhost:5000/api/v2/auth/register', {
           method:'POST',
           headers:{
@@ -23,19 +22,20 @@ class Register extends Component {
           },
           body:JSON.stringify(newUser)
       })
+      this.props.history.push("/login")
   }
 
   render(){
     return (
       <div className="Register">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="/">BrightEvents</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <a className="navbar-brand" href="/">BrightEvents</a>
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
           </button>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav mr-auto">
             </ul>
           </div>
         </nav>
@@ -43,7 +43,7 @@ class Register extends Component {
             <div className="col-md-6 text-center">
                 <div className="g">
                 <h1 className="head">Sign Up</h1>
-                    <form id="RegisterForm" className="formnow" onSubmit={ this.runRegistration} >
+                    <form id="RegisterForm" className="formnow" onSubmit={this.runRegistration} >
                         <div className="form-group required">
                           <label className="control-label">Username</label>
                             <input type="text" ref="username" className="form-control" id="username" required/>

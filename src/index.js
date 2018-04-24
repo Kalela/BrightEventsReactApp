@@ -7,7 +7,7 @@ import registerServiceWorker from './registerServiceWorker';
 import routes from './routes'
 
 ReactDOM.render(
-    <Router>
+    <Router current_user={"Admin"}>
     { routes }
     </Router>,
     document.getElementById('root'));
