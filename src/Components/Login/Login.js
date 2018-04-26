@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Redirect, browserHistory } from 'react-router-dom';
+import { browserHistory } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class Login extends Component {
   constructor(props){
@@ -32,6 +34,15 @@ class Login extends Component {
              logged_in_users:user.username,
            })
            this.props.history.push("/dashboard")
+         }else {
+           toast.error(findresp.message,{
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: true,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true
+           })
          }
       })
   }
@@ -49,6 +60,7 @@ class Login extends Component {
             </ul>
           </div>
         </nav>
+        <ToastContainer />
         <div className="container">
             <div className="col-md-6 text-center">
               <div className="g">

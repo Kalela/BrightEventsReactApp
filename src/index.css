@@ -59,6 +59,9 @@ body {
 #loginButton {
     left:500px;
 }
+#landingPageDiv {
+  height: 100vh;
+}
 
 p {
   font-family: 'Poppins', sans-serif;

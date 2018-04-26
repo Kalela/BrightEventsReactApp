@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import NavbarOptions from '../NavbarOptions/NavbarOptions';
+
 class Events extends Component {
   constructor(props){
     super(props);
@@ -37,10 +39,12 @@ class Events extends Component {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav mr-auto">
               </ul>
-              <form className="form-inline my-2 my-lg-0">
-                <input className="form-control mr-sm-2" type="search" placeholder="Search Events" aria-label="Search" />
-                <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-              </form>
+              {
+                this.state.current_user ?
+                < NavbarOptions current_user={this.state.current_user}/>
+                :
+                ""
+              }
             </div>
           </nav>
         </div>

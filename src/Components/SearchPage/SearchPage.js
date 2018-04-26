@@ -1,8 +1,22 @@
 import React, { Component } from 'react';
 
+import NavbarOptions from '../NavbarOptions/NavbarOptions';
+
 class SearchPage extends Component {
   constructor(props){
     super(props);
+    this.state = {
+      current_user: ""
+    };
+  }
+  
+  componentWillMount(){
+      localStorage.getItem("BrightEventsJWTtoken") && this.setState({
+          JWTtoken: localStorage.getItem("BrightEventsJWTtoken")
+      })
+      localStorage.getItem("Logged_in") && this.setState({
+          current_user: localStorage.getItem("Logged_in")
+      })
   }
 
   render(){
@@ -16,6 +30,12 @@ class SearchPage extends Component {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
             </ul>
+            {
+              this.state.current_user ?
+              < NavbarOptions current_user={this.state.current_user}/>
+              :
+              ""
+            }
           </div>
         </nav>
         <form>

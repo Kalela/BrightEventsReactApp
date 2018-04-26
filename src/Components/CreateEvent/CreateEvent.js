@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import NavbarOptions from '../NavbarOptions/NavbarOptions';
+
 class Events extends Component {
   constructor(props){
     super(props);
@@ -29,7 +31,6 @@ class Events extends Component {
       category: this.state.category,
       }
 
-      console.log(new_event);
       fetch('http://localhost:5000/api/v2/events', {
           method:'POST',
           headers:{
@@ -53,6 +54,12 @@ class Events extends Component {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav mr-auto">
               </ul>
+              {
+                this.state.current_user ?
+                < NavbarOptions current_user={this.state.current_user}/>
+                :
+                ""
+              }
             </div>
           </nav>
           <div className="container">

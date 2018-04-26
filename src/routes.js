@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
+
 import Login from './Components/Login/Login'
 import Register from './Components/Register/Register'
 import LandingPage from './Components/LandingPage/LandingPage';
@@ -8,6 +9,7 @@ import CreateEvent from './Components/CreateEvent/CreateEvent';
 import Dashboard from './Components/DashBoard/Dashboard';
 import EditEvent from './Components/EditEvent/EditEvent';
 import SearchPage from './Components/SearchPage/SearchPage';
+import ViewSingleEvent from './Components/ViewEvents/ViewSingleEvent';
 
 export default (
     <Switch>
@@ -25,6 +27,7 @@ export default (
       <Route exact path='/createevent' component={ CreateEvent }/>
       <Route exact path='/editevent' component={ EditEvent }/>
       <Route exact path='/search' component={ SearchPage }/>
+      <Route exact path='/events/eventname' component={ ViewSingleEvent }/>
       <Route exact path='*' render={() => (<h1> 404 Not Found </h1>)}/>
     </Switch>
 );
