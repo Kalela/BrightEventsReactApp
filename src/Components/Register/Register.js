@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class Register extends Component {
   constructor(props){
@@ -22,7 +24,29 @@ class Register extends Component {
           },
           body:JSON.stringify(newUser)
       })
-      this.props.history.push("/login")
+      .then(response => response.json())
+      .then((findresp) => {
+         if (findresp.message === "Registration successful, log in to access your account"){
+           toast.success(findresp.message,{
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: true,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true
+           })
+           this.props.history.push("/login")
+         }else{
+           toast.error(findresp.message,{
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: true,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true
+           })
+         }
+      })
   }
 
   render(){
@@ -33,12 +57,12 @@ class Register extends Component {
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
-
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
             </ul>
           </div>
         </nav>
+        <ToastContainer />
         <div className="container">
             <div className="col-md-6 text-center">
                 <div className="g">

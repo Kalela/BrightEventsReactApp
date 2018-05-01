@@ -7,7 +7,6 @@ import LandingPage from './Components/LandingPage/LandingPage';
 import Events from './Components/ViewEvents/Events';
 import CreateEvent from './Components/CreateEvent/CreateEvent';
 import Dashboard from './Components/DashBoard/Dashboard';
-import EditEvent from './Components/EditEvent/EditEvent';
 import SearchPage from './Components/SearchPage/SearchPage';
 import ViewSingleEvent from './Components/ViewEvents/ViewSingleEvent';
 
@@ -25,7 +24,6 @@ export default (
       <Route exact path='/events' component={ Events }/>
       <Route exact path='/dashboard' component={ Dashboard }/>
       <Route exact path='/createevent' component={ CreateEvent }/>
-      <Route exact path='/editevent' component={ EditEvent }/>
       <Route exact path='/search' component={ SearchPage }/>
       <Route exact path='/events/eventname' component={ ViewSingleEvent }/>
       <Route exact path='*' render={() => (<h1> 404 Not Found </h1>)}/>

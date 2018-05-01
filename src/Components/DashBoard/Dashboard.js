@@ -3,6 +3,12 @@ import jwt from 'jsonwebtoken'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import Settings from '../Settings/settings.js'
+import ContactUs from '../ContactUs/contactUs.js'
+import MyRSVPs from '../MyRSVPs/myRsvps.js'
+import EditEvent from '../EditEvent/editEvent.js'
+import Eventpic from '../../img/dave.jpg';
+
 class Events extends Component {
   constructor(props){
     super(props);
@@ -17,13 +23,16 @@ class Events extends Component {
         settings:false,
         contacts:false,
         dashboard:false,
-        myrsvps:false
+        myrsvps:false,
+        edit_event:false
     };
     this.toggleWrapper = this.toggleWrapper.bind(this)
     this.toggleTabs = this.toggleTabs.bind(this)
     this.logout = this.logout.bind(this)
     this.loadCreateEvent = this.loadCreateEvent.bind(this)
     this.showGuests = this.showGuests.bind(this)
+    this.editEvent = this.editEvent.bind(this)
+    this.deleteEvent = this.deleteEvent.bind(this)
   }
 
   componentWillMount(){
@@ -35,11 +44,6 @@ class Events extends Component {
       })
   }
 
-  toggleWrapper(){
-    this.setState({
-      toggled:!this.state.toggled
-    })
-  }
   toggleTabs(tab){
     switch (tab){
       case 1:
@@ -64,11 +68,11 @@ class Events extends Component {
         break;
       case 3:
         this.setState({
-          settings:!this.state.myguests,
+          myguests:!this.state.myguests,
           myevents:false,
           dashboard:false,
           contacts:false,
-          myguests:false,
+          settings:false,
           myrsvps:false
         })
         break;
@@ -104,6 +108,40 @@ class Events extends Component {
         break;
     }
   }
+
+  editEvent () {
+    this.setState({
+      edit_event:!this.state.edit_event
+    })
+  }
+
+  deleteEvent (dynamicData) {
+    fetch(`http://localhost:5000/api/v2/events/${dynamicData.eventname}`, {
+        method:'DELETE',
+        headers:{
+            'Accept':'application/json, text/plain, */*',
+            'Content-type':'application/json',
+            'x-access-token': this.state.JWTtoken
+        })
+        .then(response => response.json())
+        .then((findresp) => {
+             toast.success(findresp.message,{
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true
+             })
+        })
+  }
+
+  toggleWrapper(){
+    this.setState({
+      toggled:!this.state.toggled
+    })
+  }
+
   logout(){
     fetch(`http://localhost:5000/api/v2/logout`, {
         method:'POST',
@@ -160,10 +198,14 @@ class Events extends Component {
                   events:findresp.Guests
                 })
           }else {
-            this.setState(
-              {
-                rsvp_message:findresp.message
-              })
+            toast.warning(findresp.message,{
+               position: "top-right",
+               autoClose: 5000,
+               hideProgressBar: true,
+               closeOnClick: true,
+               pauseOnHover: true,
+               draggable: true
+            })
           }
       })
       .catch(error => console.log('parsing failed', error)),{
@@ -173,7 +215,6 @@ class Events extends Component {
               'Content-type':'application/json',
               'x-access-token': this.state.JWTtoken
           }
-
       }
     }
   }
@@ -268,6 +309,27 @@ class Events extends Component {
                 </div>
               </div>
             </nav>
+            {
+              this.state.settings ?
+              < Settings/>
+              :""
+            }
+            {
+              this.state.contacts ?
+              < ContactUs/>
+              :""
+            }
+            {
+              this.state.myrsvps ?
+              < MyRSVPs/>
+              :""
+            }
+            {
+              this.state.edit_event ?
+              <EditEvent />
+              :
+              ""
+            }
             {  this.state.myevents ?
             <div id="MyEvents">
               <div className="card text-center">
@@ -290,6 +352,8 @@ class Events extends Component {
                     <p className="card-text">{dynamicData.date}</p>
                     <p className="card-text">{dynamicData.category}</p>
                     <a href="/events/eventname" className="btn btn-primary">View Event</a>
+                    <a onClick={() => this.deleteEvent(dynamicData)} className="btn btn-danger">Delete Event</a>
+                    <a onClick={() => this.editEvent(dynamicData)} className="btn btn-info">Edit Event</a>
                     <a onClick={() => this.sendRSVP(dynamicData)} className="btn btn-danger">Send Rsvp</a>
                   </div>
                 </div>

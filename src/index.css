@@ -62,6 +62,12 @@ body {
 #landingPageDiv {
   height: 100vh;
 }
+#searchForm {
+  width: 800px;
+}
+#searchEventsContainer {
+  width: 800px;
+}
 
 p {
   font-family: 'Poppins', sans-serif;
