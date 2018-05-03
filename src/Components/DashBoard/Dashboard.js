@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import jwt from 'jsonwebtoken'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Card, CardImg, CardText, CardBody, CardLink,
+  CardTitle, CardSubtitle, CardDeck } from 'reactstrap';
 
 import Settings from '../Settings/settings.js'
 import ContactUs from '../ContactUs/contactUs.js'
 import MyRSVPs from '../MyRSVPs/myRsvps.js'
 import EditEvent from '../EditEvent/editEvent.js'
 import Eventpic from '../../img/dave.jpg';
+import DeleteModal from './DeleteModal.js';
 
 class Events extends Component {
   constructor(props){
@@ -32,7 +35,6 @@ class Events extends Component {
     this.loadCreateEvent = this.loadCreateEvent.bind(this)
     this.showGuests = this.showGuests.bind(this)
     this.editEvent = this.editEvent.bind(this)
-    this.deleteEvent = this.deleteEvent.bind(this)
   }
 
   componentWillMount(){
@@ -115,27 +117,6 @@ class Events extends Component {
     })
   }
 
-  deleteEvent (dynamicData) {
-    fetch(`http://localhost:5000/api/v2/events/${dynamicData.eventname}`, {
-        method:'DELETE',
-        headers:{
-            'Accept':'application/json, text/plain, */*',
-            'Content-type':'application/json',
-            'x-access-token': this.state.JWTtoken
-        })
-        .then(response => response.json())
-        .then((findresp) => {
-             toast.success(findresp.message,{
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true
-             })
-        })
-  }
-
   toggleWrapper(){
     this.setState({
       toggled:!this.state.toggled
@@ -195,7 +176,7 @@ class Events extends Component {
           if(findresp.Guests){
               this.setState(
                 {
-                  events:findresp.Guests
+                  guests:findresp.Guests
                 })
           }else {
             toast.warning(findresp.message,{
@@ -332,36 +313,31 @@ class Events extends Component {
             }
             {  this.state.myevents ?
             <div id="MyEvents">
-              <div className="card text-center">
-              {
-                this.state.events.map((dynamicData,key) =>
-                <div>
-                  <div className="card-header">
-                    <ul className="nav nav-tabs card-header-tabs">
-                      <li className="nav-item">
-                        <a className="nav-link active" href="/events/eventname">{dynamicData.eventname}</a>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link" onClick={() => this.showGuests(dynamicData)} href="#">Guests</a>
-                      </li>
-                    </ul>
+              <CardDeck>
+                {
+                  this.state.events.map((dynamicData,key) =>
+                  <div key={dynamicData.eventname}>
+                    <Card>
+                      <CardBody>
+                        <CardTitle>{dynamicData.eventname}</CardTitle>
+                        <CardSubtitle>At {dynamicData.location}</CardSubtitle>
+                        <CardSubtitle>On {dynamicData.date}</CardSubtitle>
+                        <CardSubtitle>Category: {dynamicData.category}</CardSubtitle>
+                      </CardBody>
+                      <img width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
+                      <CardBody>
+                        <CardLink onClick={() => this.sendRSVP(dynamicData)}>Send RSVP</CardLink>
+                        <CardLink onClick={() => this.editEvent(dynamicData)}>Edit Event</CardLink>
+                        <DeleteModal dynamicData={dynamicData}/>
+                      </CardBody>
+                    </Card>
                   </div>
-                  <div className="card-body">
-                    <h5 className="card-title">{dynamicData.eventname}</h5>
-                    <p className="card-text">{dynamicData.location}</p>
-                    <p className="card-text">{dynamicData.date}</p>
-                    <p className="card-text">{dynamicData.category}</p>
-                    <a href="/events/eventname" className="btn btn-primary">View Event</a>
-                    <a onClick={() => this.deleteEvent(dynamicData)} className="btn btn-danger">Delete Event</a>
-                    <a onClick={() => this.editEvent(dynamicData)} className="btn btn-info">Edit Event</a>
-                    <a onClick={() => this.sendRSVP(dynamicData)} className="btn btn-danger">Send Rsvp</a>
-                  </div>
-                </div>
-                )
-              }
-              </div>
-            </div>:""
-          }
+                  )
+                }
+                </CardDeck>
+              </div>:""
+            }
+
           </div>
         </div>
       </div>

@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Card, CardImg, CardText, CardBody, CardLink,
+  CardTitle, CardSubtitle, CardDeck } from 'reactstrap';
 
 import NavbarOptions from '../NavbarOptions/NavbarOptions';
+import DeleteModal from '../DashBoard/DeleteModal';
 
 class Events extends Component {
   constructor(props){
@@ -12,7 +15,7 @@ class Events extends Component {
           JWTtoken: "",
           current_user:""
       };
-      this.sendRSVP = this.sendRSVP.bind(this)
+      this.sendRSVP = this.sendRSVP.bind(this);
   }
 
   componentWillMount(){
@@ -79,32 +82,28 @@ class Events extends Component {
               }
             </div>
           </nav>
-          <div className="card text-center">
+          <CardDeck>
           {
             this.state.events.map((dynamicData,key) =>
-            <div>
-              <div className="card-header">
-                <ul className="nav nav-tabs card-header-tabs">
-                  <li className="nav-item">
-                    <a className="nav-link active" href="#">{dynamicData.eventname}</a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">RSVPs</a>
-                  </li>
-                </ul>
-              </div>
-              <div className="card-body">
-                <h5 className="card-title">{dynamicData.eventname}</h5>
-                <p className="card-text">{dynamicData.location}</p>
-                <p className="card-text">{dynamicData.date}</p>
-                <p className="card-text">{dynamicData.category}</p>
-                <a href="#" className="btn btn-primary">View Event</a>
-                <a onClick={this.sendRSVP(dynamicData)} className="btn btn-danger">Send Rsvp</a>
-              </div>
+            <div key={dynamicData.eventname}>
+              <Card>
+                <CardBody>
+                  <CardTitle>{dynamicData.eventname}</CardTitle>
+                  <CardSubtitle>At {dynamicData.location}</CardSubtitle>
+                  <CardSubtitle>On {dynamicData.date}</CardSubtitle>
+                  <CardSubtitle>Category: {dynamicData.category}</CardSubtitle>
+                </CardBody>
+                <img width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
+                <CardBody>
+                  <CardLink onClick={() => this.sendRSVP(dynamicData)}>Send RSVP</CardLink>
+                  <CardLink onClick={() => this.editEvent(dynamicData)}>Edit Event</CardLink>
+                  <DeleteModal dynamicData={dynamicData}/>
+                </CardBody>
+              </Card>
             </div>
             )
           }
-          </div>
+          </CardDeck>
         </div>
     );
   }

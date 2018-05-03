@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 class NavbarOptions extends Component {
-  constructor(props){
+  constructor(props) {
       super(props);
       this.state = {
-        current_user: ""
+        current_user: "",
+        dropdownOpen: false
       };
       this.logout = this.logout.bind(this);
+      this.toggle = this.toggle.bind(this);
   }
   logout(){
     fetch(`http://localhost:5000/api/v2/logout`, {
@@ -22,19 +25,25 @@ class NavbarOptions extends Component {
     })
     this.props.history.push("/")
   }
+  toggle() {
+    this.setState(prevState => ({
+      dropdownOpen: !prevState.dropdownOpen
+    }));
+  }
   render(){
     return(
-        <div className="dropdown">
-          <a className="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+          <DropdownToggle caret>
             {this.props.current_user}
-          </a>
-
-          <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a className="dropdown-item" onClick={() => this.logout()}>Logout</a>
-            <a className="dropdown-item" href="/dashboard">Dashboard</a>
-            <a className="dropdown-item" href="#">Settings</a>
-          </div>
-        </div>
+          </DropdownToggle>
+          <DropdownMenu>
+            <DropdownItem header>Bright Events</DropdownItem>
+            <DropdownItem href="/dashboard">Dashboard</DropdownItem>
+            <DropdownItem>Settings</DropdownItem>
+            <DropdownItem divider />
+            <DropdownItem onClick={() => this.logout()} >Logout</DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
     );
   }
 

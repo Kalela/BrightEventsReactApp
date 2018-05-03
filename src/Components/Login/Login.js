@@ -72,7 +72,7 @@ class Login extends Component {
                     </div>
                     <div className="form-group required">
                       <label className="control-label" >Password</label>
-                        <input className="form-control" ref="password" name="password" required type="text"/>
+                        <input className="form-control" ref="password" name="password" required type="password"/>
                     </div>
                     <button className="btn btn-info">Log In</button>
                     <p>Dont have an Account? <a href="/register" styles="{{color:blue}}" >Sign Up</a></p>
