@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom'
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 class NavbarOptions extends Component {
@@ -6,7 +7,8 @@ class NavbarOptions extends Component {
       super(props);
       this.state = {
         current_user: "",
-        dropdownOpen: false
+        dropdownOpen: false,
+        redirect: false
       };
       this.logout = this.logout.bind(this);
       this.toggle = this.toggle.bind(this);
@@ -23,7 +25,12 @@ class NavbarOptions extends Component {
     localStorage.removeItem("Logged_in") && this.setState({
       current_user: "Guest"
     })
-    this.props.history.push("/")
+    localStorage.removeItem("BrightEventsJWTtoken") && this.setState({
+      JWTtoken: ""
+    });
+    this.setState ({
+      redirect: true
+    })
   }
   toggle() {
     this.setState(prevState => ({
@@ -31,6 +38,9 @@ class NavbarOptions extends Component {
     }));
   }
   render(){
+    if(this.state.redirect === true) {
+      <Redirect to="/" />
+    }
     return(
         <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
           <DropdownToggle caret>

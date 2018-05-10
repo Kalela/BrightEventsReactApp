@@ -10,6 +10,20 @@ class Login extends Component {
     }
     this.runLogin = this.runLogin.bind(this)
   }
+  componentDidMount() {
+    console.log("---message", this.props)
+    this.props.message === "Please log in to get access" ?
+    toast.error(this.props.message,{
+       position: "top-right",
+       autoClose: 5000,
+       hideProgressBar: true,
+       closeOnClick: true,
+       pauseOnHover: true,
+       draggable: true
+    })
+    :""
+
+  }
   runLogin = (event) => {
       event.preventDefault();
       const user = {

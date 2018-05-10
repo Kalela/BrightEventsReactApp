@@ -30,7 +30,7 @@ class Events extends Component {
       date: this.refs.date.value,
       category: this.state.category,
       }
-
+      console.log(this.refs.date.value)
       fetch('http://localhost:5000/api/v2/events', {
           method:'POST',
           headers:{
@@ -76,7 +76,7 @@ class Events extends Component {
                         </div>
                         <div className="form-group required">
                           <label className="control-label">Date</label>
-                            <input className="form-control" ref="date" id="date" required type="text"/>
+                            <input className="form-control" ref="date" id="date" required type="date"/>
                         </div>
                         <div className="form-group">
                           <label className="control-label">Category</label>
