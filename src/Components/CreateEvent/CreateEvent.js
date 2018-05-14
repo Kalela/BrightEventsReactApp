@@ -63,40 +63,46 @@ class Events extends Component {
             </div>
           </nav>
           <div className="container">
-              <div className="col-md-6 text-center">
-                <div className="g">
-                      <form id="CreateEventForm" className="formnow" onSubmit={ this.addEvent } >
-                        <div className="form-group required">
-                          <label className="control-label">Eventname</label>
-                            <input type="text" ref="eventname" className="form-control" id="eventname" required/>
+            <nav className="navbar navbar-default">
+              <div className="container-fluid">
+                <div className="navbar-header">
+                  <div className="col-md-6">
+                    <div className="g">
+                          <form id="CreateEventForm" className="formnow" onSubmit={ this.addEvent } >
+                            <div className="form-group required">
+                              <label className="control-label">Eventname</label>
+                                <input type="text" ref="eventname" className="form-control" id="eventname" required/>
+                            </div>
+                            <div className="form-group required">
+                              <label className="control-label">Location</label>
+                                <input className="form-control" ref="location" id="location" required type="text"/>
+                            </div>
+                            <div className="form-group required">
+                              <label className="control-label">Date</label>
+                                <input className="form-control" ref="date" id="date" required type="date"/>
+                            </div>
+                            <div className="form-group">
+                              <label className="control-label">Category</label>
+                              <select value={this.state.category} onChange={this.handleDropdown} id="categorySelect" className="form-control">
+                                <option value="Other">Other</option>
+                                <option value="Bridal">Bridal</option>
+                                <option value="Educational">Educational</option>
+                                <option value="Commemorative">Commemorative</option>
+                                <option value="Product Launch">Product Launch</option>
+                                <option value="Social">Social</option>
+                                <option value="VIP">VIP</option>
+                              </select>
+                            </div>
+                            <button className="btn btn-info" id="createEvent" >
+                              Create Event
+                            </button>
+                          </form>
                         </div>
-                        <div className="form-group required">
-                          <label className="control-label">Location</label>
-                            <input className="form-control" ref="location" id="location" required type="text"/>
-                        </div>
-                        <div className="form-group required">
-                          <label className="control-label">Date</label>
-                            <input className="form-control" ref="date" id="date" required type="date"/>
-                        </div>
-                        <div className="form-group">
-                          <label className="control-label">Category</label>
-                          <select value={this.state.category} onChange={this.handleDropdown} id="categorySelect" className="form-control">
-                            <option value="Other">Other</option>
-                            <option value="Bridal">Bridal</option>
-                            <option value="Educational">Educational</option>
-                            <option value="Commemorative">Commemorative</option>
-                            <option value="Product Launch">Product Launch</option>
-                            <option value="Social">Social</option>
-                            <option value="VIP">VIP</option>
-                          </select>
-                        </div>
-                        <button className="btn btn-info" id="createEvent" >
-                          Create Event
-                        </button>
-                      </form>
-                </div>
+                    </div>
+                  </div>
               </div>
-            </div>
+            </nav>
+          </div>
         </div>
     );
   }

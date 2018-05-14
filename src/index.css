@@ -44,7 +44,7 @@ body {
   min-height: 100vh;
 
   display: flex;
-  align-items: center;
+  align-items: margin-left;
 }
 #landingFooter {
     position: relative;
@@ -78,6 +78,9 @@ body {
 #navbarOptions {
   position: relative;
   z-index: 99 !important;
+}
+#loginFormJumbotron {
+  background-color: fafafa;
 }
 
 p {

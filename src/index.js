@@ -30,16 +30,17 @@ const ProtectedRoute = ({ component: Component, ...rest }) => (
 ReactDOM.render(
   <Router>
     <Switch>
-      <ProtectedRoute exact path='/createevent' component={ CreateEvent }/>
-      <ProtectedRoute exact path='/dashboard' component={ Dashboard }/>
+      <ProtectedRoute exact path='/:username/createevent' component={ CreateEvent }/>
+      <ProtectedRoute exact path='/:username/dashboard' component={ Dashboard }/>
       <ProtectedRoute exact path='/:username/events' component={ MyEvents }/>
       <ProtectedRoute exact path='/:username/guests' component={ MyGuests }/>
+      <ProtectedRoute exact path='/:username/rsvps' component={ MyRSVPs }/>
       <Route exact path='/' component={ LandingPage }/>
       <Route exact path='/register' component={ Register }/>
       <Route exact path='/login' component={ Login }/>
       <Route exact path='/events' component={ Events }/>
       <Route exact path='/search' component={ SearchPage }/>
-      <Route exact path='/events/eventname' component={ ViewSingleEvent }/>
+      <Route exact path='/:username/:eventname' component={ ViewSingleEvent }/>
     </Switch>
   </Router>,
     document.getElementById('root'));

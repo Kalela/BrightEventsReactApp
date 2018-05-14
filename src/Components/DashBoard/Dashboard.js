@@ -1,6 +1,5 @@
 //Dependencies
 import React, { Component } from 'react';
-import jwt from 'jsonwebtoken'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter as Router } from 'react-router-dom'
@@ -27,7 +26,6 @@ class Dashboard extends Component {
         toggled:true
     };
     this.toggleWrapper = this.toggleWrapper.bind(this)
-    this.loadCreateEvent = this.loadCreateEvent.bind(this)
     this.showGuests = this.showGuests.bind(this)
   }
 
@@ -46,9 +44,6 @@ class Dashboard extends Component {
     })
   }
 
-  loadCreateEvent() {
-    this.props.history.push("/createevent")
-  }
   sendRSVP(dynamicData) {
     if(this.state.JWTtoken){
       const owner = {owner:dynamicData.owner}
@@ -94,27 +89,6 @@ class Dashboard extends Component {
   }
 
   componentDidMount(){
-      const user = jwt.decode(this.state.JWTtoken);
-      console.log(this.props)
-      fetch(`http://localhost:5000/api/v2/events/${user.public_id}`, {
-          method:'GET',
-          headers:{
-              'Accept':'application/json, text/plain, */*',
-              'Content-type':'application/json',
-              'x-access-token': this.state.JWTtoken
-          }
-        })
-      .then(response => response.json())
-      .then((findresp) => {
-          if (user.public_id) {
-            this.setState({
-              my_events:findresp.MyEvents,
-              current_user: this.state.current_user
-          })
-        }
-      })
-      .catch(error => console.log('parsing failed', error))
-
       fetch(`http://localhost:5000/api/v2/events`, {
           method:'GET',
           headers:{
@@ -160,10 +134,10 @@ class Dashboard extends Component {
             <nav className="navbar navbar-default">
               <div className="container-fluid">
                 <div className="navbar-header">
-                  <button type="button" id="dashboardCreateEvent" onClick={this.loadCreateEvent} className="btn btn-info navbar-btn">
+                  <a href={`/${this.state.current_user}/createevent`} id="dashboardCreateEvent" className="btn btn-info navbar-btn">
                     <i className="glyphicon glyphicon-align-left"></i>
-                    <span>Create Event</span>
-                  </button>
+                    <span>Create an Event</span>
+                  </a>
                 </div>
                 <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                   <ul className="nav navbar-nav navbar-right">

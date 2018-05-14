@@ -29,7 +29,7 @@ const Sidebar = ({current_user}) => (
     <ul className="list-unstyled components">
       <p>Hi, { current_user }</p>
       <li>
-        <NavLink exact activeClassName="current" to="/dashboard">Account</NavLink>
+        <NavLink exact activeClassName="current" to={`/${current_user}/dashboard`}>Account</NavLink>
       </li>
       <li>
         <NavLink exact activeClassName="current" to="/events">All Events</NavLink>
@@ -41,7 +41,7 @@ const Sidebar = ({current_user}) => (
         <NavLink exact activeClassName="current" to={`/${current_user}/guests`}>MyGuests</NavLink>
       </li>
       <li>
-        <a href={`/${current_user}/guests`}>MyRSVPs/ Event Wishlist</a>
+        <a href={`/${current_user}/rsvps`}>MyRSVPs/ Event Wishlist</a>
       </li>
       <li>
         <NavLink exact activeClassName="current" to="/settings">Settings</NavLink>

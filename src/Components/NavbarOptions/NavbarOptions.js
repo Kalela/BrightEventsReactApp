@@ -48,7 +48,7 @@ class NavbarOptions extends Component {
           </DropdownToggle>
           <DropdownMenu>
             <DropdownItem header>Bright Events</DropdownItem>
-            <DropdownItem href="/dashboard">Dashboard</DropdownItem>
+            <DropdownItem href={`/${this.props.current_user}/dashboard`}>Dashboard</DropdownItem>
             <DropdownItem>Settings</DropdownItem>
             <DropdownItem divider />
             <DropdownItem onClick={() => this.logout()} >Logout</DropdownItem>
