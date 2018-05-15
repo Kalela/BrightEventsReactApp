@@ -5,13 +5,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Route } from 'react-router-dom'
 
-// Dashboard Components
-import ContactUs from '../ContactUs/contactUs.js'
-import Eventpic from '../../img/dave.jpg';
-import Events from '../ViewEvents/Events'
-import MyRSVPs from '../MyRSVPs/myRsvps.js'
-import MyGuests from '../MyGuests/MyGuests.js'
-import Settings from '../Settings/Settings.js'
 import Sidebar from '../Sidebar/Sidebar.js'
 
 class Dashboard extends Component {

@@ -70,7 +70,7 @@ class Login extends Component {
           <nav className="navbar navbar-default">
             <div className="container-fluid">
               <div className="navbar-header">
-                  <div className="col-md-6">
+                  <div className="col-md-12">
                     <div className="g">
                       <h1 className="head">Log In</h1>
                       <form action="#" className="login" onSubmit={this.runLogin}>
@@ -83,7 +83,7 @@ class Login extends Component {
                               <input className="form-control" ref="password" name="password" required type="password"/>
                           </div>
                           <button className="btn btn-info">Log In</button>
-                          <p>Dont have an Account? <a href="/register" styles="{{color:blue}}" >Sign Up</a></p>
+                          <p>Dont have an Account? <a href="/register" id="loginsignupLink" >Sign Up</a></p>
                       </form>
                     </div>
                   </div>

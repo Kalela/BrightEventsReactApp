@@ -60,7 +60,7 @@ class Register extends Component {
           <nav className="navbar navbar-default">
             <div className="container-fluid">
               <div className="navbar-header">
-                <div className="col-md-6">
+                <div className="col-md-12">
                     <div className="g">
                     <h1 className="head">Sign Up</h1>
                         <form id="RegisterForm" className="formnow" onSubmit={this.runRegistration} >
@@ -83,7 +83,7 @@ class Register extends Component {
                             <button className="btn btn-info" id="sendRegister" >
                               Sign Up
                             </button>
-                            <p>Already have an Account? <a href="/login">Log In</a></p>
+                            <p>Already have an Account? <a href="/login" id="loginsignupLink">Log In</a></p>
                         </form>
                     </div>
                     </div>

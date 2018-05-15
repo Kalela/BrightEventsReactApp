@@ -18,11 +18,9 @@ body {
     opacity: 0.8;
     z-index: 99999999999;
 }
-.login{
-    padding: 5px 120px;
-}
 .g{
-    padding: 80px 0;
+    padding: 80px 50px 0;
+    width: 100%;
 }
 .btn-info{
     background-color: #43304C;
@@ -39,7 +37,7 @@ body {
 .container{
     padding: 0 60px;
 }
-.col-md-6{
+.col-md-12{
   min-height: 100%;
   min-height: 100vh;
 
@@ -82,6 +80,9 @@ body {
 #loginFormJumbotron {
   background-color: fafafa;
 }
+#loginsignupLink {
+    color: #28a745;
+}
 
 p {
   font-family: 'Poppins', sans-serif;
@@ -91,13 +92,6 @@ p {
   color: #999;
 }
 
-a,
-a:hover,
-a:focus {
-  color: inherit;
-  text-decoration: none;
-  transition: all 0.3s;
-}
 
 .navbar {
   padding: 15px 10px;
