@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 
 import NavbarOptions from '../NavbarOptions/NavbarOptions';
 
+/**
+The view all events component
+*/
 class Events extends Component {
   constructor(props){
     super(props);
     this.state = {
         events: [],
         JWTtoken: "",
-        category: "Other"
+        category: "Other",
+        current_user: ""
     };
     this.addEvent = this.addEvent.bind(this)
     this.handleDropdown = this.handleDropdown.bind(this)
@@ -18,10 +22,21 @@ class Events extends Component {
       localStorage.getItem("BrightEventsJWTtoken") && this.setState({
           JWTtoken: localStorage.getItem("BrightEventsJWTtoken")
       })
+      localStorage.getItem("Logged_in") && this.setState({
+          current_user: localStorage.getItem("Logged_in")
+      })
   }
+
+  /**
+  Handle toggling the category dropdown
+  */
   handleDropdown(event) {
     this.setState({category: event.target.value});
   }
+
+  /**
+  Collect data from user and post to api
+  */
   addEvent = (event) => {
       event.preventDefault();
       const new_event = {
@@ -40,6 +55,7 @@ class Events extends Component {
           },
           body:JSON.stringify(new_event)
       })
+      this.props.history.push(`/${this.state.current_user}/dashboard`)
   }
 
   render(){
@@ -66,9 +82,10 @@ class Events extends Component {
             <nav className="navbar navbar-default">
               <div className="container-fluid">
                 <div className="navbar-header">
-                  <div className="col-md-6">
-                    <div className="g">
-                          <form id="CreateEventForm" className="formnow" onSubmit={ this.addEvent } >
+                  <div className="col-md-12">
+                    <div className="g" id="CreateEventForm">
+                    <h1 className="head">Create Event</h1>
+                          <form className="formnow" onSubmit={ this.addEvent } >
                             <div className="form-group required">
                               <label className="control-label">Eventname</label>
                                 <input type="text" ref="eventname" className="form-control" id="eventname" required/>

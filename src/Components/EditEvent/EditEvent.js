@@ -3,6 +3,9 @@ import { Button, Modal, ModalHeader, CardLink,
   ModalBody, ModalFooter } from 'reactstrap';
 import { Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
+/**
+Component for event edit modal
+*/
 class EditModal extends Component {
   constructor(props) {
     super(props);
@@ -23,20 +26,33 @@ class EditModal extends Component {
       })
   }
 
+  /**
+  Collect data from the user and edit a selected event
+  */
   editEvent (eventname) {
+    const edit_event = {
+    eventname: this.refs.eventname.value,
+    location: this.refs.location.value,
+    date: this.refs.date.value,
+    category: this.state.category,
+    }
     fetch(`http://localhost:5000/api/v2/events/${eventname}`, {
         method:'PUT',
         headers:{
             'Accept':'application/json, text/plain, */*',
             'Content-type':'application/json',
             'x-access-token': this.state.JWTtoken
-        }
+        },
+        body:JSON.stringify(edit_event)
       })
       this.setState({
         edit_modal:!this.state.edit_modal
       })
      }
 
+   /**
+   Change state to pop up and down the edit modal
+   */
    toggleEditModal(){
      this.setState({
        edit_modal:!this.state.edit_modal
@@ -52,27 +68,39 @@ class EditModal extends Component {
           <ModalBody>
           <Form>
             <FormGroup row>
-              <Label for="exampleEmail" sm={2}>Email</Label>
+              <Label sm={2}>Eventname</Label>
               <Col sm={10}>
-                <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
+                <Input type="text" ref="eventname" placeholder="Edit event name" />
               </Col>
             </FormGroup>
             <FormGroup row>
-              <Label for="examplePassword" sm={2}>Password</Label>
+              <Label sm={2}>Location</Label>
               <Col sm={10}>
-                <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" />
+                <Input type="text" ref="location" placeholder="Edit event location" />
               </Col>
             </FormGroup>
             <FormGroup row>
-              <Label for="exampleSelect" sm={2}>Category</Label>
+              <Label sm={2}>Date</Label>
               <Col sm={10}>
-                <Input type="select" name="select" id="exampleSelect" />
+                <Input type="date" ref="date" placeholder="Edit event date" />
               </Col>
+            </FormGroup>
+            <FormGroup row>
+              <Label sm={2}>Category</Label>
+                <select value={this.state.category} onChange={this.handleDropdown} id="categorySelect" className="form-control">
+                  <option value="Other">Other</option>
+                  <option value="Bridal">Bridal</option>
+                  <option value="Educational">Educational</option>
+                  <option value="Commemorative">Commemorative</option>
+                  <option value="Product Launch">Product Launch</option>
+                  <option value="Social">Social</option>
+                  <option value="VIP">VIP</option>
+                </select>
             </FormGroup>
             <FormGroup row>
               <Label for="exampleText" sm={2}>Description</Label>
               <Col sm={10}>
-                <Input type="textarea" name="text" id="exampleText" />
+                <Input type="textarea" ref="description" placeholder="Edit event description" />
               </Col>
             </FormGroup>
             <FormGroup row>
@@ -80,8 +108,7 @@ class EditModal extends Component {
               <Col sm={10}>
                 <Input type="file" name="file" id="eventImageFile" />
                 <FormText color="muted">
-                  This is some placeholder block-level help text for the above input.
-                  Its a bit lighter and easily wraps to a new line.
+                  Add an image for the event.
                 </FormText>
               </Col>
             </FormGroup>

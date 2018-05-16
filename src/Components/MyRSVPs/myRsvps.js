@@ -5,6 +5,9 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import Navbar from '../Navbar/Navbar.js';
 
+/**
+Functional component that renders user's event's RSVPs/ Their event wishlist.
+*/
 class MyRSVPs extends Component {
   constructor(props) {
     super(props);
@@ -28,6 +31,9 @@ class MyRSVPs extends Component {
       this.fetchData();
   }
 
+  /**
+  Fetch data for the component
+  */
   fetchData = () => {
     fetch('http://localhost:5000/api/v2/events')
     .then(response => response.json())
@@ -40,6 +46,8 @@ class MyRSVPs extends Component {
       .catch(error => console.log('parsing failed', error))
   }
   render() {
+    /**
+    */
     return (
       <div className="container">
         <Navbar current_user={this.state.current_user} />

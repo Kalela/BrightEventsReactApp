@@ -3,6 +3,9 @@ import { Table } from 'reactstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+/**
+Functional component that renders users event's guests
+*/
 class MyGuests extends Component {
   constructor(props) {
     super(props);

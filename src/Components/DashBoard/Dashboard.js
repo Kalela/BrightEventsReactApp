@@ -2,11 +2,13 @@
 import React, { Component } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { BrowserRouter as Router } from 'react-router-dom'
 import { Route } from 'react-router-dom'
 
 import Sidebar from '../Sidebar/Sidebar.js'
 
+/**
+The dashboard component
+*/
 class Dashboard extends Component {
   constructor(props){
     super(props);
@@ -31,12 +33,18 @@ class Dashboard extends Component {
       })
   }
 
+  /**
+  Toggles the dashboard sidebar
+  */
   toggleWrapper(){
     this.setState({
       toggled:!this.state.toggled
     })
   }
 
+  /**
+  Use fetch API to send rsvps
+  */
   sendRSVP(dynamicData) {
     if(this.state.JWTtoken){
       const owner = {owner:dynamicData.owner}
@@ -63,6 +71,9 @@ class Dashboard extends Component {
     }
   }
 
+  /**
+  Use fetch API to get guests to specific events
+  */
   showGuests(dynamicData) {
     fetch(`http://localhost:5000/api/v2/events/${dynamicData.eventname}/rsvp`, {
         method:'GET',
@@ -99,6 +110,7 @@ class Dashboard extends Component {
       })
       .catch(error => console.log('parsing failed', error))
    }
+   
   render(){
     return (
       <div className="Events">

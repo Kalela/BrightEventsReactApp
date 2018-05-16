@@ -9,6 +9,9 @@ import EditModal from '../EditEvent/EditEvent.js';
 import DeleteModal from '../DashBoard/DeleteModal.js';
 import Navbar from '../Navbar/Navbar.js';
 
+/**
+Functional component to render all logged in users events from the database.
+*/
 class MyEvents extends Component{
     constructor(props){
       super(props);

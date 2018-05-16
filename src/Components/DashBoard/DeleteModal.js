@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, CardLink,
   ModalBody, ModalFooter } from 'reactstrap';
 
+/**
+Component for the delete event confirmation modal
+*/
 class DeleteModal extends Component {
   constructor(props) {
     super(props);
@@ -22,6 +25,9 @@ class DeleteModal extends Component {
       })
   }
 
+  /**
+  Run delete event
+  */
   deleteEvent (eventname) {
     fetch(`http://localhost:5000/api/v2/events/${eventname}`, {
         method:'DELETE',

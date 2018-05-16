@@ -44,6 +44,9 @@ body {
   display: flex;
   align-items: margin-left;
 }
+#dashb {
+  color: fafafa;
+}
 #landingFooter {
     position: relative;
     left:500px;
@@ -82,6 +85,9 @@ body {
 }
 #loginsignupLink {
     color: #28a745;
+}
+#CreateEventForm {
+  padding: 80px 320px;
 }
 
 p {

@@ -4,6 +4,10 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import NavbarOptions from '../NavbarOptions/NavbarOptions';
 
+/**
+Functional component that runs the search functionality of the app. It allows
+a user to search for events.
+*/
 class SearchPage extends Component {
   constructor(props){
     super(props);
@@ -26,6 +30,10 @@ class SearchPage extends Component {
       })
   }
 
+
+  /**
+  perform an event search with user given input
+  */
   runSearch(event) {
     event.preventDefault();
     const search_params = {
@@ -51,6 +59,9 @@ class SearchPage extends Component {
       .catch(error => console.log('parsing failed', error))
   }
 
+  /**
+  Send rsvp to searched events
+  */
   sendRSVP(dynamicData) {
     if(this.state.JWTtoken){
       fetch(`http://localhost:5000/api/v2/events/${dynamicData.eventname}/rsvp`), {
@@ -65,6 +76,9 @@ class SearchPage extends Component {
     }
   }
 
+  /**
+  Handle the category dropdown for filtering events
+  */
   handleDropdown(event) {
     this.setState({category: event.target.value});
   }

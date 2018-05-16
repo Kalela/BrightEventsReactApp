@@ -8,6 +8,9 @@ import DeleteModal from '../DashBoard/DeleteModal';
 import EditModal from '../EditEvent/EditEvent.js';
 import Navbar from '../Navbar/Navbar.js';
 
+/**
+Functional component to render all public events in the database.
+*/
 class Events extends Component {
   constructor(props){
     super(props);
@@ -32,6 +35,9 @@ class Events extends Component {
       this.fetchData();
   }
 
+  /**
+  Fetch events data
+  */
   fetchData = () => {
     fetch('http://localhost:5000/api/v2/events')
     .then(response => response.json())
@@ -44,6 +50,9 @@ class Events extends Component {
       .catch(error => console.log('parsing failed', error))
   }
 
+  /**
+  Send rsvp to rendered event.
+  */
   sendRSVP(dynamicData) {
     if(this.state.JWTtoken){
       const owner = {owner:dynamicData.owner}

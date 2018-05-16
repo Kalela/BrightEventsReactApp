@@ -4,11 +4,19 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import Navbar from '../Navbar/Navbar.js';
 
+/**
+Functional component that renders the register form and handles user
+Registration.
+*/
 class Register extends Component {
   constructor(props){
     super(props);
     this.runRegistration = this.runRegistration.bind(this)
   }
+
+  /**
+  Run the user registration
+  */
   runRegistration = (event) => {
       event.preventDefault();
       const newUser = {

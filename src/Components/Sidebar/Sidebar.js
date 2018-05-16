@@ -1,6 +1,9 @@
 import React from 'react';
 import { NavLink, Route } from 'react-router-dom'
 
+/**
+Logout a user
+*/
 const logout = () => {
   fetch(`http://localhost:5000/api/v2/logout`, {
       method:'POST',
@@ -19,6 +22,9 @@ const logout = () => {
   this.props.history.push("/")
 }
 
+/**
+Render the sidebar component
+*/
 const Sidebar = ({current_user}) => (
   <nav id="sidebar">
     <div className="sidebar-header">

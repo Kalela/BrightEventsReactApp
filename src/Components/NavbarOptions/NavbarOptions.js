@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
+/**
+Presentational component that renders the webapps navbar options if a user is
+logged in.
+It allows users to logout, access the dashboard and settings from anywhere on
+the site that has the navbar.
+*/
 class NavbarOptions extends Component {
   constructor(props) {
       super(props);
@@ -13,6 +19,10 @@ class NavbarOptions extends Component {
       this.logout = this.logout.bind(this);
       this.toggle = this.toggle.bind(this);
   }
+
+  /**
+  Logout a user
+  */
   logout(){
     fetch(`http://localhost:5000/api/v2/logout`, {
         method:'POST',
@@ -32,6 +42,10 @@ class NavbarOptions extends Component {
       redirect: true
     })
   }
+
+  /**
+  Toggle the navbar options dropdown
+  */
   toggle() {
     this.setState(prevState => ({
       dropdownOpen: !prevState.dropdownOpen

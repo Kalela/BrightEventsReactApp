@@ -4,6 +4,10 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import Navbar from '../Navbar/Navbar.js';
 
+/**
+Functional component that renders the Login page and performs login
+authorization functions
+*/
 class Login extends Component {
   constructor(props){
     super(props);
@@ -12,6 +16,7 @@ class Login extends Component {
     }
     this.runLogin = this.runLogin.bind(this)
   }
+
   componentDidMount() {
     console.log(this.props)
     this.props.message === "Please log in to get access" ?
@@ -26,6 +31,10 @@ class Login extends Component {
     :""
 
   }
+
+  /**
+  Run user authentication
+  */
   runLogin = (event) => {
       event.preventDefault();
       const user = {

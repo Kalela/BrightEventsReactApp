@@ -5,6 +5,10 @@ import LandingPic from '../../img/landing.jpg';
 import EducationalPic from '../../img/educational.jpg';
 import BottlePic from '../../img/barbottle.jpg';
 
+/**
+Functional component for the landing page
+*/
+//Change to presentational
 class LandingPage extends Component {
     constructor(props){
         super(props);
@@ -13,12 +17,6 @@ class LandingPage extends Component {
           search: "",
           current_user: ""
         };
-
-        this.onChange = this.onChange.bind(this)
-    }
-
-    onChange(e) {
-        this.setState({  [e.target.name]:e.target.value })
     }
 
     componentWillMount(){
@@ -28,21 +26,6 @@ class LandingPage extends Component {
         localStorage.getItem("Logged_in") && this.setState({
             current_user: localStorage.getItem("Logged_in")
         })
-    }
-
-    componentDidMount(){
-        this.fetchData();
-    }
-
-    fetchData = () => {
-      fetch('http://localhost:5000/api/v2/events')
-      .then(response => response.json())
-      .then((findresp) => {
-          this.setState({
-              events:findresp.Events
-          })
-      })
-        .catch(error => console.log('parsing failed', error))
     }
 
     render(){

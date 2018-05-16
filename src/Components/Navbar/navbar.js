@@ -2,6 +2,10 @@ import React from 'react';
 
 import NavbarOptions from '../NavbarOptions/NavbarOptions';
 
+/**
+Presentational component that renders the webapps navbar if a user is 
+logged in.
+*/
 const Navbar = ({current_user}) => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <a className="navbar-brand" href="/">BrightEvents</a>

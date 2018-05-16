@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 
 import NavbarOptions from '../NavbarOptions/NavbarOptions';
 
+/**
+Functional component to render a single event.
+*/
 class ViewSingleEvent extends Component {
   constructor(props){
     super(props);
