@@ -3,6 +3,8 @@ import { Table } from 'reactstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import Navbar from '../Navbar/Navbar'
+
 /**
 Functional component that renders users event's guests
 */
@@ -47,28 +49,31 @@ class MyGuests extends Component {
   // }
   render() {
     return (
-      <Table>
-       <thead>
-         <tr>
-           <th>#</th>
-           <th>First Name</th>
-           <th>Last Name</th>
-           <th>Username</th>
-         </tr>
-       </thead>
-       <tbody>
-         {
-           this.state.myguests.map((dynamicData,key) =>
-         <tr>
-           <th scope="row">1</th>
-           <td>dynamicData</td>
-           <td>Otto</td>
-           <td>@mdo</td>
-         </tr>
-       )
-         }
-       </tbody>
-     </Table>
+      <div className="container">
+        <Navbar current_user={this.state.current_user} />
+        <Table>
+         <thead>
+           <tr>
+             <th>#</th>
+             <th>First Name</th>
+             <th>Last Name</th>
+             <th>Username</th>
+           </tr>
+         </thead>
+         <tbody>
+           {
+             this.state.myguests.map((dynamicData,key) =>
+           <tr>
+             <th scope="row">1</th>
+             <td>dynamicData</td>
+             <td>Otto</td>
+             <td>@mdo</td>
+           </tr>
+         )
+           }
+         </tbody>
+       </Table>
+      </div>
     );
   }
 };

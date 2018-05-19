@@ -46,8 +46,6 @@ class MyRSVPs extends Component {
       .catch(error => console.log('parsing failed', error))
   }
   render() {
-    /**
-    */
     return (
       <div className="container">
         <Navbar current_user={this.state.current_user} />

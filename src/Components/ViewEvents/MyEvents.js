@@ -65,7 +65,7 @@ class MyEvents extends Component{
                     <CardBody>
                       <CardTitle>{dynamicData.eventname}</CardTitle>
                       <CardSubtitle id="cardSubtitle">At {dynamicData.location}</CardSubtitle>
-                      <CardSubtitle id="cardSubtitle">On {dynamicData.date}</CardSubtitle>
+                      <CardSubtitle id="cardSubtitle">On {dynamicData.date.split('00')[0]}</CardSubtitle>
                       <CardSubtitle id="cardSubtitle">Category: {dynamicData.category}</CardSubtitle>
                     </CardBody>
                     <img width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
