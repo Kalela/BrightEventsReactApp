@@ -93,6 +93,7 @@ class Login extends Component {
                           </div>
                           <button className="btn btn-info">Log In</button>
                           <p>Dont have an Account? <a href="/register" id="loginsignupLink" >Sign Up</a></p>
+                          <a href="/reset_password" id="loginsignupLink" >Forgot Password?</a>
                       </form>
                     </div>
                   </div>
