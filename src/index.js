@@ -18,6 +18,7 @@ import MyRSVPs from './Components/MyRSVPs/myRsvps';
 import Register from './Components/Register/Register'
 import SearchPage from './Components/SearchPage/SearchPage';
 import ViewSingleEvent from './Components/ViewEvents/ViewSingleEvent';
+import ResetPassword from './Components/ResetPassword/ResetPassword';
 
 const ProtectedRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
@@ -38,6 +39,7 @@ ReactDOM.render(
       <Route exact path='/' component={ LandingPage }/>
       <Route exact path='/register' component={ Register }/>
       <Route exact path='/login' component={ Login }/>
+      <Route exact path='/reset_password' component={ ResetPassword }/>
       <Route exact path='/events' component={ Events }/>
       <Route exact path='/search' component={ SearchPage }/>
       <Route exact path='/:username/:eventname' component={ ViewSingleEvent }/>

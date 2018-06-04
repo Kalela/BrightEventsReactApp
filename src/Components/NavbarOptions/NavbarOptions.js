@@ -56,7 +56,7 @@ class NavbarOptions extends Component {
       <Redirect to="/" />
     }
     return(
-        <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+        <Dropdown id="navbarDropdown"isOpen={this.state.dropdownOpen} toggle={this.toggle}>
           <DropdownToggle caret>
             {this.props.current_user}
           </DropdownToggle>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Modal, ModalHeader, CardLink,
+import { Button, Modal, ModalHeader,
   ModalBody, ModalFooter } from 'reactstrap';
 
 /**
@@ -51,7 +51,7 @@ class DeleteModal extends Component {
   render(){
     return(
       <div>
-        <CardLink color="danger" onClick={this.toggleDeleteModal}>Delete Event</CardLink>
+        <Button color="danger" size="sm" onClick={this.toggleDeleteModal}>Delete Event</Button>
         <Modal isOpen={this.state.delete_modal} toggle={this.toggleDeleteModal} className={this.props.className}>
           <ModalHeader toggle={this.toggleDeleteModal}>Delete {this.props.dynamicData.eventname}?</ModalHeader>
           <ModalBody>

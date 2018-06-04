@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Card, CardImg, CardText, CardBody, CardLink,
+import { Card, CardImg, CardText, CardBody, Button, ButtonGroup,
   CardTitle, CardSubtitle, CardDeck } from 'reactstrap';
 
 import DeleteModal from '../DashBoard/DeleteModal';
 import EditModal from '../EditEvent/EditEvent.js';
 import Navbar from '../Navbar/Navbar.js';
+
+import Tryouts from '../../img/event_stock_images/pexels-photo.jpg';
 
 /**
 Functional component to render all public events in the database.
@@ -19,7 +21,7 @@ class Events extends Component {
           JWTtoken: "",
           current_user:""
       };
-      this.sendRSVP = this.sendRSVP.bind(this);
+      this.sendDeleteRSVP = this.sendDeleteRSVP.bind(this);
   }
 
   componentWillMount(){
@@ -53,7 +55,7 @@ class Events extends Component {
   /**
   Send rsvp to rendered event.
   */
-  sendRSVP(dynamicData) {
+  sendDeleteRSVP(dynamicData) {
     if(this.state.JWTtoken){
       const owner = {owner:dynamicData.owner}
       fetch(`http://localhost:5000/api/v2/events/${dynamicData.eventname}/rsvp`, {
@@ -93,13 +95,20 @@ class Events extends Component {
                   <CardTitle>{dynamicData.eventname}</CardTitle>
                   <CardSubtitle id="cardSubtitle">At {dynamicData.location}</CardSubtitle>
                   <CardSubtitle id="cardSubtitle">On {dynamicData.date.split('00')[0]}</CardSubtitle>
+                  <CardSubtitle id="cardSubtitle">By <a href={`/${dynamicData.owner}/dashboard`}>{dynamicData.owner}</a></CardSubtitle>
                   <CardSubtitle id="cardSubtitle">Category: {dynamicData.category}</CardSubtitle>
                 </CardBody>
-                <img width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
+                <img width="100%" src={Tryouts} alt="Card image cap" />
                 <CardBody>
-                  <CardLink onClick={() => this.sendRSVP(dynamicData)}>Send RSVP</CardLink>
-                  <EditModal dynamicData={dynamicData}/>
-                  <DeleteModal dynamicData={dynamicData}/>
+                    {
+                     dynamicData.owner === this.state.current_user ?
+                    <ButtonGroup id="eventButtons">
+                      <Button size="sm" onClick={() => this.sendDeleteRSVP(dynamicData)}>Send RSVP</Button>
+                      <EditModal dynamicData={dynamicData}/>
+                      <DeleteModal dynamicData={dynamicData}/>
+                    </ButtonGroup>:
+                    <Button id="rsvpButton"size="sm" onClick={() => this.sendDeleteRSVP(dynamicData)}>Send RSVP</Button>
+                    }
                 </CardBody>
               </Card>
             </div>

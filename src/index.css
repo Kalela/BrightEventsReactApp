@@ -8,6 +8,9 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.a{
+  color: #6B8175;
+}
 .navbar{
     margin-bottom: 0;
     background-color: #6B8175;
@@ -58,19 +61,37 @@ body {
     background-image:url('https://image.ibb.co/hF9ENw/climate_kic_350836.jpg');
 }
 #loginButton {
-    left:500px;
+  margin-left: auto;
+  padding-left: 8px;
 }
 #landingPageDiv {
   height: 100vh;
 }
 #searchForm {
+  margin: auto;
   width: 800px;
 }
-#searchEventsContainer {
+#searchCategory {
+  padding-top: 10px;
+  margin: auto;
+  width: 250px;
+  text-align: center;
+}
+#resetEmailForm {
+  margin: auto;
   width: 800px;
+  padding-top: 250px;
+  text-align: center;
+  text-emphasis-position: above;
+}
+#searchEventsContainer {
+  padding: 106px 60px;
 }
 #cardSubtitle {
   padding: 4px;
+}
+#navbarDropdown {
+  padding: 0px 9px;
 }
 #viewAllDashboard {
   top: auto;
@@ -88,6 +109,15 @@ body {
 }
 #CreateEventForm {
   padding: 80px 320px;
+}
+#rsvpButton {
+  margin-left: 34%;
+}
+#eventButtons {
+  margin-left: 3%
+}
+#sidebarTitle {
+  color: #fff;
 }
 
 p {

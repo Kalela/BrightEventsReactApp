@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom'
 
 import NavbarOptions from '../NavbarOptions/NavbarOptions';
+import DeleteModal from '../DashBoard/DeleteModal';
+import EditModal from '../EditEvent/EditEvent.js';
 
 /**
 The view all events component
@@ -45,7 +48,6 @@ class Events extends Component {
       date: this.refs.date.value,
       category: this.state.category,
       }
-      console.log(this.refs.date.value)
       fetch('http://localhost:5000/api/v2/events', {
           method:'POST',
           headers:{
@@ -55,7 +57,7 @@ class Events extends Component {
           },
           body:JSON.stringify(new_event)
       })
-      this.props.history.push(`/${this.state.current_user}/dashboard`)
+      {<Redirect to={`/${this.state.current_user}/dashboard`} />}
   }
 
   render(){

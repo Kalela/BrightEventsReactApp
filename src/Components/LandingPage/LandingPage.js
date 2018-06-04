@@ -30,7 +30,7 @@ class LandingPage extends Component {
       return (
         <div className="LandingPage" id="aboutUs">
           <div id="landingPageDiv">
-            <Navbar current_user={this.state.current_user}/>
+            <Navbar current_user={this.state.current_user} search_bar={true}/>
             <div className="jumbotron jumbotron-fluid" id="landingPageJumbotron">
               <div className="container">
                 <h1 className="display-4">Bright Events</h1>
@@ -38,8 +38,8 @@ class LandingPage extends Component {
                 <a href="/register">
                   <button className="btn btn-outline-success my-2 my-sm-0" >Register</button>
                 </a>
-                <a href="/login" >
-                  <button className="btn btn-outline-success my-2 my-sm-0" id="loginButton">Log In</button>
+                <a href="/login" id="loginButton">
+                  <button className="btn btn-outline-success my-2 my-sm-0">Log In</button>
                 </a>
               </div>
             </div>

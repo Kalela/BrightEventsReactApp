@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Alert } from 'reactstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -11,6 +12,9 @@ Registration.
 class Register extends Component {
   constructor(props){
     super(props);
+    this.state = {
+      success: false
+    }
     this.runRegistration = this.runRegistration.bind(this)
   }
 
@@ -37,6 +41,9 @@ class Register extends Component {
       .then(response => response.json())
       .then((findresp) => {
          if (findresp.message === "Registration successful, log in to access your account"){
+           this.setState({
+             success: true
+           })
            toast.success(findresp.message,{
               position: "top-right",
               autoClose: 5000,
@@ -45,7 +52,7 @@ class Register extends Component {
               pauseOnHover: true,
               draggable: true
            })
-           this.props.history.push("/login")
+
          }else{
            toast.error(findresp.message,{
               position: "top-right",
@@ -71,6 +78,12 @@ class Register extends Component {
                 <div className="col-md-12">
                     <div className="g">
                     <h1 className="head">Sign Up</h1>
+                        {
+                          this.state.success ?
+                          <Alert color="success">
+                            Registration successful,<a href="/login"> Log In! </a>
+                          </Alert>:""
+                        }
                         <form id="RegisterForm" className="formnow" onSubmit={this.runRegistration} >
                             <div className="form-group required">
                               <label className="control-label">Username</label>

@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
+import { InputGroup, InputGroupAddon, Input,
+  Alert, Card, CardImg, CardText, CardBody, Button, ButtonGroup,
+    CardTitle, CardSubtitle, CardDeck } from 'reactstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import NavbarOptions from '../NavbarOptions/NavbarOptions';
+import Navbar from '../Navbar/Navbar.js';
+import DeleteModal from '../DashBoard/DeleteModal';
+import EditModal from '../EditEvent/EditEvent.js';
+
+import Tryouts from '../../img/event_stock_images/pexels-photo.jpg';
 
 /**
 Functional component that runs the search functionality of the app. It allows
@@ -14,7 +21,8 @@ class SearchPage extends Component {
     this.state = {
       events:[],
       current_user: "",
-      category:""
+      category:"",
+      JWTtoken:""
     };
     this.runSearch = this.runSearch.bind(this)
     this.handleDropdown = this.handleDropdown.bind(this)
@@ -34,12 +42,10 @@ class SearchPage extends Component {
   /**
   perform an event search with user given input
   */
-  runSearch(event) {
-    event.preventDefault();
+  runSearch(e) {
+    e.preventDefault();
     const search_params = {
     q: this.refs.q.value,
-    location: this.refs.location.value,
-    category: this.state.category,
     }
     fetch(`http://localhost:5000/api/v2/events?q=${search_params.q}`, {
         method:'GET',
@@ -64,15 +70,27 @@ class SearchPage extends Component {
   */
   sendRSVP(dynamicData) {
     if(this.state.JWTtoken){
-      fetch(`http://localhost:5000/api/v2/events/${dynamicData.eventname}/rsvp`), {
+      const owner = {owner:dynamicData.owner}
+      fetch(`http://localhost:5000/api/v2/events/${dynamicData.eventname}/rsvp`, {
         method:'POST',
         headers:{
             'Accept':'application/json, text/plain, */*',
             'Content-type':'application/json',
             'x-access-token': this.state.JWTtoken
         },
-        body:JSON.stringify(dynamicData.owner)
-      }
+        body:JSON.stringify(owner)
+      })
+      .then(response => response.json())
+      .then((findresp) => {
+           toast.success(findresp.message,{
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: true,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true
+           })
+      })
     }
   }
 
@@ -86,82 +104,61 @@ class SearchPage extends Component {
   render(){
     return(
       <div className="SearchPage" >
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <a className="navbar-brand" href="/">BrightEvents</a>
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mr-auto">
-            </ul>
-            {
-              this.state.current_user ?
-              < NavbarOptions current_user={this.state.current_user}/>
-              :
-              ""
-            }
-          </div>
-        </nav>
+        < Navbar current_user={this.state.current_user} search_bar={false} />
         <div id="searchForm">
-          <form>
-            <div className="col">
-              <input type="text" className="form-control" ref="q" placeholder="Search..." />
-            </div>
-            <div className="form-row">
-              <div className="col">
-              <div className="form-group">
-                <label className="control-label">Category</label>
-                <select value={this.state.category} onChange={this.handleDropdown} id="categorySelect" className="form-control">
-                  <option value="Other">Other</option>
-                  <option value="Bridal">Bridal</option>
-                  <option value="Educational">Educational</option>
-                  <option value="Commemorative">Commemorative</option>
-                  <option value="Product Launch">Product Launch</option>
-                  <option value="Social">Social</option>
-                  <option value="VIP">VIP</option>
-                </select>
-              </div>
-              </div>
-              <div className="col">
-                <div className="form-group">
-                  <label className="control-label">Location</label>
-                  <input type="text" ref="location" className="form-control" placeholder="Location..." />
-                </div>
-                <button className="btn btn-info" id="sendRegister" onClick={this.runSearch}>
-                  Search
-                </button>
-              </div>
-            </div>
-          </form>
+          <InputGroup>
+            <input type="text" ref="q" className="form-control" id="eventname" required/>
+            <InputGroupAddon addonType="prepend">
+              <Button color="success" onClick={ this.runSearch } >Search Events</Button>
+            </InputGroupAddon>
+          </InputGroup>
+          <div className="form-group" id="searchCategory">
+            <label className="control-label">Category</label>
+            <select value={this.state.category} onChange={this.handleDropdown} id="categorySelect" className="form-control">
+              <option value="Other">Other</option>
+              <option value="Bridal">Bridal</option>
+              <option value="Educational">Educational</option>
+              <option value="Commemorative">Commemorative</option>
+              <option value="Product Launch">Product Launch</option>
+              <option value="Social">Social</option>
+              <option value="VIP">VIP</option>
+            </select>
+          </div>
         </div>
-        <div id="searchEventsContainer">
+        <div id="searchEventsContainer" className="container">
         {  this.state.events ?
-          <div className="card text-center">
+          <CardDeck>
           {
-              this.state.events.map((dynamicData,key) =>
-              <div>
-                <div className="card-header">
-                  <ul className="nav nav-tabs card-header-tabs">
-                    <li className="nav-item">
-                      <a className="nav-link active" href="#">{dynamicData.eventname}</a>
-                    </li>
-                    <li className="nav-item">
-                      <a className="nav-link" href="#">RSVPs</a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="card-body">
-                  <h5 className="card-title">{dynamicData.eventname}</h5>
-                  <p className="card-text">{dynamicData.location}</p>
-                  <p className="card-text">{dynamicData.date}</p>
-                  <p className="card-text">{dynamicData.category}</p>
-                  <a href="#" className="btn btn-primary">View Event</a>
-                  <a onClick={this.sendRSVP(dynamicData)} className="btn btn-danger">Send Rsvp</a>
-                </div>
-              </div>
-              )
-            }
-            </div>:<h1>No search results</h1>
+            this.state.events.map((dynamicData,key) =>
+            <div key={dynamicData.id}>
+              <Card>
+                <CardBody>
+                  <CardTitle>{dynamicData.eventname}</CardTitle>
+                  <CardSubtitle id="cardSubtitle">At {dynamicData.location}</CardSubtitle>
+                  <CardSubtitle id="cardSubtitle">On {dynamicData.date.split('00')[0]}</CardSubtitle>
+                  <CardSubtitle id="cardSubtitle">By <a href={`/${dynamicData.owner}/dashboard`}>{dynamicData.owner}</a></CardSubtitle>
+                  <CardSubtitle id="cardSubtitle">Category: {dynamicData.category}</CardSubtitle>
+                </CardBody>
+                <img width="100%" src={Tryouts} alt="Card image cap" />
+                <CardBody>
+                    {
+                     dynamicData.owner === this.state.current_user ?
+                    <ButtonGroup id="eventButtons">
+                      <Button size="sm" onClick={() => this.sendDeleteRSVP(dynamicData)}>Send RSVP</Button>
+                      <EditModal dynamicData={dynamicData}/>
+                      <DeleteModal dynamicData={dynamicData}/>
+                    </ButtonGroup>:
+                    <Button id="rsvpButton"size="sm" onClick={() => this.sendDeleteRSVP(dynamicData)}>Send RSVP</Button>
+                    }
+                </CardBody>
+              </Card>
+            </div>
+            )
+          }
+          </CardDeck>:
+          <Alert color="info">
+            No events match your current search parameters.
+          </Alert>
          }
         </div>
       </div>

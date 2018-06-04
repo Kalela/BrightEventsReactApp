@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Modal, ModalHeader, CardLink,
+import { Modal, ModalHeader, Button,
   ModalBody, ModalFooter } from 'reactstrap';
 import { Col, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
@@ -62,7 +62,7 @@ class EditModal extends Component {
   render(){
     return(
       <div>
-        <CardLink color="danger" onClick={this.toggleEditModal}>Edit Event</CardLink>
+        <Button size="sm" color="light" onClick={this.toggleEditModal}>Edit Event</Button>
         <Modal isOpen={this.state.edit_modal} toggle={this.toggleEditModal} className={this.props.className}>
           <ModalHeader toggle={this.toggleEditModal}>{this.props.dynamicData.eventname}</ModalHeader>
           <ModalBody>

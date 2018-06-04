@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Table } from 'reactstrap';
+import { Table, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import jwt from 'jsonwebtoken'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -13,8 +14,11 @@ class MyGuests extends Component {
     super(props);
     this.state = {
       JWTtoken:"",
-      myguests: []
+      myguests: [],
+      myevents: [],
+      dropdownOpen: false
     };
+    this.toggle = this.toggle.bind(this)
   }
 
   componentWillMount(){
@@ -26,27 +30,57 @@ class MyGuests extends Component {
       })
   }
 
-  // componentDidMount(){
-  //     this.fetchData();
-  // }
+  componentDidMount(){
+    const user = jwt.decode(this.state.JWTtoken)
+    fetch(`http://localhost:5000/api/v2/events/${user.public_id}`, {
+        method:'GET',
+        headers:{
+            'Accept':'application/json, text/plain, */*',
+            'Content-type':'application/json',
+            'x-access-token': this.state.JWTtoken
+        }
+      })
+    .then(response => response.json())
+    .then((findresp) => {
+        this.setState({
+          myevents: findresp.MyEvents
+        })
+        let events = findresp.MyEvents
+        if (user.public_id) {
+        let guests_list = []
+        events.map((dynamicEvents, key) =>
+        fetch(`http://localhost:5000/api/v2/events/${dynamicEvents.eventname}/rsvp`, {
+            method:'GET',
+            headers:{
+                'Accept':'application/json, text/plain, */*',
+                'Content-type':'application/json',
+                'x-access-token': this.state.JWTtoken
+            }
+          })
+        .then(response => response.json())
+        .then((findresp) => {
+            let name = dynamicEvents.eventname
+            console.log("name--->", String(name))
+            console.log("guestlist--->", findresp.Guests)
+            guests_list = [...guests_list, ...findresp.Guests.Hahahahahaha]
+            console.log("guests_list--->", guests_list)
+            this.setState({
+              myguests: guests_list
+            })
+          })
+        .catch(error => console.log('parsing failed', error))
+        )
+      }
+    })
+    .catch(error => console.log('parsing failed', error))
+  }
 
-  // fetchData = () => {
-  //   fetch(`http://localhost:5000/api/v2/events/${eventname}/rsvp`, {
-  //       method:'GET',
-  //       headers:{
-  //           'Accept':'application/json, text/plain, */*',
-  //           'Content-type':'application/json',
-  //           'x-access-token': this.state.JWTtoken
-  //       }
-  //     })
-  //   .then(response => response.json())
-  //   .then((findresp) => {
-  //       this.setState({
-  //         myguests:findresp.Guests
-  //     })
-  //   })
-  //   .catch(error => console.log('parsing failed', error))
-  // }
+  toggle() {
+    this.setState(prevState => ({
+      dropdownOpen: !prevState.dropdownOpen
+    }));
+  }
+
   render() {
     return (
       <div className="container">
@@ -55,22 +89,35 @@ class MyGuests extends Component {
          <thead>
            <tr>
              <th>#</th>
-             <th>First Name</th>
-             <th>Last Name</th>
-             <th>Username</th>
+             <th>Guest Username</th>
+             <th>Event</th>
+             <th>Options</th>
            </tr>
          </thead>
          <tbody>
-           {
-             this.state.myguests.map((dynamicData,key) =>
+         {
+           console.log("state--->", this.state.myguests)
+         }
+         {
+           this.state.myguests.map((dynamicData,key) =>
            <tr>
              <th scope="row">1</th>
-             <td>dynamicData</td>
-             <td>Otto</td>
-             <td>@mdo</td>
+             <td>{dynamicData}</td>
+             <td></td>
+             <td>
+               <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                  <DropdownToggle caret>
+                    Guest Options
+                  </DropdownToggle>
+                  <DropdownMenu>
+                    <DropdownItem>Remove Guest</DropdownItem>
+                    <DropdownItem>View Profile</DropdownItem>
+                  </DropdownMenu>
+                </Dropdown>
+              </td>
            </tr>
-         )
-           }
+           )
+         }
          </tbody>
        </Table>
       </div>

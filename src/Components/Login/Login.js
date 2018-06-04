@@ -12,21 +12,17 @@ class Login extends Component {
   constructor(props){
     super(props);
     this.state = {
-      logged_in_users: []
+      logged_in_users: [],
+      redirected: false
     }
     this.runLogin = this.runLogin.bind(this)
   }
 
   componentDidMount() {
-    console.log(this.props)
+    console.log("props-->", this.props)
     this.props.message === "Please log in to get access" ?
-    toast.error(this.props.message,{
-       position: "top-right",
-       autoClose: 5000,
-       hideProgressBar: true,
-       closeOnClick: true,
-       pauseOnHover: true,
-       draggable: true
+    this.setState({
+      redirected: true
     })
     :""
 
