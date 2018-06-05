@@ -8,8 +8,8 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
-.a{
-  color: #6B8175;
+a{
+  color: #28a745;
 }
 .navbar{
     margin-bottom: 0;
@@ -50,6 +50,10 @@ body {
 #dashb {
   color: fafafa;
 }
+#categorySelect {
+  width: 77%;
+  margin-left: 15px;
+}
 #landingFooter {
     position: relative;
     left:500px;
@@ -57,6 +61,7 @@ body {
     color:#fff;
 }
 #landingPageJumbotron {
+    margin-top: -3%;
     opacity: 0.8;
     background-image:url('https://image.ibb.co/hF9ENw/climate_kic_350836.jpg');
 }

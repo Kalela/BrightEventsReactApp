@@ -105,10 +105,6 @@ class ViewSingleEvent extends Component {
             )
           }
           </CardDeck>
-          <a href={`/${this.state.current_user}/createevent`} id="dashboardCreateEvent" className="btn btn-info navbar-btn">
-            <i className="glyphicon glyphicon-align-left"></i>
-            <span>Create an Event</span>
-          </a>
         </div>
       </div>
     );

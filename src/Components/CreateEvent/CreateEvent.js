@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Alert } from 'reactstrap';
 import { Redirect } from 'react-router-dom'
 
 import NavbarOptions from '../NavbarOptions/NavbarOptions';
@@ -13,7 +14,8 @@ class Events extends Component {
         events: [],
         JWTtoken: "",
         category: "Other",
-        current_user: ""
+        current_user: "",
+        created: false
     };
     this.addEvent = this.addEvent.bind(this)
     this.handleDropdown = this.handleDropdown.bind(this)
@@ -55,7 +57,9 @@ class Events extends Component {
           },
           body:JSON.stringify(new_event)
       })
-      {<Redirect to={`/${this.state.current_user}/dashboard`} />}
+      this.setState({
+        created: true
+      })
   }
 
   render(){
@@ -85,6 +89,13 @@ class Events extends Component {
                   <div className="col-md-12">
                     <div className="g" id="CreateEventForm">
                     <h1 className="head">Create Event</h1>
+                        {
+                          this.state.created ?
+                          <Alert color="success">
+                            Event created! <a href={`/${this.state.current_user}/${this.refs.eventname.value}`}> Check it out </a>
+                          </Alert>:
+                          ""
+                        }
                           <form className="formnow" onSubmit={ this.addEvent } >
                             <div className="form-group required">
                               <label className="control-label">Eventname</label>

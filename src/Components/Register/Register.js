@@ -44,15 +44,6 @@ class Register extends Component {
            this.setState({
              success: true
            })
-           toast.success(findresp.message,{
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: true,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true
-           })
-
          }else{
            toast.error(findresp.message,{
               position: "top-right",
