@@ -1,11 +1,9 @@
 import React from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 /**
 Renders BrightEvents owner's contacts. For users to access
 */
-const ContactUs = (props) => (
+const ContactUs = () => (
   <h1>Contacts</h1>
 );
 

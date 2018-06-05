@@ -1,29 +1,28 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
-import { Redirect } from 'react-router-dom'
+import { NavLink, Redirect } from 'react-router-dom'
 
 /**
 Logout a user
 */
 const logout = () => {
-  let token = localStorage.getItem("BrightEventsJWTtoken")
-  fetch(`http://localhost:5000/api/v2/logout`, {
-      method:'POST',
-      headers:{
-          'Accept':'application/json, text/plain, */*',
-          'Content-type':'application/json',
-          'x-access-token': token
-      }
-    })
-  localStorage.removeItem("Logged_in")
-  localStorage.removeItem("BrightEventsJWTtoken")
-  {<Redirect to='/' message={"Logged out"}/>}
-}
+  const token = localStorage.getItem('BrightEventsJWTtoken');
+  fetch('http://localhost:5000/api/v2/logout', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json, text/plain, */*',
+      'Content-type': 'application/json',
+      'x-access-token': token,
+    },
+  });
+  localStorage.removeItem('Logged_in');
+  localStorage.removeItem('BrightEventsJWTtoken');
+  { <Redirect to='/' message={"Logged out"} /> }
+};
 
 /**
 Render the sidebar component
 */
-const Sidebar = ({current_user}) => (
+const Sidebar = ({ current_user }) => (
   <nav id="sidebar">
     <div className="sidebar-header">
       <a href="/">
@@ -58,6 +57,6 @@ const Sidebar = ({current_user}) => (
       </li>
     </ul>
   </nav>
-)
+);
 
 export default Sidebar;

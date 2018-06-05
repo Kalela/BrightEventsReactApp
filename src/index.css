@@ -47,6 +47,9 @@ a{
   display: flex;
   align-items: margin-left;
 }
+#aboutUs {
+  height: 100vh;
+}
 #dashb {
   color: fafafa;
 }
@@ -97,6 +100,9 @@ a{
 }
 #navbarDropdown {
   padding: 0px 9px;
+}
+#navbarDropdownMenu {
+  margin-top: 9px;
 }
 #viewAllDashboard {
   top: auto;

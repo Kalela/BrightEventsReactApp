@@ -1,9 +1,11 @@
-import React from 'react'
-import ContactUs from './contactUs'
-import Enzyme, { shallow } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import React from 'react';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
-Enzyme.configure({ adapter: new Adapter() })
+import ContactUs from './contactUs';
+
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('Contact us page', () => {
   it('loads the contact us page', () => {

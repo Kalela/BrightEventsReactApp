@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 /**
@@ -10,37 +10,43 @@ the site that has the navbar.
 */
 class NavbarOptions extends Component {
   constructor(props) {
-      super(props);
-      this.state = {
-        current_user: "",
-        dropdownOpen: false,
-        redirect: false
-      };
-      this.logout = this.logout.bind(this);
-      this.toggle = this.toggle.bind(this);
+    super(props);
+    this.state = {
+      dropdownOpen: false,
+      redirect: false,
+    };
+    this.logout = this.logout.bind(this);
+    this.toggle = this.toggle.bind(this);
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.props.engagement !== nextProps.engagement ||
+      nextState.input !== this.state.input;
+  }
+
+  componentWillUpdate() {
+    if (this.state.redirect === true) {
+      <Redirect to="/" />
+    }
   }
 
   /**
   Logout a user
   */
-  logout(){
-    fetch(`http://localhost:5000/api/v2/logout`, {
-        method:'POST',
-        headers:{
-            'Accept':'application/json, text/plain, */*',
-            'Content-type':'application/json',
-            'x-access-token': this.state.JWTtoken
-        }
-      })
-    localStorage.removeItem("Logged_in") && this.setState({
-      current_user: "Guest"
-    })
-    localStorage.removeItem("BrightEventsJWTtoken") && this.setState({
-      JWTtoken: ""
+  logout() {
+    fetch('http://localhost:5000/api/v2/logout', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-type': 'application/json',
+        'x-access-token': this.state.JWTtoken,
+      },
     });
-    this.setState ({
-      redirect: true
-    })
+    localStorage.removeItem('Logged_in');
+    localStorage.removeItem('BrightEventsJWTtoken');
+    this.setState({
+      redirect: true,
+    });
   }
 
   /**
@@ -48,37 +54,26 @@ class NavbarOptions extends Component {
   */
   toggle() {
     this.setState(prevState => ({
-      dropdownOpen: !prevState.dropdownOpen
+      dropdownOpen: !prevState.dropdownOpen,
     }));
     this.forceUpdate();
   }
-
-  componentWillUpdate(){
-    if(this.state.redirect === true) {
-      <Redirect to="/" />
-    }
-  }
-  shouldComponentUpdate(nextProps, nextState){
-    return this.props.engagement !== nextProps.engagement ||
-      nextState.input !== this.state.input
-  }
-  render(){
-    return(
-        <Dropdown id="navbarDropdown"isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-          <DropdownToggle caret>
-            {this.props.current_user}
-          </DropdownToggle>
-          <DropdownMenu>
-            <DropdownItem header>Bright Events</DropdownItem>
-            <DropdownItem href={`/${this.props.current_user}/dashboard`}>Dashboard</DropdownItem>
-            <DropdownItem>Settings</DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem onClick={() => this.logout()} >Logout</DropdownItem>
-          </DropdownMenu>
-        </Dropdown>
+  render() {
+    return (
+      <Dropdown id="navbarDropdown"isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+        <DropdownToggle caret>
+          {this.props.current_user}
+        </DropdownToggle>
+        <DropdownMenu id="navbarDropdownMenu">
+          <DropdownItem header>Bright Events</DropdownItem>
+          <DropdownItem href={`/${this.props.current_user}/dashboard`}>Dashboard</DropdownItem>
+          <DropdownItem>Settings</DropdownItem>
+          <DropdownItem divider />
+          <DropdownItem onClick={() => this.logout()} >Logout</DropdownItem>
+        </DropdownMenu>
+      </Dropdown>
     );
   }
-
-};
+}
 
 export default NavbarOptions;

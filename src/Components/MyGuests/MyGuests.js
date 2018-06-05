@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { Table, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import jwt from 'jsonwebtoken'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import jwt from 'jsonwebtoken';
 
-import Navbar from '../Navbar/Navbar'
+import Navbar from '../Navbar/Navbar';
 
 /**
 Functional component that renders users event's guests
@@ -13,66 +11,66 @@ class MyGuests extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      JWTtoken:"",
+      JWTtoken: '',
       myguests: [],
       myevents: [],
-      dropdownOpen: false
+      dropdownOpen: false,
     };
-    this.toggle = this.toggle.bind(this)
+    this.toggle = this.toggle.bind(this);
   }
 
-  componentWillMount(){
-      localStorage.getItem("BrightEventsJWTtoken") && this.setState({
-          JWTtoken: localStorage.getItem("BrightEventsJWTtoken")
-      })
-      localStorage.getItem("Logged_in") && this.setState({
-          current_user: localStorage.getItem("Logged_in")
-      })
+  componentWillMount() {
+    localStorage.getItem('BrightEventsJWTtoken') && this.setState({
+      JWTtoken: localStorage.getItem("BrightEventsJWTtoken")
+    });
+    localStorage.getItem("Logged_in") && this.setState({
+      current_user: localStorage.getItem('Logged_in')
+    });
   }
 
-  componentDidMount(){
-    const user = jwt.decode(this.state.JWTtoken)
+  componentDidMount() {
+    const user = jwt.decode(this.state.JWTtoken);
     fetch(`http://localhost:5000/api/v2/events/${user.public_id}`, {
-        method:'GET',
-        headers:{
-            'Accept':'application/json, text/plain, */*',
-            'Content-type':'application/json',
-            'x-access-token': this.state.JWTtoken
-        }
-      })
-    .then(response => response.json())
-    .then((findresp) => {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-type': 'application/json',
+        'x-access-token': this.state.JWTtoken,
+      },
+    })
+      .then(response => response.json())
+      .then((findresp) => {
         this.setState({
           myevents: findresp.MyEvents
-        })
-        let events = findresp.MyEvents
+        });
+        let events = findresp.MyEvents;
         if (user.public_id) {
-        let guests_list = []
-        events.map((dynamicEvents, key) =>
-        fetch(`http://localhost:5000/api/v2/events/${dynamicEvents.eventname}/rsvp`, {
-            method:'GET',
-            headers:{
-                'Accept':'application/json, text/plain, */*',
-                'Content-type':'application/json',
-                'x-access-token': this.state.JWTtoken
-            }
-          })
-        .then(response => response.json())
-        .then((findresp) => {
-            let name = dynamicEvents.eventname
-            console.log("name--->", String(name))
-            console.log("guestlist--->", findresp.Guests)
-            guests_list = [...guests_list, ...findresp.Guests.Hahahahahaha]
-            console.log("guests_list--->", guests_list)
-            this.setState({
-              myguests: guests_list
+          let guestsList = [];
+          events.map((dynamicEvents, key) =>
+            fetch(`http://localhost:5000/api/v2/events/${dynamicEvents.eventname}/rsvp`, {
+              method: 'GET',
+              headers: {
+                Accept: 'application/json, text/plain, */*',
+                'Content-type': 'application/json',
+                'x-access-token': this.state.JWTtoken,
+              },
             })
-          })
-        .catch(error => console.log('parsing failed', error))
-        )
-      }
-    })
-    .catch(error => console.log('parsing failed', error))
+              .then(response => response.json())
+              .then((newfindresp) => {
+                const name = dynamicEvents.eventname;
+                console.log("name--->", String(name));
+                console.log("guestlist--->", newfindresp.Guests);
+                guestsList = [...guestsList, ...newfindresp.Guests];
+                console.log("guests_list--->", guestsList)
+                this.setState({
+                  myguests: guestsList,
+                });
+              })
+              .catch(error => console.log('parsing failed', error)),
+          )
+        }
+      })
+      .catch(error => console.log('parsing failed', error))
   }
 
   toggle() {

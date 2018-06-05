@@ -1,16 +1,11 @@
-import React, { Component } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React from 'react';
+
 
 /**
 Functional component that renders and allows users to change the app settings
 */
-class Settings extends Component {
-  render() {
-    return (
-      <h1>Settings </h1>
-    );
-  }
-};
+const Settings = () => (
+  <h1>Settings </h1>
+);
 
 export default Settings;

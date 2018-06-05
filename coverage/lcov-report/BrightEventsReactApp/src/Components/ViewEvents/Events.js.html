@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">52.63% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>10/20</span>
+        <span class='fraction'>10/19</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">25% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>7/14</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">52.63% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>10/20</span>
+        <span class='fraction'>10/19</span>
       </div>
     </div>
   </div>
@@ -169,7 +169,20 @@
 124
 125
 126
-127</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+127
+128
+129
+130
+131
+132
+133</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -216,7 +229,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -298,13 +310,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Card, CardBody, Button, ButtonGroup,
-  CardTitle, CardSubtitle, CardDeck } from 'reactstrap';
+import {
+  Card,
+  CardBody,
+  Button,
+  ButtonGroup,
+  CardTitle,
+  CardSubtitle,
+  CardDeck,
+} from 'reactstrap';
 &nbsp;
 import DeleteModal from '../DashBoard/DeleteModal';
-import EditModal from '../EditEvent/EditEvent.js';
-import Navbar from '../Navbar/Navbar.js';
-import Paginate from '../Pagination/paginate.js';
+import EditModal from '../EditEvent/EditEvent';
+import Navbar from '../Navbar/Navbar';
+import Paginate from '../Pagination/paginate';
 &nbsp;
 import Tryouts from '../../img/event_stock_images/pexels-photo.jpg';
 &nbsp;
@@ -312,82 +331,81 @@ import Tryouts from '../../img/event_stock_images/pexels-photo.jpg';
 Functional component to render all public events in the database.
 */
 class Events extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-      this.state = {
-          events: [],
-          JWTtoken: "",
-          current_user:""
-      };
-      this.sendDeleteRSVP = this.sendDeleteRSVP.bind(this);
+    this.state = {
+      events: [],
+      JWTtoken: '',
+      current_user: '',
+    };
+    this.sendDeleteRSVP = this.sendDeleteRSVP.bind(this);
   }
 &nbsp;
-  componentWillMount(){
-      localStorage.getItem("BrightEventsJWTtoken") &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
-          JWTtoken: localStorage.getItem("BrightEventsJWTtoken")
-      })
-      localStorage.getItem("Logged_in") &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
-          current_user: localStorage.getItem("Logged_in")
-      })
+  componentWillMount() {
+    localStorage.getItem('BrightEventsJWTtoken') &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
+      JWTtoken: localStorage.getItem('BrightEventsJWTtoken')
+    });
+    localStorage.getItem('Logged_in') &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
+      current_user: localStorage.getItem('Logged_in')
+    });
   }
 &nbsp;
-  componentDidMount(){
-      this.fetchData();
+  componentDidMount() {
+    this.fetchData();
   }
 &nbsp;
   /**
   Fetch events data
   */
-  fetchData = () =&gt; {
-    fetch('http://localhost:5000/api/v2/events?limit=2&amp;page=1')
-    .then(response =&gt; response.json())
-    .then(<span class="fstat-no" title="function not covered" >(f</span>indresp) =&gt; {
-<span class="cstat-no" title="statement not covered" >        console.log(findresp.Events)</span>
+  fetchData() {
+    fetch('http://localhost:5000/api/v2/events?limit=10&amp;page=1')
+      .then(response =&gt; response.json())
+      .then(<span class="fstat-no" title="function not covered" >(f</span>indresp) =&gt; {
 <span class="cstat-no" title="statement not covered" >        this.setState({</span>
-            events:findresp.Events
-        })
-    })
-      .catch(error =&gt; console.log('parsing failed', error))
+          events: findresp.Events,
+        });
+      })
+      .catch(error =&gt; console.log('parsing failed', error));
   }
 &nbsp;
   /**
   Send rsvp to rendered event.
   */
 <span class="fstat-no" title="function not covered" >  se</span>ndDeleteRSVP(dynamicData) {
-<span class="cstat-no" title="statement not covered" >    if(this.state.JWTtoken){</span>
-      const owner = <span class="cstat-no" title="statement not covered" >{owner:dynamicData.owner}</span>
+<span class="cstat-no" title="statement not covered" >    if (this.state.JWTtoken) {</span>
+      const owner = <span class="cstat-no" title="statement not covered" >{ owner: dynamicData.owner };</span>
 <span class="cstat-no" title="statement not covered" >      fetch(`http://localhost:5000/api/v2/events/${dynamicData.eventname}/rsvp`, {</span>
-        method:'POST',
-        headers:{
-            'Accept':'application/json, text/plain, */*',
-            'Content-type':'application/json',
-            'x-access-token': this.state.JWTtoken
+        method: 'POST',
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'Content-type': 'application/json',
+          'x-access-token': this.state.JWTtoken,
         },
-        body:JSON.stringify(owner)
+        body: JSON.stringify(owner),
       })
-      .then(<span class="fstat-no" title="function not covered" >re</span>sponse =&gt; <span class="cstat-no" title="statement not covered" >response.json())</span>
-      .then(<span class="fstat-no" title="function not covered" >(f</span>indresp) =&gt; {
-<span class="cstat-no" title="statement not covered" >           toast.success(findresp.message,{</span>
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: true,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true
-           })
-      })
+        .then(<span class="fstat-no" title="function not covered" >re</span>sponse =&gt; <span class="cstat-no" title="statement not covered" >response.json())</span>
+        .then(<span class="fstat-no" title="function not covered" >(f</span>indresp) =&gt; {
+<span class="cstat-no" title="statement not covered" >          toast.success(findresp.message, {</span>
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+        });
     }
   }
 &nbsp;
-  render(){
+  render() {
     return (
-        &lt;div className="container"&gt;
-          &lt; Navbar current_user={this.state.current_user}/&gt;
-          &lt;h3 id="eventsTitle"&gt; All Events &lt;/h3&gt;
-          &lt;ToastContainer /&gt;
-          &lt;CardDeck&gt;
+      &lt;div className="container"&gt;
+        &lt;Navbar current_user={this.state.current_user} /&gt;
+        &lt;h3 id="eventsTitle"&gt; All Events &lt;/h3&gt;
+        &lt;ToastContainer /&gt;
+        &lt;CardDeck&gt;
           {
-            this.state.events.map(<span class="fstat-no" title="function not covered" >(d</span>ynamicData,key) =&gt;
+            this.state.events.map(<span class="fstat-no" title="function not covered" >(d</span>ynamicData, key) =&gt;
 <span class="cstat-no" title="statement not covered" >            &lt;div key={dynamicData.id}&gt;</span>
               &lt;Card&gt;
                 &lt;CardBody&gt;
@@ -399,7 +417,7 @@ class Events extends Component {
                 &lt;/CardBody&gt;
                 &lt;img width="100%" src={Tryouts} alt="Card image cap" /&gt;
                 &lt;CardBody&gt;
-                    {
+                  {
                      dynamicData.owner === this.state.current_user ?
                     &lt;ButtonGroup id="eventButtons"&gt;
                       &lt;Button size="sm" onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >this.sendDeleteRSVP(dynamicData)}</span>&gt;Send RSVP&lt;/Button&gt;
@@ -407,18 +425,18 @@ class Events extends Component {
                       &lt;DeleteModal dynamicData={dynamicData}/&gt;
                     &lt;/ButtonGroup&gt;:
                     &lt;Button id="rsvpButton"size="sm" onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >this.sendDeleteRSVP(dynamicData)}</span>&gt;Send RSVP&lt;/Button&gt;
-                    }
+                  }
                 &lt;/CardBody&gt;
               &lt;/Card&gt;
             &lt;/div&gt;
             )
           }
-          &lt;/CardDeck&gt;
-          &lt;Paginate /&gt;
-        &lt;/div&gt;
+        &lt;/CardDeck&gt;
+        &lt;Paginate /&gt;
+      &lt;/div&gt;
     );
   }
-};
+}
 &nbsp;
 export default Events;
 &nbsp;</pre></td></tr>
@@ -427,7 +445,7 @@ export default Events;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jun 05 2018 21:27:52 GMT+0300 (EAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 06 2018 01:53:57 GMT+0300 (EAT)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

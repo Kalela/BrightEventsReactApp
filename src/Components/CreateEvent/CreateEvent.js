@@ -7,7 +7,7 @@ import NavbarOptions from '../NavbarOptions/NavbarOptions';
 /**
 The view all events component
 */
-class Events extends Component {
+class CreateEvent extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -136,4 +136,4 @@ class Events extends Component {
   }
 };
 
-export default Events;
+export default CreateEvent;

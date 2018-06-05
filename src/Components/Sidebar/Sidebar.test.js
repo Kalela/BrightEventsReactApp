@@ -1,9 +1,11 @@
-import React from 'react'
-import Sidebar from './Sidebar'
-import Enzyme, { shallow } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import React from 'react';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
-Enzyme.configure({ adapter: new Adapter() })
+import Sidebar from './Sidebar';
+
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('Sidebar', () => {
   it('loads the sidebar', () => {

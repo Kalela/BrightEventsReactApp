@@ -1,9 +1,11 @@
-import React from 'react'
-import Settings from './Settings.js'
-import Enzyme, { shallow } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import React from 'react';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
-Enzyme.configure({ adapter: new Adapter() })
+import Settings from './Settings';
+
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('Settings page', () => {
   it('loads the settings page', () => {

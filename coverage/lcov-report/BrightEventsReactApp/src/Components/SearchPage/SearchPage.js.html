@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">33.33% </span>
+        <span class="strong">34.78% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>8/24</span>
+        <span class='fraction'>8/23</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">30% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>3/14</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">33.33% </span>
+        <span class="strong">34.78% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>8/24</span>
+        <span class='fraction'>8/23</span>
       </div>
     </div>
   </div>
@@ -214,7 +214,24 @@
 169
 170
 171
-172</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+172
+173
+174
+175
+176
+177
+178
+179
+180</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -274,7 +291,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -347,26 +363,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -386,15 +402,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
-import { InputGroup, InputGroupAddon,
-  Alert, Card, CardBody, Button, ButtonGroup,
-    CardTitle, CardSubtitle, CardDeck } from 'reactstrap';
+import {
+  InputGroup,
+  InputGroupAddon,
+  Alert,
+  Card,
+  CardBody,
+  Button,
+  ButtonGroup,
+  CardTitle,
+  CardSubtitle,
+  CardDeck,
+} from 'reactstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 &nbsp;
-import Navbar from '../Navbar/Navbar.js';
+import Navbar from '../Navbar/Navbar';
 import DeleteModal from '../DashBoard/DeleteModal';
-import EditModal from '../EditEvent/EditEvent.js';
+import EditModal from '../EditEvent/EditEvent';
 &nbsp;
 import Tryouts from '../../img/event_stock_images/pexels-photo.jpg';
 &nbsp;
@@ -403,26 +428,26 @@ Functional component that runs the search functionality of the app. It allows
 a user to search for events.
 */
 class SearchPage extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      events:[],
-      current_user: "",
-      category:"",
-      JWTtoken:""
+      events: [],
+      current_user: '',
+      category: '',
+      JWTtoken: '',
     };
-    this.runSearch = this.runSearch.bind(this)
-    this.handleDropdown = this.handleDropdown.bind(this)
-    this.sendRSVP = this.sendRSVP.bind(this)
+    this.runSearch = this.runSearch.bind(this);
+    this.handleDropdown = this.handleDropdown.bind(this);
+    this.sendRSVP = this.sendRSVP.bind(this);
   }
 &nbsp;
-  componentWillMount(){
-      localStorage.getItem("BrightEventsJWTtoken") &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
-          JWTtoken: localStorage.getItem("BrightEventsJWTtoken")
-      })
-      localStorage.getItem("Logged_in") &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
-          current_user: localStorage.getItem("Logged_in")
-      })
+  componentWillMount() {
+    localStorage.getItem('BrightEventsJWTtoken') &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
+      JWTtoken: localStorage.getItem('BrightEventsJWTtoken')
+    });
+    localStorage.getItem('Logged_in') &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
+      current_user: localStorage.getItem('Logged_in')
+    });
   }
 &nbsp;
 &nbsp;
@@ -431,53 +456,52 @@ class SearchPage extends Component {
   */
 <span class="fstat-no" title="function not covered" >  ru</span>nSearch(e) {
 <span class="cstat-no" title="statement not covered" >    e.preventDefault();</span>
-    const search_params = <span class="cstat-no" title="statement not covered" >{</span>
-    q: this.refs.q.value,
-    }
-<span class="cstat-no" title="statement not covered" >    fetch(`http://localhost:5000/api/v2/events?q=${search_params.q}`, {</span>
-        method:'GET',
-        headers:{
-            'Accept':'application/json, text/plain, */*',
-            'Content-type':'application/json',
-            'x-access-token': this.state.JWTtoken
-        }
+    const searchParams = <span class="cstat-no" title="statement not covered" >{</span>
+      q: this.refs.q.value,
+    };
+<span class="cstat-no" title="statement not covered" >    fetch(`http://localhost:5000/api/v2/events?q=${searchParams.q}`, {</span>
+      method: 'GET',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-type': 'application/json',
+        'x-access-token': this.state.JWTtoken,
+      },
     })
-    .then(<span class="fstat-no" title="function not covered" >re</span>sponse =&gt; <span class="cstat-no" title="statement not covered" >response.json())</span>
-    .then(<span class="fstat-no" title="function not covered" >(f</span>indresp) =&gt; {
-<span class="cstat-no" title="statement not covered" >        console.log(findresp.Events)</span>
+      .then(<span class="fstat-no" title="function not covered" >re</span>sponse =&gt; <span class="cstat-no" title="statement not covered" >response.json())</span>
+      .then(<span class="fstat-no" title="function not covered" >(f</span>indresp) =&gt; {
 <span class="cstat-no" title="statement not covered" >        this.setState({</span>
-            events:findresp.Events
-        })
-    })
-      .catch(<span class="fstat-no" title="function not covered" >er</span>ror =&gt; <span class="cstat-no" title="statement not covered" >console.log('parsing failed', error))</span>
+          events: findresp.Events,
+        });
+      })
+      .catch(<span class="fstat-no" title="function not covered" >er</span>ror =&gt; <span class="cstat-no" title="statement not covered" >console.log('parsing failed', error))</span>;
   }
 &nbsp;
   /**
   Send rsvp to searched events
   */
 <span class="fstat-no" title="function not covered" >  se</span>ndRSVP(dynamicData) {
-<span class="cstat-no" title="statement not covered" >    if(this.state.JWTtoken){</span>
-      const owner = <span class="cstat-no" title="statement not covered" >{owner:dynamicData.owner}</span>
+<span class="cstat-no" title="statement not covered" >    if (this.state.JWTtoken) {</span>
+      const owner = <span class="cstat-no" title="statement not covered" >{ owner: dynamicData.owner };</span>
 <span class="cstat-no" title="statement not covered" >      fetch(`http://localhost:5000/api/v2/events/${dynamicData.eventname}/rsvp`, {</span>
-        method:'POST',
-        headers:{
-            'Accept':'application/json, text/plain, */*',
-            'Content-type':'application/json',
-            'x-access-token': this.state.JWTtoken
+        method: 'POST',
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'Content-type': 'application/json',
+          'x-access-token': this.state.JWTtoken,
         },
-        body:JSON.stringify(owner)
+        body: JSON.stringify(owner),
       })
-      .then(<span class="fstat-no" title="function not covered" >re</span>sponse =&gt; <span class="cstat-no" title="statement not covered" >response.json())</span>
-      .then(<span class="fstat-no" title="function not covered" >(f</span>indresp) =&gt; {
-<span class="cstat-no" title="statement not covered" >           toast.success(findresp.message,{</span>
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: true,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true
-           })
-      })
+        .then(<span class="fstat-no" title="function not covered" >re</span>sponse =&gt; <span class="cstat-no" title="statement not covered" >response.json())</span>
+        .then(<span class="fstat-no" title="function not covered" >(f</span>indresp) =&gt; {
+<span class="cstat-no" title="statement not covered" >          toast.success(findresp.message, {</span>
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+        });
     }
   }
 &nbsp;
@@ -485,19 +509,19 @@ class SearchPage extends Component {
   Handle the category dropdown for filtering events
   */
 <span class="fstat-no" title="function not covered" >  ha</span>ndleDropdown(event) {
-<span class="cstat-no" title="statement not covered" >    this.setState({category: event.target.value});</span>
+<span class="cstat-no" title="statement not covered" >    this.setState({ category: event.target.value });</span>
   }
 &nbsp;
-  render(){
-    return(
+  render() {
+    return (
       &lt;div className="SearchPage" &gt;
-        &lt; Navbar current_user={this.state.current_user} search_bar={false} /&gt;
+        &lt;Navbar current_user={this.state.current_user} search_bar={false} /&gt;
         &lt;ToastContainer /&gt;
         &lt;div id="searchForm"&gt;
           &lt;InputGroup&gt;
             &lt;input type="text" ref="q" className="form-control" id="eventname" required/&gt;
             &lt;InputGroupAddon addonType="prepend"&gt;
-              &lt;Button color="success" onClick={ this.runSearch } &gt;Search Events&lt;/Button&gt;
+              &lt;Button color="success" onClick={this.runSearch} &gt;Search Events&lt;/Button&gt;
             &lt;/InputGroupAddon&gt;
           &lt;/InputGroup&gt;
           &lt;div className="form-group" id="searchCategory"&gt;
@@ -514,9 +538,10 @@ class SearchPage extends Component {
           &lt;/div&gt;
         &lt;/div&gt;
         &lt;div id="searchEventsContainer" className="container"&gt;
-        {  this.state.events ?
-          &lt;CardDeck&gt;
           {
+          this.state.events ?
+            &lt;CardDeck&gt;
+              {
             this.state.events.map(<span class="fstat-no" title="function not covered" >(d</span>ynamicData,key) =&gt;
 <span class="cstat-no" title="statement not covered" >            &lt;div key={dynamicData.id}&gt;</span>
               &lt;Card&gt;
@@ -541,19 +566,18 @@ class SearchPage extends Component {
                 &lt;/CardBody&gt;
               &lt;/Card&gt;
             &lt;/div&gt;
-            )
+          )
           }
-          &lt;/CardDeck&gt;:
-<span class="branch-1 cbranch-no" title="branch not covered" >          &lt;Alert color="info"&gt;</span>
+            &lt;/CardDeck&gt; :
+<span class="branch-1 cbranch-no" title="branch not covered" >            &lt;Alert color="info"&gt;</span>
             No events match your current search parameters.
-          &lt;/Alert&gt;
+            &lt;/Alert&gt;
          }
         &lt;/div&gt;
       &lt;/div&gt;
     );
   }
-&nbsp;
-};
+}
 &nbsp;
 export default SearchPage;
 &nbsp;</pre></td></tr>
@@ -562,7 +586,7 @@ export default SearchPage;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jun 05 2018 21:27:52 GMT+0300 (EAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 06 2018 01:53:57 GMT+0300 (EAT)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

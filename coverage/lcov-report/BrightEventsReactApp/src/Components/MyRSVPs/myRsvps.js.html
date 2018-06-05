@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for BrightEventsReactApp/src/Components/MyRSVPs/myRsvps.js</title>
+    <title>Code coverage report for BrightEventsReactApp/src/Components/Myrsvps/Myrsvps.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../../prettify.css" />
     <link rel="stylesheet" href="../../../../base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../../../index.html">All files</a> / <a href="index.html">BrightEventsReactApp/src/Components/MyRSVPs</a> myRsvps.js
+      <a href="../../../../index.html">All files</a> / <a href="index.html">BrightEventsReactApp/src/Components/Myrsvps</a> Myrsvps.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">81.82% </span>
+        <span class="strong">90% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>9/11</span>
+        <span class='fraction'>9/10</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">50% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>7/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">81.82% </span>
+        <span class="strong">90% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>9/11</span>
+        <span class='fraction'>9/10</span>
       </div>
     </div>
   </div>
@@ -115,12 +115,7 @@
 70
 71
 72
-73
-74
-75
-76</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+73</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -158,7 +153,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -195,10 +189,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
 import { Table } from 'reactstrap';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 &nbsp;
-import Navbar from '../Navbar/Navbar.js';
+import Navbar from '../Navbar/Navbar';
 &nbsp;
 /**
 Functional component that renders user's event's RSVPs/ Their event wishlist.
@@ -209,35 +201,34 @@ class MyRSVPs extends Component {
     this.state = {
       JWTtoken:"",
       myrsvps: [],
-      current_user: ""
+      current_user: '',
     };
   }
 &nbsp;
-  componentWillMount(){
-      localStorage.getItem("BrightEventsJWTtoken") &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
-          JWTtoken: localStorage.getItem("BrightEventsJWTtoken")
-      })
-      localStorage.getItem("Logged_in") &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
-          current_user: localStorage.getItem("Logged_in")
-      })
+  componentWillMount() {
+    localStorage.getItem('BrightEventsJWTtoken') &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
+      JWTtoken: localStorage.getItem('BrightEventsJWTtoken')
+    });
+    localStorage.getItem('Logged_in') &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
+      current_user: localStorage.getItem('Logged_in')
+    });
   }
 &nbsp;
-  componentDidMount(){
-      this.fetchData();
+  componentDidMount() {
+    this.fetchData();
   }
 &nbsp;
   /**
   Fetch data for the component
   */
-  fetchData = () =&gt; {
+  fetchData() {
     fetch('http://localhost:5000/api/v2/events')
-    .then(response =&gt; response.json())
-    .then(<span class="fstat-no" title="function not covered" >(f</span>indresp) =&gt; {
-<span class="cstat-no" title="statement not covered" >        console.log(findresp.Events)</span>
+      .then(response =&gt; response.json())
+      .then(<span class="fstat-no" title="function not covered" >(f</span>indresp) =&gt; {
 <span class="cstat-no" title="statement not covered" >        this.setState({</span>
-            myrsvps:findresp.Events
-        })
-    })
+          myrsvps: findresp.Events,
+        });
+      })
       .catch(error =&gt; console.log('parsing failed', error))
   }
   render() {
@@ -245,27 +236,27 @@ class MyRSVPs extends Component {
       &lt;div className="container"&gt;
         &lt;Navbar current_user={this.state.current_user} /&gt;
         &lt;Table&gt;
-         &lt;thead&gt;
-           &lt;tr&gt;
-             &lt;th&gt;#&lt;/th&gt;
-             &lt;th&gt;Eventname&lt;/th&gt;
-             &lt;th&gt;Location&lt;/th&gt;
-             &lt;th&gt;Date&lt;/th&gt;
-           &lt;/tr&gt;
-         &lt;/thead&gt;
-         &lt;tbody&gt;
-           &lt;tr&gt;
-             &lt;th scope="row"&gt;1&lt;/th&gt;
-             &lt;td&gt;Mark&lt;/td&gt;
-             &lt;td&gt;Otto&lt;/td&gt;
-             &lt;td&gt;@mdo&lt;/td&gt;
-           &lt;/tr&gt;
-         &lt;/tbody&gt;
-       &lt;/Table&gt;
+          &lt;thead&gt;
+            &lt;tr&gt;
+              &lt;th&gt;#&lt;/th&gt;
+              &lt;th&gt;Eventname&lt;/th&gt;
+              &lt;th&gt;Location&lt;/th&gt;
+              &lt;th&gt;Date&lt;/th&gt;
+            &lt;/tr&gt;
+          &lt;/thead&gt;
+          &lt;tbody&gt;
+            &lt;tr&gt;
+              &lt;th scope="row"&gt;1&lt;/th&gt;
+              &lt;td&gt;Mark&lt;/td&gt;
+              &lt;td&gt;Otto&lt;/td&gt;
+              &lt;td&gt;@mdo&lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/tbody&gt;
+        &lt;/Table&gt;
       &lt;/div&gt;
     );
   }
-};
+}
 &nbsp;
 export default MyRSVPs;
 &nbsp;</pre></td></tr>
@@ -274,7 +265,7 @@ export default MyRSVPs;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jun 05 2018 21:27:52 GMT+0300 (EAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 06 2018 01:53:57 GMT+0300 (EAT)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

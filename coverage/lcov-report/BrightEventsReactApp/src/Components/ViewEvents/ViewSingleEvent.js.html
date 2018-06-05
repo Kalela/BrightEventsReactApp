@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">41.18% </span>
+        <span class="strong">43.75% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>7/17</span>
+        <span class='fraction'>7/16</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">33.33% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>4/11</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">41.18% </span>
+        <span class="strong">43.75% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>7/17</span>
+        <span class='fraction'>7/16</span>
       </div>
     </div>
   </div>
@@ -158,7 +158,18 @@
 113
 114
 115
-116</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+116
+117
+118
+119
+120
+121</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -194,7 +205,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -276,13 +286,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Card, CardBody, Button, ButtonGroup,
-  CardTitle, CardSubtitle, CardDeck, Alert } from 'reactstrap';
+import {
+  Card,
+  CardBody,
+  Button,
+  ButtonGroup,
+  CardTitle,
+  CardSubtitle,
+  CardDeck,
+} from 'reactstrap';
 &nbsp;
-import NavbarOptions from '../NavbarOptions/NavbarOptions';
-import EditModal from '../EditEvent/EditEvent.js';
-import DeleteModal from '../DashBoard/DeleteModal.js';
-import Navbar from '../Navbar/Navbar.js';
+import EditModal from '../EditEvent/EditEvent';
+import DeleteModal from '../DashBoard/DeleteModal';
+import Navbar from '../Navbar/Navbar';
 &nbsp;
 import Tryouts from '../../img/event_stock_images/pexels-photo.jpg';
 &nbsp;
@@ -290,74 +306,73 @@ import Tryouts from '../../img/event_stock_images/pexels-photo.jpg';
 Functional component to render a single event.
 */
 class ViewSingleEvent extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-      this.state = {
-          event: [],
-          JWTtoken: "",
-          current_user:""
-      };
-      this.sendRSVP = this.sendRSVP.bind(this);
+    this.state = {
+      event: [],
+      JWTtoken: '',
+      current_user: '',
+    };
+    this.sendRSVP = this.sendRSVP.bind(this);
   }
-  componentWillMount(){
-      localStorage.getItem("BrightEventsJWTtoken") &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
-          JWTtoken: localStorage.getItem("BrightEventsJWTtoken")
-      })
-      localStorage.getItem("Logged_in") &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
-          current_user: localStorage.getItem("Logged_in")
-      })
+  componentWillMount() {
+    localStorage.getItem("BrightEventsJWTtoken") &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
+      JWTtoken: localStorage.getItem("BrightEventsJWTtoken")
+    });
+    localStorage.getItem("Logged_in") &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
+      current_user: localStorage.getItem("Logged_in")
+    });
   }
-  componentDidMount(){
-    console.log(this.props.match.params.username)
-<span class="cstat-no" title="statement not covered" >    fetch(`http://localhost:5000/api/v2/events/${this.props.match.params.username}/${this.props.match.params.eventname}`, {</span>
-      method:'GET',
-      headers:{
-          'Accept':'application/json, text/plain, */*',
-          'Content-type':'application/json',
-          'x-access-token': this.state.JWTtoken
-      }
+  componentDidMount() {
+    fetch(`http://localhost:5000/api/v2/events/${this.props.match.params.username}/${this.props.match.params.eventname}`, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-type': 'application/json',
+        'x-access-token': this.state.JWTtoken,
+      },
     })
-    .then(<span class="fstat-no" title="function not covered" >re</span>sponse =&gt; <span class="cstat-no" title="statement not covered" >response.json())</span>
-    .then(<span class="fstat-no" title="function not covered" >(f</span>indresp) =&gt; {
-<span class="cstat-no" title="statement not covered" >      this.setState({</span>
-        event: findresp.Event
-      })
-    })
-  }
-<span class="fstat-no" title="function not covered" >  se</span>ndRSVP(dynamicData) {
-<span class="cstat-no" title="statement not covered" >    if(this.state.JWTtoken){</span>
-      const owner = <span class="cstat-no" title="statement not covered" >{owner:dynamicData.owner}</span>
-<span class="cstat-no" title="statement not covered" >      fetch(`http://localhost:5000/api/v2/events/${dynamicData.eventname}/rsvp`, {</span>
-        method:'POST',
-        headers:{
-            'Accept':'application/json, text/plain, */*',
-            'Content-type':'application/json',
-            'x-access-token': this.state.JWTtoken
-        },
-        body:JSON.stringify(owner)
-      })
       .then(<span class="fstat-no" title="function not covered" >re</span>sponse =&gt; <span class="cstat-no" title="statement not covered" >response.json())</span>
       .then(<span class="fstat-no" title="function not covered" >(f</span>indresp) =&gt; {
-<span class="cstat-no" title="statement not covered" >           toast.success(findresp.message,{</span>
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: true,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true
-           })
+<span class="cstat-no" title="statement not covered" >        this.setState({</span>
+          event: findresp.Event,
+        });
+      });
+  }
+<span class="fstat-no" title="function not covered" >  se</span>ndRSVP(dynamicData) {
+<span class="cstat-no" title="statement not covered" >    if (this.state.JWTtoken) {</span>
+      const owner = <span class="cstat-no" title="statement not covered" >{ owner: dynamicData.owner };</span>
+<span class="cstat-no" title="statement not covered" >      fetch(`http://localhost:5000/api/v2/events/${dynamicData.eventname}/rsvp`, {</span>
+        method: 'POST',
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'Content-type': 'application/json',
+          'x-access-token': this.state.JWTtoken,
+        },
+        body: JSON.stringify(owner),
       })
+        .then(<span class="fstat-no" title="function not covered" >re</span>sponse =&gt; <span class="cstat-no" title="statement not covered" >response.json())</span>
+        .then(<span class="fstat-no" title="function not covered" >(f</span>indresp) =&gt; {
+<span class="cstat-no" title="statement not covered" >          toast.success(findresp.message, {</span>
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+        });
     }
   }
   render() {
-    return(
+    return (
       &lt;div className="container"&gt;
-        &lt; Navbar current_user={this.state.current_user}/&gt;
+        &lt;Navbar current_user={this.state.current_user} /&gt;
         &lt;ToastContainer /&gt;
         &lt;div&gt;
           &lt;CardDeck&gt;
-          {
-            this.state.event.map(<span class="fstat-no" title="function not covered" >(d</span>ynamicData,key) =&gt;
+            {
+            this.state.event.map(<span class="fstat-no" title="function not covered" >(d</span>ynamicData, key) =&gt;
 <span class="cstat-no" title="statement not covered" >            &lt;div key={dynamicData.id}&gt;</span>
               &lt;Card&gt;
                 &lt;CardBody&gt;
@@ -384,7 +399,7 @@ class ViewSingleEvent extends Component {
       &lt;/div&gt;
     );
   }
-};
+}
 &nbsp;
 &nbsp;
 export default ViewSingleEvent;
@@ -394,7 +409,7 @@ export default ViewSingleEvent;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jun 05 2018 21:27:52 GMT+0300 (EAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 06 2018 01:53:57 GMT+0300 (EAT)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

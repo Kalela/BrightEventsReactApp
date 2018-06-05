@@ -1,93 +1,102 @@
 import React, { Component } from 'react';
-import jwt from 'jsonwebtoken'
-import { Card, CardBody, Button, ButtonGroup,
-  CardTitle, CardSubtitle, CardDeck, Alert } from 'reactstrap';
+import jwt from 'jsonwebtoken';
+import {
+  Card,
+  CardBody,
+  Button,
+  ButtonGroup,
+  CardTitle,
+  CardSubtitle,
+  CardDeck,
+  Alert,
+} from 'reactstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import EditModal from '../EditEvent/EditEvent.js';
-import DeleteModal from '../DashBoard/DeleteModal.js';
-import Navbar from '../Navbar/Navbar.js';
-import Paginate from '../Pagination/paginate.js';
+import EditModal from '../EditEvent/EditEvent';
+import DeleteModal from '../DashBoard/DeleteModal';
+import Navbar from '../Navbar/Navbar';
+import Paginate from '../Pagination/paginate';
 
 import Tryouts from '../../img/event_stock_images/pexels-photo.jpg';
 
 /**
 Functional component to render all logged in users events from the database.
 */
-class MyEvents extends Component{
-    constructor(props){
-      super(props);
-      this.state = {
-          my_events: [],
-          current_user: "",
-          JWTtoken: ""
-      };
-      this.sendRSVP = this.sendRSVP.bind(this)
-    }
-    componentWillMount() {
-      localStorage.getItem("BrightEventsJWTtoken") && this.setState({
-          JWTtoken: localStorage.getItem("BrightEventsJWTtoken")
-      })
-      localStorage.getItem("Logged_in") && this.setState({
-          current_user: localStorage.getItem("Logged_in")
-      })
-    }
-    componentDidMount() {
-      const user = jwt.decode(this.state.JWTtoken)
-      fetch(`http://localhost:5000/api/v2/events/${user.public_id}?limit=1&page=1`, {
-          method:'GET',
-          headers:{
-              'Accept':'application/json, text/plain, */*',
-              'Content-type':'application/json',
-              'x-access-token': this.state.JWTtoken
-          }
-        })
+class MyEvents extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      my_events: [],
+      current_user: '',
+      JWTtoken: '',
+    };
+    this.sendRSVP = this.sendRSVP.bind(this);
+  }
+  componentWillMount() {
+    localStorage.getItem("BrightEventsJWTtoken") && this.setState({
+      JWTtoken: localStorage.getItem("BrightEventsJWTtoken")
+    });
+    localStorage.getItem("Logged_in") && this.setState({
+      current_user: localStorage.getItem("Logged_in")
+    });
+  }
+  componentDidMount() {
+    const user = jwt.decode(this.state.JWTtoken);
+    fetch(`http://localhost:5000/api/v2/events/${user.public_id}?limit=1&page=1`, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-type': 'application/json',
+        'x-access-token': this.state.JWTtoken,
+      },
+    })
       .then(response => response.json())
       .then((findresp) => {
-          if (user.public_id) {
-            this.setState({
-              my_events:findresp.MyEvents
-          })
+        if (user.public_id) {
+          this.setState({
+            my_events: findresp.MyEvents,
+          });
         }
       })
-      .catch(error => console.log('parsing failed', error))
-    }
-    sendRSVP(dynamicData) {
-      if(this.state.JWTtoken){
-        const owner = {owner:dynamicData.owner}
-        fetch(`http://localhost:5000/api/v2/events/${dynamicData.eventname}/rsvp`, {
-          method:'POST',
-          headers:{
-              'Accept':'application/json, text/plain, */*',
-              'Content-type':'application/json',
-              'x-access-token': this.state.JWTtoken
-          },
-          body:JSON.stringify(owner)
-        })
+      .catch(error => console.log('parsing failed', error));
+  }
+  sendRSVP(dynamicData) {
+    if (this.state.JWTtoken) {
+      const owner = { owner: dynamicData.owner };
+      fetch(`http://localhost:5000/api/v2/events/${dynamicData.eventname}/rsvp`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'Content-type': 'application/json',
+          'x-access-token': this.state.JWTtoken,
+        },
+        body: JSON.stringify(owner),
+      })
         .then(response => response.json())
         .then((findresp) => {
-             toast.success(findresp.message,{
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true
-             })
-        })
-      }
+          toast.success(findresp.message, {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+        });
     }
-    render(){
-      return (
-        <div className="container">
-        < Navbar current_user={this.state.current_user}/>
+  }
+  render() {
+    return (
+      <div className="container">
+        <Navbar current_user={this.state.current_user} />
         <h3 id="eventsTitle"> All Events </h3>
         <ToastContainer />
-          { this.state.my_events ?
+        {
+          this.state.my_events ?
             <div>
               <CardDeck>
-              {
+                {
                 this.state.my_events.map((dynamicData,key) =>
                 <div key={dynamicData.id}>
                   <Card>
@@ -127,9 +136,9 @@ class MyEvents extends Component{
               </a>
             </div>
           }
-        </div>
-      )
-    }
+      </div>
+    );
   }
+}
 
 export default MyEvents;

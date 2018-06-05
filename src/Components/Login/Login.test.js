@@ -1,9 +1,11 @@
-import React from 'react'
-import Login from './Login'
-import Enzyme, { shallow } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import React from 'react';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
-Enzyme.configure({ adapter: new Adapter() })
+import Login from './Login';
+
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('Login page', () => {
   it('loads the create event page', () => {

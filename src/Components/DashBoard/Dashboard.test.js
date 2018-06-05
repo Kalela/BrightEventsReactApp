@@ -1,9 +1,11 @@
-import React from 'react'
-import Dashboard from './Dashboard.js'
-import Enzyme, { shallow } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import React from 'react';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
-Enzyme.configure({ adapter: new Adapter() })
+import Dashboard from './Dashboard';
+
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('Create event page', () => {
   it('loads the create event page', () => {

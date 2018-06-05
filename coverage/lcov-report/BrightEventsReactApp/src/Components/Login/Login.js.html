@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">37.5% </span>
+        <span class="strong">25% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>6/16</span>
+        <span class='fraction'>3/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">40% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>2/5</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">25% </span>
-        <span class="quiet">Branches</span>
-        <span class='fraction'>1/4</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
-        <span class="quiet">Functions</span>
-        <span class='fraction'>3/6</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">37.5% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>6/16</span>
+        <span class='fraction'>3/12</span>
       </div>
     </div>
   </div>
@@ -131,24 +131,7 @@
 86
 87
 88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+89</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -165,20 +148,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -200,9 +169,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -257,105 +223,88 @@
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 &nbsp;
-import Navbar from '../Navbar/Navbar.js';
+import Navbar from '../Navbar/Navbar';
 &nbsp;
 /**
 Functional component that renders the Login page and performs login
 authorization functions
 */
 class Login extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = {
-      logged_in_users: [],
-      redirected: false
-    }
-    this.runLogin = this.runLogin.bind(this)
-  }
-&nbsp;
-  componentDidMount() {
-    console.log("props--&gt;", this.props)
-    this.props.message === "Please log in to get access" ?
-<span class="branch-0 cbranch-no" title="branch not covered" >    this.setState({</span>
-      redirected: true
-    })
-    :""
-&nbsp;
+    this.runLogin = this.runLogin.bind(this);
   }
 &nbsp;
   /**
   Run user authentication
   */
-  runLogin = <span class="fstat-no" title="function not covered" >(e</span>vent) =&gt; {
-<span class="cstat-no" title="statement not covered" >      event.preventDefault();</span>
-      const user = <span class="cstat-no" title="statement not covered" >{</span>
+<span class="fstat-no" title="function not covered" >  ru</span>nLogin(event) {
+<span class="cstat-no" title="statement not covered" >    event.preventDefault();</span>
+    const user = <span class="cstat-no" title="statement not covered" >{</span>
       username: this.refs.username.value,
       password: this.refs.password.value,
-      }
-<span class="cstat-no" title="statement not covered" >      fetch('http://localhost:5000/api/v2/auth/login', {</span>
-          method:'POST',
-          headers:{
-              'Accept':'application/json, text/plain, */*',
-              'Content-type':'application/json'
-          },
-          body:JSON.stringify(user)
-      })
+    };
+<span class="cstat-no" title="statement not covered" >    fetch('http://localhost:5000/api/v2/auth/login', {</span>
+      method: 'POST',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(user),
+    })
       .then(<span class="fstat-no" title="function not covered" >re</span>sponse =&gt; <span class="cstat-no" title="statement not covered" >response.json())</span>
       .then(<span class="fstat-no" title="function not covered" >(f</span>indresp) =&gt; {
-<span class="cstat-no" title="statement not covered" >         localStorage.setItem("BrightEventsJWTtoken", findresp.access_token)</span>
-<span class="cstat-no" title="statement not covered" >         localStorage.setItem("Logged_in", user.username)</span>
-<span class="cstat-no" title="statement not covered" >         if (findresp.access_token) {</span>
-<span class="cstat-no" title="statement not covered" >           this.setState({</span>
-             logged_in_users:user.username,
-           })
-<span class="cstat-no" title="statement not covered" >           this.props.history.push(`/${user.username}/dashboard`)</span>
-         }else {
-<span class="cstat-no" title="statement not covered" >           toast.error(findresp.message,{</span>
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: true,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true
-           })
-         }
-      })
+<span class="cstat-no" title="statement not covered" >        localStorage.setItem('BrightEventsJWTtoken', findresp.access_token);</span>
+<span class="cstat-no" title="statement not covered" >        localStorage.setItem('Logged_in', user.username);</span>
+<span class="cstat-no" title="statement not covered" >        if (findresp.access_token) {</span>
+<span class="cstat-no" title="statement not covered" >          this.props.history.push(`/${user.username}/dashboard`);</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          toast.error(findresp.message, {</span>
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+        }
+      });
   }
-  render(){
+  render() {
     return (
       &lt;div className="Login"&gt;
-        &lt;Navbar/&gt;
+        &lt;Navbar /&gt;
         &lt;ToastContainer /&gt;
         &lt;div className="container"&gt;
           &lt;nav className="navbar navbar-default"&gt;
             &lt;div className="container-fluid"&gt;
               &lt;div className="navbar-header"&gt;
-                  &lt;div className="col-md-12"&gt;
-                    &lt;div className="g"&gt;
-                      &lt;h1 className="head"&gt;Log In&lt;/h1&gt;
-                      &lt;form action="#" className="login" onSubmit={this.runLogin}&gt;
-                          &lt;div className="form-group required"&gt;
-                            &lt;label className="control-label" &gt;Username&lt;/label&gt;
-                              &lt;input className="form-control" ref="username" name="username" required type="text"/&gt;
-                          &lt;/div&gt;
-                          &lt;div className="form-group required"&gt;
-                            &lt;label className="control-label" &gt;Password&lt;/label&gt;
-                              &lt;input className="form-control" ref="password" name="password" required type="password"/&gt;
-                          &lt;/div&gt;
-                          &lt;button className="btn btn-info"&gt;Log In&lt;/button&gt;
-                          &lt;p&gt;Dont have an Account? &lt;a href="/register" id="loginsignupLink" &gt;Sign Up&lt;/a&gt;&lt;/p&gt;
-                          &lt;a href="/reset_password" id="loginsignupLink" &gt;Forgot Password?&lt;/a&gt;
-                      &lt;/form&gt;
-                    &lt;/div&gt;
+                &lt;div className="col-md-12"&gt;
+                  &lt;div className="g"&gt;
+                    &lt;h1 className="head"&gt;Log In&lt;/h1&gt;
+                    &lt;form action="#" className="login" onSubmit={this.runLogin}&gt;
+                      &lt;div className="form-group required"&gt;
+                        &lt;label className="control-label" &gt;Username&lt;/label&gt;
+                        &lt;input className="form-control" ref="username" required type="text" /&gt;
+                      &lt;/div&gt;
+                      &lt;div className="form-group required"&gt;
+                        &lt;label className="control-label" &gt;Password&lt;/label&gt;
+                        &lt;input className="form-control" ref="password" required type="password" /&gt;
+                      &lt;/div&gt;
+                      &lt;button className="btn btn-info"&gt;Log In&lt;/button&gt;
+                      &lt;p&gt;Dont have an Account? &lt;a href="/register" id="loginsignupLink" &gt;Sign Up&lt;/a&gt;&lt;/p&gt;
+                      &lt;a href="/reset_password" id="loginsignupLink" &gt;Forgot Password?&lt;/a&gt;
+                    &lt;/form&gt;
                   &lt;/div&gt;
                 &lt;/div&gt;
               &lt;/div&gt;
-            &lt;/nav&gt;
+            &lt;/div&gt;
+          &lt;/nav&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-         );
+    );
   }
-};
+}
 &nbsp;
 export default Login;
 &nbsp;</pre></td></tr>
@@ -364,7 +313,7 @@ export default Login;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jun 05 2018 21:27:52 GMT+0300 (EAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 06 2018 01:53:57 GMT+0300 (EAT)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>6/6</span>
+        <span class='fraction'>5/5</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">50% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>6/6</span>
+        <span class='fraction'>5/5</span>
       </div>
     </div>
   </div>
@@ -93,9 +93,7 @@
 48
 49
 50
-51
-52
-53</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+51</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -113,7 +111,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -123,7 +120,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -154,49 +150,47 @@ import Navbar from '../Navbar/Navbar';
 /**
 Functional component for the landing page
 */
-//Change to presentational
+//  Change to presentational
 class LandingPage extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-          events: [],
-          search: "",
-          current_user: ""
-        };
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      search: '',
+      current_user: '',
+    };
+  }
 &nbsp;
-    componentWillMount(){
-        localStorage.getItem("BrightEventsJWTtoken") &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
-            JWTtoken: localStorage.getItem("BrightEventsJWTtoken")
-        })
-        localStorage.getItem("Logged_in") &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
-            current_user: localStorage.getItem("Logged_in")
-        })
-    }
+  componentWillMount() {
+    localStorage.getItem("BrightEventsJWTtoken") &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
+      JWTtoken: localStorage.getItem("BrightEventsJWTtoken")
+    });
+    localStorage.getItem("Logged_in") &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
+      current_user: localStorage.getItem("Logged_in")
+    });
+  }
 &nbsp;
-    render(){
-      console.log(this.state)
-      return (
-        &lt;div className="LandingPage" id="aboutUs"&gt;
-          &lt;div id="landingPageDiv"&gt;
-            &lt;Navbar current_user={this.state.current_user} search_bar={true}/&gt;
-            &lt;div className="jumbotron jumbotron-fluid" id="landingPageJumbotron"&gt;
-              &lt;div className="container"&gt;
-                &lt;h1 className="display-4"&gt;Bright Events&lt;/h1&gt;
-                &lt;p className="lead"&gt;We handle your event needs. More&lt;a href="/aboutus"&gt; about us&lt;/a&gt;&lt;/p&gt;
-                &lt;a href="/register"&gt;
-                  &lt;button className="btn btn-outline-success my-2 my-sm-0" &gt;Register&lt;/button&gt;
-                &lt;/a&gt;
-                &lt;a href="/login" id="loginButton"&gt;
-                  &lt;button className="btn btn-outline-success my-2 my-sm-0"&gt;Log In&lt;/button&gt;
-                &lt;/a&gt;
-              &lt;/div&gt;
+  render() {
+    return (
+      &lt;div className="LandingPage" id="aboutUs"&gt;
+        &lt;div id="landingPageDiv"&gt;
+          &lt;Navbar current_user={this.state.current_user} /&gt;
+          &lt;div className="jumbotron jumbotron-fluid" id="landingPageJumbotron"&gt;
+            &lt;div className="container"&gt;
+              &lt;h1 className="display-4"&gt;Bright Events&lt;/h1&gt;
+              &lt;p className="lead"&gt;We handle your event needs. More&lt;a href="/aboutus"&gt; about us&lt;/a&gt;&lt;/p&gt;
+              &lt;a href="/register"&gt;
+                &lt;button className="btn btn-outline-success my-2 my-sm-0" &gt;Register&lt;/button&gt;
+              &lt;/a&gt;
+              &lt;a href="/login" id="loginButton"&gt;
+                &lt;button className="btn btn-outline-success my-2 my-sm-0"&gt;Log In&lt;/button&gt;
+              &lt;/a&gt;
             &lt;/div&gt;
           &lt;/div&gt;
+        &lt;/div&gt;
       &lt;/div&gt;
-           );
-    }
-};
+    );
+  }
+}
 &nbsp;
 export default LandingPage;
 &nbsp;</pre></td></tr>
@@ -205,7 +199,7 @@ export default LandingPage;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jun 05 2018 21:27:52 GMT+0300 (EAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 06 2018 01:53:57 GMT+0300 (EAT)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

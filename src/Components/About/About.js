@@ -1,7 +1,6 @@
 import React from 'react';
 import { UncontrolledCarousel } from 'reactstrap';
 
-import Navbar from '../Navbar/Navbar.js';
 import BottlePic from '../../img/barbottle.jpg';
 
 
@@ -28,7 +27,6 @@ const items = [
 
 const AboutUs = () => (
   <div>
-    <Navbar />
     <UncontrolledCarousel items={items} />
   </div>
 );

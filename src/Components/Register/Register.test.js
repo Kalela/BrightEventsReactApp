@@ -1,9 +1,11 @@
-import React from 'react'
-import Register from './Register.js'
-import Enzyme, { shallow } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import React from 'react';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
-Enzyme.configure({ adapter: new Adapter() })
+import Register from './Register';
+
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('Create event page', () => {
   it('loads the create event page', () => {

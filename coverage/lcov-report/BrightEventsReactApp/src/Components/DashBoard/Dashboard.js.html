@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">85.71% </span>
+        <span class="strong">83.33% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>6/7</span>
+        <span class='fraction'>5/6</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">50% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>3/6</span>
+        <span class='fraction'>2/4</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">75% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>3/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">85.71% </span>
+        <span class="strong">83.33% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>6/7</span>
+        <span class='fraction'>5/6</span>
       </div>
     </div>
   </div>
@@ -123,11 +123,7 @@
 78
 79
 80
-81
-82
-83
-84
-85</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+81</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -142,12 +138,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -214,60 +206,56 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">//  Dependencies
 import React, { Component } from 'react';
 &nbsp;
-import Sidebar from '../Sidebar/Sidebar.js'
+import Sidebar from '../Sidebar/Sidebar';
 &nbsp;
 /**
 The dashboard component
 */
 class Dashboard extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-        current_user: "Guest",
-        JWTtoken:"",
-        toggled:true
+      current_user: 'Guest',
+      toggled: true,
     };
-    this.toggleWrapper = this.toggleWrapper.bind(this)
+    this.toggleWrapper = this.toggleWrapper.bind(this);
   }
 &nbsp;
-  componentWillMount(){
-      localStorage.getItem("BrightEventsJWTtoken") &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
-          JWTtoken: localStorage.getItem("BrightEventsJWTtoken")
-      })
-      localStorage.getItem("Logged_in") &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
-          current_user: localStorage.getItem("Logged_in")
-      })
+  componentWillMount() {
+    localStorage.getItem("Logged_in") &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
+      current_user: localStorage.getItem("Logged_in")
+    })
   }
 &nbsp;
   /**
   Toggles the dashboard sidebar
   */
-<span class="fstat-no" title="function not covered" >  to</span>ggleWrapper(){
+<span class="fstat-no" title="function not covered" >  to</span>ggleWrapper() {
 <span class="cstat-no" title="statement not covered" >    this.setState({</span>
-      toggled:!this.state.toggled
-    })
+      toggled: !this.state.toggled,
+    });
   }
 &nbsp;
-  render(){
+  render() {
     return (
       &lt;div className="Events"&gt;
         &lt;div id="wrapper"&gt;
           { this.state.toggled ?
-            &lt;Sidebar current_user={this.state.current_user}/&gt;
-            :<span class="branch-1 cbranch-no" title="branch not covered" >""</span>
+            &lt;Sidebar current_user={this.state.current_user} /&gt;
+            : <span class="branch-1 cbranch-no" title="branch not covered" >''</span>
           }
           &lt;div id="content"&gt;
             &lt;nav className="navbar navbar-default"&gt;
               &lt;div className="container-fluid"&gt;
                 &lt;div className="navbar-header"&gt;
                   &lt;button type="button" id="sidebarCollapse" onClick={this.toggleWrapper} className="btn btn-info navbar-btn"&gt;
-                    &lt;i className="glyphicon glyphicon-align-left"&gt;&lt;/i&gt;
+                    &lt;i className="glyphicon glyphicon-align-left" /&gt;
                     &lt;span&gt;Toggle Sidebar&lt;/span&gt;
                   &lt;/button&gt;
                 &lt;/div&gt;
                 &lt;div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1"&gt;
                   &lt;ul className="nav navbar-nav navbar-right"&gt;
-                    &lt;li&gt;&lt;a href="#"&gt;Page&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;Page&lt;/li&gt;
                   &lt;/ul&gt;
                 &lt;/div&gt;
               &lt;/div&gt;
@@ -276,13 +264,13 @@ class Dashboard extends Component {
               &lt;div className="container-fluid"&gt;
                 &lt;div className="navbar-header"&gt;
                   &lt;a href={`/${this.state.current_user}/createevent`} id="dashboardCreateEvent" className="btn btn-info navbar-btn"&gt;
-                    &lt;i className="glyphicon glyphicon-align-left"&gt;&lt;/i&gt;
+                    &lt;i className="glyphicon glyphicon-align-left" /&gt;
                     &lt;span&gt;Create an Event&lt;/span&gt;
                   &lt;/a&gt;
                 &lt;/div&gt;
                 &lt;div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1"&gt;
                   &lt;ul className="nav navbar-nav navbar-right"&gt;
-                    &lt;li&gt;&lt;a href="#"&gt;Page&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;Page&lt;/li&gt;
                   &lt;/ul&gt;
                 &lt;/div&gt;
               &lt;/div&gt;
@@ -290,9 +278,9 @@ class Dashboard extends Component {
           &lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-         );
+    );
   }
-};
+}
 &nbsp;
 export default Dashboard;
 &nbsp;</pre></td></tr>
@@ -301,7 +289,7 @@ export default Dashboard;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jun 05 2018 21:27:52 GMT+0300 (EAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 06 2018 01:53:57 GMT+0300 (EAT)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

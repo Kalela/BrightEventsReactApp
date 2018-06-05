@@ -169,11 +169,7 @@
 124
 125
 126
-127
-128
-129</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+127</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -301,11 +297,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
 import { Table, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import jwt from 'jsonwebtoken'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import jwt from 'jsonwebtoken';
 &nbsp;
-import Navbar from '../Navbar/Navbar'
+import Navbar from '../Navbar/Navbar';
 &nbsp;
 /**
 Functional component that renders users event's guests
@@ -314,66 +308,66 @@ class MyGuests extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      JWTtoken:"",
+      JWTtoken: '',
       myguests: [],
       myevents: [],
-      dropdownOpen: false
+      dropdownOpen: false,
     };
-    this.toggle = this.toggle.bind(this)
+    this.toggle = this.toggle.bind(this);
   }
 &nbsp;
-  componentWillMount(){
-      localStorage.getItem("BrightEventsJWTtoken") &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
-          JWTtoken: localStorage.getItem("BrightEventsJWTtoken")
-      })
-      localStorage.getItem("Logged_in") &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
-          current_user: localStorage.getItem("Logged_in")
-      })
+  componentWillMount() {
+    localStorage.getItem('BrightEventsJWTtoken') &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
+      JWTtoken: localStorage.getItem("BrightEventsJWTtoken")
+    });
+    localStorage.getItem("Logged_in") &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
+      current_user: localStorage.getItem('Logged_in')
+    });
   }
 &nbsp;
-  componentDidMount(){
-    const user = jwt.decode(this.state.JWTtoken)
+  componentDidMount() {
+    const user = jwt.decode(this.state.JWTtoken);
     fetch(`http://localhost:5000/api/v2/events/${user.public_id}`, {
-        method:'GET',
-        headers:{
-            'Accept':'application/json, text/plain, */*',
-            'Content-type':'application/json',
-            'x-access-token': this.state.JWTtoken
-        }
-      })
-    .then(<span class="fstat-no" title="function not covered" >re</span>sponse =&gt; <span class="cstat-no" title="statement not covered" >response.json())</span>
-    .then(<span class="fstat-no" title="function not covered" >(f</span>indresp) =&gt; {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-type': 'application/json',
+        'x-access-token': this.state.JWTtoken,
+      },
+    })
+      .then(<span class="fstat-no" title="function not covered" >re</span>sponse =&gt; <span class="cstat-no" title="statement not covered" >response.json())</span>
+      .then(<span class="fstat-no" title="function not covered" >(f</span>indresp) =&gt; {
 <span class="cstat-no" title="statement not covered" >        this.setState({</span>
           myevents: findresp.MyEvents
-        })
-        let events = <span class="cstat-no" title="statement not covered" >findresp.MyEvents</span>
+        });
+        let events = <span class="cstat-no" title="statement not covered" >findresp.MyEvents;</span>
 <span class="cstat-no" title="statement not covered" >        if (user.public_id) {</span>
-        let guests_list = <span class="cstat-no" title="statement not covered" >[]</span>
-<span class="cstat-no" title="statement not covered" >        events.map(<span class="fstat-no" title="function not covered" >(d</span>ynamicEvents, key) =&gt;</span>
-<span class="cstat-no" title="statement not covered" >        fetch(`http://localhost:5000/api/v2/events/${dynamicEvents.eventname}/rsvp`, {</span>
-            method:'GET',
-            headers:{
-                'Accept':'application/json, text/plain, */*',
-                'Content-type':'application/json',
-                'x-access-token': this.state.JWTtoken
-            }
-          })
-        .then(<span class="fstat-no" title="function not covered" >re</span>sponse =&gt; <span class="cstat-no" title="statement not covered" >response.json())</span>
-        .then(<span class="fstat-no" title="function not covered" >(f</span>indresp) =&gt; {
-            let name = <span class="cstat-no" title="statement not covered" >dynamicEvents.eventname</span>
-<span class="cstat-no" title="statement not covered" >            console.log("name---&gt;", String(name))</span>
-<span class="cstat-no" title="statement not covered" >            console.log("guestlist---&gt;", findresp.Guests)</span>
-<span class="cstat-no" title="statement not covered" >            guests_list = [...guests_list, ...findresp.Guests.Hahahahahaha]</span>
-<span class="cstat-no" title="statement not covered" >            console.log("guests_list---&gt;", guests_list)</span>
-<span class="cstat-no" title="statement not covered" >            this.setState({</span>
-              myguests: guests_list
+          let guestsList = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >          events.map(<span class="fstat-no" title="function not covered" >(d</span>ynamicEvents, key) =&gt;</span>
+<span class="cstat-no" title="statement not covered" >            fetch(`http://localhost:5000/api/v2/events/${dynamicEvents.eventname}/rsvp`, {</span>
+              method: 'GET',
+              headers: {
+                Accept: 'application/json, text/plain, */*',
+                'Content-type': 'application/json',
+                'x-access-token': this.state.JWTtoken,
+              },
             })
-          })
-        .catch(<span class="fstat-no" title="function not covered" >er</span>ror =&gt; <span class="cstat-no" title="statement not covered" >console.log('parsing failed', error))</span>
-        )
-      }
-    })
-    .catch(<span class="fstat-no" title="function not covered" >er</span>ror =&gt; <span class="cstat-no" title="statement not covered" >console.log('parsing failed', error))</span>
+              .then(<span class="fstat-no" title="function not covered" >re</span>sponse =&gt; <span class="cstat-no" title="statement not covered" >response.json())</span>
+              .then(<span class="fstat-no" title="function not covered" >(n</span>ewfindresp) =&gt; {
+                const name = <span class="cstat-no" title="statement not covered" >dynamicEvents.eventname;</span>
+<span class="cstat-no" title="statement not covered" >                console.log("name---&gt;", String(name));</span>
+<span class="cstat-no" title="statement not covered" >                console.log("guestlist---&gt;", newfindresp.Guests);</span>
+<span class="cstat-no" title="statement not covered" >                guestsList = [...guestsList, ...newfindresp.Guests];</span>
+<span class="cstat-no" title="statement not covered" >                console.log("guests_list---&gt;", guestsList)</span>
+<span class="cstat-no" title="statement not covered" >                this.setState({</span>
+                  myguests: guestsList,
+                });
+              })
+              .catch(<span class="fstat-no" title="function not covered" >er</span>ror =&gt; <span class="cstat-no" title="statement not covered" >console.log('parsing failed', error))</span>,
+          )
+        }
+      })
+      .catch(<span class="fstat-no" title="function not covered" >er</span>ror =&gt; <span class="cstat-no" title="statement not covered" >console.log('parsing failed', error))</span>
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  to</span>ggle() {
@@ -433,7 +427,7 @@ export default MyGuests;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jun 05 2018 21:27:52 GMT+0300 (EAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 06 2018 01:53:57 GMT+0300 (EAT)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

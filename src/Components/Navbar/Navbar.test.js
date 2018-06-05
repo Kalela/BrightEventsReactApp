@@ -1,9 +1,11 @@
-import React from 'react'
-import Navbar from './Navbar.js'
-import Enzyme, { shallow } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import React from 'react';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
-Enzyme.configure({ adapter: new Adapter() })
+import Navbar from './Navbar';
+
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('Navbar', () => {
   it('loads the navbar page', () => {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1528223272613" clover="3.2.0">
-  <project timestamp="1528223272613" name="All files">
-    <metrics statements="234" coveredstatements="114" conditionals="88" coveredconditionals="30" methods="129" coveredmethods="59" elements="451" coveredelements="203" complexity="0" loc="234" ncloc="234" packages="18" files="21" classes="21">
+<coverage generated="1528239237806" clover="3.2.0">
+  <project timestamp="1528239237807" name="All files">
+    <metrics statements="224" coveredstatements="110" conditionals="80" coveredconditionals="28" methods="128" coveredmethods="58" elements="432" coveredelements="196" complexity="0" loc="224" ncloc="224" packages="18" files="21" classes="21">
       <package name="BrightEventsReactApp">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="setupJest.js" path="/Users/PhilSkiiiwalker/Desktop/BrightEventsReactApp/setupJest.js">
@@ -13,8 +13,8 @@
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <file name="contactUs.js" path="/Users/PhilSkiiiwalker/Desktop/BrightEventsReactApp/src/Components/ContactUs/contactUs.js">
           <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="8" count="1" type="stmt"/>
-          <line num="9" count="1" type="stmt"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="7" count="1" type="stmt"/>
         </file>
       </package>
       <package name="BrightEventsReactApp.src.Components.CreateEvent">
@@ -36,131 +36,124 @@
         </file>
       </package>
       <package name="BrightEventsReactApp.src.Components.DashBoard">
-        <metrics statements="18" coveredstatements="13" conditionals="10" coveredconditionals="5" methods="10" coveredmethods="6"/>
+        <metrics statements="17" coveredstatements="12" conditionals="8" coveredconditionals="4" methods="10" coveredmethods="6"/>
         <file name="Dashboard.js" path="/Users/PhilSkiiiwalker/Desktop/BrightEventsReactApp/src/Components/DashBoard/Dashboard.js">
-          <metrics statements="7" coveredstatements="6" conditionals="6" coveredconditionals="3" methods="4" coveredmethods="3"/>
+          <metrics statements="6" coveredstatements="5" conditionals="4" coveredconditionals="2" methods="4" coveredmethods="3"/>
           <line num="11" count="1" type="stmt"/>
           <line num="12" count="1" type="stmt"/>
-          <line num="17" count="1" type="stmt"/>
-          <line num="21" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="24" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="33" count="0" type="stmt"/>
-          <line num="39" count="1" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="20" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="29" count="0" type="stmt"/>
+          <line num="35" count="1" type="stmt"/>
         </file>
         <file name="DeleteModal.js" path="/Users/PhilSkiiiwalker/Desktop/BrightEventsReactApp/src/Components/DashBoard/DeleteModal.js">
           <metrics statements="11" coveredstatements="7" conditionals="4" coveredconditionals="2" methods="6" coveredmethods="3"/>
-          <line num="10" count="1" type="stmt"/>
-          <line num="11" count="1" type="stmt"/>
           <line num="15" count="1" type="stmt"/>
           <line num="16" count="1" type="stmt"/>
-          <line num="20" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="23" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="32" count="0" type="stmt"/>
-          <line num="40" count="0" type="stmt"/>
-          <line num="46" count="0" type="stmt"/>
-          <line num="52" count="1" type="stmt"/>
-          <line num="61" count="0" type="stmt"/>
+          <line num="20" count="1" type="stmt"/>
+          <line num="21" count="1" type="stmt"/>
+          <line num="25" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="28" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="37" count="0" type="stmt"/>
+          <line num="45" count="0" type="stmt"/>
+          <line num="51" count="0" type="stmt"/>
+          <line num="57" count="1" type="stmt"/>
+          <line num="66" count="0" type="stmt"/>
         </file>
       </package>
       <package name="BrightEventsReactApp.src.Components.EditEvent">
         <metrics statements="12" coveredstatements="7" conditionals="4" coveredconditionals="2" methods="6" coveredmethods="3"/>
         <file name="EditEvent.js" path="/Users/PhilSkiiiwalker/Desktop/BrightEventsReactApp/src/Components/EditEvent/EditEvent.js">
           <metrics statements="12" coveredstatements="7" conditionals="4" coveredconditionals="2" methods="6" coveredmethods="3"/>
-          <line num="11" count="1" type="stmt"/>
-          <line num="12" count="1" type="stmt"/>
-          <line num="16" count="1" type="stmt"/>
-          <line num="17" count="1" type="stmt"/>
-          <line num="21" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="24" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="33" count="0" type="stmt"/>
-          <line num="39" count="0" type="stmt"/>
-          <line num="48" count="0" type="stmt"/>
-          <line num="57" count="0" type="stmt"/>
-          <line num="63" count="1" type="stmt"/>
-          <line num="118" count="0" type="stmt"/>
+          <line num="22" count="1" type="stmt"/>
+          <line num="23" count="1" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
+          <line num="28" count="1" type="stmt"/>
+          <line num="32" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="35" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="44" count="0" type="stmt"/>
+          <line num="50" count="0" type="stmt"/>
+          <line num="59" count="0" type="stmt"/>
+          <line num="68" count="0" type="stmt"/>
+          <line num="74" count="1" type="stmt"/>
+          <line num="129" count="0" type="stmt"/>
         </file>
       </package>
       <package name="BrightEventsReactApp.src.Components.LandingPage">
-        <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="2" methods="3" coveredmethods="3"/>
         <file name="LandingPage.js" path="/Users/PhilSkiiiwalker/Desktop/BrightEventsReactApp/src/Components/LandingPage/LandingPage.js">
-          <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="2" methods="3" coveredmethods="3"/>
+          <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="2" methods="3" coveredmethods="3"/>
           <line num="11" count="1" type="stmt"/>
           <line num="12" count="1" type="stmt"/>
-          <line num="20" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="23" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="29" count="1" type="stmt"/>
-          <line num="30" count="1" type="stmt"/>
+          <line num="19" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="22" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="28" count="1" type="stmt"/>
         </file>
       </package>
       <package name="BrightEventsReactApp.src.Components.Login">
-        <metrics statements="16" coveredstatements="6" conditionals="4" coveredconditionals="1" methods="6" coveredmethods="3"/>
+        <metrics statements="12" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="2"/>
         <file name="Login.js" path="/Users/PhilSkiiiwalker/Desktop/BrightEventsReactApp/src/Components/Login/Login.js">
-          <metrics statements="16" coveredstatements="6" conditionals="4" coveredconditionals="1" methods="6" coveredmethods="3"/>
+          <metrics statements="12" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="2"/>
           <line num="13" count="1" type="stmt"/>
           <line num="14" count="1" type="stmt"/>
-          <line num="18" count="1" type="stmt"/>
-          <line num="22" count="1" type="stmt"/>
-          <line num="23" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="35" count="0" type="stmt"/>
+          <line num="21" count="0" type="stmt"/>
+          <line num="22" count="0" type="stmt"/>
+          <line num="26" count="0" type="stmt"/>
+          <line num="34" count="0" type="stmt"/>
           <line num="36" count="0" type="stmt"/>
-          <line num="40" count="0" type="stmt"/>
-          <line num="48" count="0" type="stmt"/>
-          <line num="50" count="0" type="stmt"/>
-          <line num="51" count="0" type="stmt"/>
-          <line num="52" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="53" count="0" type="stmt"/>
-          <line num="56" count="0" type="stmt"/>
-          <line num="58" count="0" type="stmt"/>
-          <line num="70" count="1" type="stmt"/>
+          <line num="37" count="0" type="stmt"/>
+          <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="39" count="0" type="stmt"/>
+          <line num="41" count="0" type="stmt"/>
+          <line num="53" count="1" type="stmt"/>
         </file>
       </package>
       <package name="BrightEventsReactApp.src.Components.MyGuests">
         <metrics statements="26" coveredstatements="8" conditionals="6" coveredconditionals="2" methods="14" coveredmethods="4"/>
         <file name="MyGuests.js" path="/Users/PhilSkiiiwalker/Desktop/BrightEventsReactApp/src/Components/MyGuests/MyGuests.js">
           <metrics statements="26" coveredstatements="8" conditionals="6" coveredconditionals="2" methods="14" coveredmethods="4"/>
-          <line num="14" count="1" type="stmt"/>
-          <line num="15" count="1" type="stmt"/>
-          <line num="21" count="1" type="stmt"/>
-          <line num="25" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="28" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="34" count="1" type="stmt"/>
-          <line num="35" count="1" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="13" count="1" type="stmt"/>
+          <line num="19" count="1" type="stmt"/>
+          <line num="23" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="26" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="32" count="1" type="stmt"/>
+          <line num="33" count="1" type="stmt"/>
+          <line num="41" count="0" type="stmt"/>
           <line num="43" count="0" type="stmt"/>
-          <line num="45" count="0" type="stmt"/>
+          <line num="46" count="0" type="stmt"/>
+          <line num="47" count="0" type="cond" truecount="0" falsecount="2"/>
           <line num="48" count="0" type="stmt"/>
-          <line num="49" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="49" count="0" type="stmt"/>
           <line num="50" count="0" type="stmt"/>
-          <line num="51" count="0" type="stmt"/>
-          <line num="52" count="0" type="stmt"/>
+          <line num="58" count="0" type="stmt"/>
           <line num="60" count="0" type="stmt"/>
+          <line num="61" count="0" type="stmt"/>
           <line num="62" count="0" type="stmt"/>
           <line num="63" count="0" type="stmt"/>
           <line num="64" count="0" type="stmt"/>
           <line num="65" count="0" type="stmt"/>
-          <line num="66" count="0" type="stmt"/>
-          <line num="67" count="0" type="stmt"/>
-          <line num="71" count="0" type="stmt"/>
-          <line num="75" count="0" type="stmt"/>
-          <line num="79" count="0" type="stmt"/>
-          <line num="85" count="1" type="stmt"/>
-          <line num="103" count="0" type="stmt"/>
+          <line num="69" count="0" type="stmt"/>
+          <line num="73" count="0" type="stmt"/>
+          <line num="77" count="0" type="stmt"/>
+          <line num="83" count="1" type="stmt"/>
+          <line num="101" count="0" type="stmt"/>
         </file>
       </package>
-      <package name="BrightEventsReactApp.src.Components.MyRSVPs">
-        <metrics statements="11" coveredstatements="9" conditionals="4" coveredconditionals="2" methods="8" coveredmethods="7"/>
-        <file name="myRsvps.js" path="/Users/PhilSkiiiwalker/Desktop/BrightEventsReactApp/src/Components/MyRSVPs/myRsvps.js">
-          <metrics statements="11" coveredstatements="9" conditionals="4" coveredconditionals="2" methods="8" coveredmethods="7"/>
-          <line num="13" count="1" type="stmt"/>
-          <line num="14" count="1" type="stmt"/>
-          <line num="22" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="25" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="31" count="1" type="stmt"/>
-          <line num="38" count="1" type="stmt"/>
-          <line num="39" count="1" type="stmt"/>
-          <line num="41" count="0" type="stmt"/>
-          <line num="42" count="0" type="stmt"/>
+      <package name="BrightEventsReactApp.src.Components.Myrsvps">
+        <metrics statements="10" coveredstatements="9" conditionals="4" coveredconditionals="2" methods="8" coveredmethods="7"/>
+        <file name="Myrsvps.js" path="/Users/PhilSkiiiwalker/Desktop/BrightEventsReactApp/src/Components/Myrsvps/Myrsvps.js">
+          <metrics statements="10" coveredstatements="9" conditionals="4" coveredconditionals="2" methods="8" coveredmethods="7"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="20" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="23" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="29" count="1" type="stmt"/>
+          <line num="36" count="1" type="stmt"/>
+          <line num="37" count="1" type="stmt"/>
+          <line num="39" count="0" type="stmt"/>
+          <line num="43" count="1" type="stmt"/>
           <line num="46" count="1" type="stmt"/>
-          <line num="49" count="1" type="stmt"/>
         </file>
       </package>
       <package name="BrightEventsReactApp.src.Components.Navbar">
@@ -172,24 +165,24 @@
         </file>
       </package>
       <package name="BrightEventsReactApp.src.Components.NavbarOptions">
-        <metrics statements="15" coveredstatements="5" conditionals="8" coveredconditionals="0" methods="8" coveredmethods="2"/>
+        <metrics statements="15" coveredstatements="5" conditionals="4" coveredconditionals="0" methods="8" coveredmethods="2"/>
         <file name="NavbarOptions.js" path="/Users/PhilSkiiiwalker/Desktop/BrightEventsReactApp/src/Components/NavbarOptions/NavbarOptions.js">
-          <metrics statements="15" coveredstatements="5" conditionals="8" coveredconditionals="0" methods="8" coveredmethods="2"/>
+          <metrics statements="15" coveredstatements="5" conditionals="4" coveredconditionals="0" methods="8" coveredmethods="2"/>
           <line num="13" count="1" type="stmt"/>
           <line num="14" count="1" type="stmt"/>
+          <line num="18" count="1" type="stmt"/>
           <line num="19" count="1" type="stmt"/>
-          <line num="20" count="1" type="stmt"/>
-          <line num="27" count="0" type="stmt"/>
-          <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="41" count="0" type="stmt"/>
-          <line num="50" count="0" type="stmt"/>
-          <line num="53" count="0" type="stmt"/>
-          <line num="57" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="58" count="0" type="stmt"/>
-          <line num="62" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="66" count="1" type="stmt"/>
-          <line num="76" count="0" type="stmt"/>
+          <line num="23" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="28" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="29" count="0" type="stmt"/>
+          <line num="37" count="0" type="stmt"/>
+          <line num="45" count="0" type="stmt"/>
+          <line num="46" count="0" type="stmt"/>
+          <line num="47" count="0" type="stmt"/>
+          <line num="56" count="0" type="stmt"/>
+          <line num="59" count="0" type="stmt"/>
+          <line num="62" count="1" type="stmt"/>
+          <line num="72" count="0" type="stmt"/>
         </file>
       </package>
       <package name="BrightEventsReactApp.src.Components.Pagination">
@@ -219,138 +212,135 @@
         </file>
       </package>
       <package name="BrightEventsReactApp.src.Components.ResetPassword">
-        <metrics statements="9" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="2"/>
+        <metrics statements="8" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="2"/>
         <file name="ResetPassword.js" path="/Users/PhilSkiiiwalker/Desktop/BrightEventsReactApp/src/Components/ResetPassword/ResetPassword.js">
-          <metrics statements="9" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="2"/>
+          <metrics statements="8" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="2"/>
           <line num="7" count="1" type="stmt"/>
           <line num="8" count="1" type="stmt"/>
           <line num="11" count="1" type="stmt"/>
           <line num="14" count="0" type="stmt"/>
           <line num="18" count="0" type="stmt"/>
-          <line num="19" count="0" type="stmt"/>
-          <line num="27" count="0" type="stmt"/>
-          <line num="29" count="0" type="stmt"/>
-          <line num="38" count="1" type="stmt"/>
+          <line num="26" count="0" type="stmt"/>
+          <line num="28" count="0" type="stmt"/>
+          <line num="37" count="1" type="stmt"/>
         </file>
       </package>
       <package name="BrightEventsReactApp.src.Components.SearchPage">
-        <metrics statements="24" coveredstatements="8" conditionals="10" coveredconditionals="3" methods="14" coveredmethods="3"/>
+        <metrics statements="23" coveredstatements="8" conditionals="10" coveredconditionals="3" methods="14" coveredmethods="3"/>
         <file name="SearchPage.js" path="/Users/PhilSkiiiwalker/Desktop/BrightEventsReactApp/src/Components/SearchPage/SearchPage.js">
-          <metrics statements="24" coveredstatements="8" conditionals="10" coveredconditionals="3" methods="14" coveredmethods="3"/>
-          <line num="20" count="1" type="stmt"/>
-          <line num="21" count="1" type="stmt"/>
-          <line num="27" count="1" type="stmt"/>
-          <line num="28" count="1" type="stmt"/>
+          <metrics statements="23" coveredstatements="8" conditionals="10" coveredconditionals="3" methods="14" coveredmethods="3"/>
           <line num="29" count="1" type="stmt"/>
-          <line num="33" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="36" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="46" count="0" type="stmt"/>
-          <line num="47" count="0" type="stmt"/>
-          <line num="50" count="0" type="stmt"/>
-          <line num="58" count="0" type="stmt"/>
-          <line num="60" count="0" type="stmt"/>
-          <line num="61" count="0" type="stmt"/>
-          <line num="65" count="0" type="stmt"/>
-          <line num="72" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="30" count="1" type="stmt"/>
+          <line num="36" count="1" type="stmt"/>
+          <line num="37" count="1" type="stmt"/>
+          <line num="38" count="1" type="stmt"/>
+          <line num="42" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="45" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="55" count="0" type="stmt"/>
+          <line num="56" count="0" type="stmt"/>
+          <line num="59" count="0" type="stmt"/>
+          <line num="67" count="0" type="stmt"/>
+          <line num="69" count="0" type="stmt"/>
           <line num="73" count="0" type="stmt"/>
-          <line num="74" count="0" type="stmt"/>
-          <line num="83" count="0" type="stmt"/>
-          <line num="85" count="0" type="stmt"/>
-          <line num="101" count="0" type="stmt"/>
-          <line num="105" count="1" type="stmt"/>
-          <line num="134" count="0" type="stmt"/>
-          <line num="148" count="0" type="stmt"/>
-          <line num="152" count="0" type="stmt"/>
+          <line num="80" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="81" count="0" type="stmt"/>
+          <line num="82" count="0" type="stmt"/>
+          <line num="91" count="0" type="stmt"/>
+          <line num="93" count="0" type="stmt"/>
+          <line num="109" count="0" type="stmt"/>
+          <line num="113" count="1" type="stmt"/>
+          <line num="143" count="0" type="stmt"/>
+          <line num="157" count="0" type="stmt"/>
+          <line num="161" count="0" type="stmt"/>
         </file>
       </package>
       <package name="BrightEventsReactApp.src.Components.Settings">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <file name="Settings.js" path="/Users/PhilSkiiiwalker/Desktop/BrightEventsReactApp/src/Components/Settings/Settings.js">
-          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="10" count="1" type="stmt"/>
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
         </file>
       </package>
       <package name="BrightEventsReactApp.src.Components.Sidebar">
         <metrics statements="9" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <file name="Sidebar.js" path="/Users/PhilSkiiiwalker/Desktop/BrightEventsReactApp/src/Components/Sidebar/Sidebar.js">
           <metrics statements="9" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
-          <line num="8" count="2" type="stmt"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="8" count="0" type="stmt"/>
           <line num="9" count="0" type="stmt"/>
-          <line num="10" count="0" type="stmt"/>
+          <line num="17" count="0" type="stmt"/>
           <line num="18" count="0" type="stmt"/>
           <line num="19" count="0" type="stmt"/>
-          <line num="20" count="0" type="stmt"/>
-          <line num="26" count="2" type="stmt"/>
-          <line num="27" count="1" type="stmt"/>
-          <line num="57" count="0" type="stmt"/>
+          <line num="25" count="2" type="stmt"/>
+          <line num="26" count="1" type="stmt"/>
+          <line num="56" count="0" type="stmt"/>
         </file>
       </package>
       <package name="BrightEventsReactApp.src.Components.ViewEvents">
-        <metrics statements="56" coveredstatements="25" conditionals="24" coveredconditionals="7" methods="37" coveredmethods="15"/>
+        <metrics statements="54" coveredstatements="25" conditionals="24" coveredconditionals="7" methods="37" coveredmethods="15"/>
         <file name="Events.js" path="/Users/PhilSkiiiwalker/Desktop/BrightEventsReactApp/src/Components/ViewEvents/Events.js">
-          <metrics statements="20" coveredstatements="10" conditionals="8" coveredconditionals="2" methods="14" coveredmethods="7"/>
-          <line num="19" count="1" type="stmt"/>
-          <line num="20" count="1" type="stmt"/>
-          <line num="25" count="1" type="stmt"/>
-          <line num="29" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="32" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="38" count="1" type="stmt"/>
+          <metrics statements="19" coveredstatements="10" conditionals="8" coveredconditionals="2" methods="14" coveredmethods="7"/>
+          <line num="26" count="1" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
+          <line num="32" count="1" type="stmt"/>
+          <line num="36" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="39" count="1" type="cond" truecount="1" falsecount="1"/>
           <line num="45" count="1" type="stmt"/>
-          <line num="46" count="1" type="stmt"/>
-          <line num="48" count="0" type="stmt"/>
-          <line num="49" count="0" type="stmt"/>
+          <line num="52" count="1" type="stmt"/>
           <line num="53" count="1" type="stmt"/>
-          <line num="60" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="61" count="0" type="stmt"/>
-          <line num="62" count="0" type="stmt"/>
-          <line num="71" count="0" type="stmt"/>
-          <line num="73" count="0" type="stmt"/>
-          <line num="86" count="1" type="stmt"/>
-          <line num="94" count="0" type="stmt"/>
-          <line num="108" count="0" type="stmt"/>
-          <line num="112" count="0" type="stmt"/>
+          <line num="55" count="0" type="stmt"/>
+          <line num="59" count="1" type="stmt"/>
+          <line num="66" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="67" count="0" type="stmt"/>
+          <line num="68" count="0" type="stmt"/>
+          <line num="77" count="0" type="stmt"/>
+          <line num="79" count="0" type="stmt"/>
+          <line num="92" count="1" type="stmt"/>
+          <line num="100" count="0" type="stmt"/>
+          <line num="114" count="0" type="stmt"/>
+          <line num="118" count="0" type="stmt"/>
         </file>
         <file name="MyEvents.js" path="/Users/PhilSkiiiwalker/Desktop/BrightEventsReactApp/src/Components/ViewEvents/MyEvents.js">
           <metrics statements="19" coveredstatements="8" conditionals="10" coveredconditionals="3" methods="12" coveredmethods="4"/>
-          <line num="20" count="1" type="stmt"/>
-          <line num="21" count="1" type="stmt"/>
-          <line num="26" count="1" type="stmt"/>
-          <line num="29" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="32" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="37" count="1" type="stmt"/>
-          <line num="38" count="1" type="stmt"/>
-          <line num="46" count="0" type="stmt"/>
-          <line num="48" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="49" count="0" type="stmt"/>
+          <line num="28" count="1" type="stmt"/>
+          <line num="29" count="1" type="stmt"/>
+          <line num="34" count="1" type="stmt"/>
+          <line num="37" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="40" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="45" count="1" type="stmt"/>
+          <line num="46" count="1" type="stmt"/>
           <line num="54" count="0" type="stmt"/>
-          <line num="57" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="58" count="0" type="stmt"/>
-          <line num="59" count="0" type="stmt"/>
-          <line num="68" count="0" type="stmt"/>
-          <line num="70" count="0" type="stmt"/>
-          <line num="82" count="1" type="stmt"/>
-          <line num="92" count="0" type="stmt"/>
-          <line num="104" count="0" type="stmt"/>
+          <line num="56" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="57" count="0" type="stmt"/>
+          <line num="62" count="0" type="stmt"/>
+          <line num="65" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="66" count="0" type="stmt"/>
+          <line num="67" count="0" type="stmt"/>
+          <line num="76" count="0" type="stmt"/>
+          <line num="78" count="0" type="stmt"/>
+          <line num="90" count="1" type="stmt"/>
+          <line num="101" count="0" type="stmt"/>
+          <line num="113" count="0" type="stmt"/>
         </file>
         <file name="ViewSingleEvent.js" path="/Users/PhilSkiiiwalker/Desktop/BrightEventsReactApp/src/Components/ViewEvents/ViewSingleEvent.js">
-          <metrics statements="17" coveredstatements="7" conditionals="6" coveredconditionals="2" methods="11" coveredmethods="4"/>
-          <line num="19" count="1" type="stmt"/>
-          <line num="20" count="1" type="stmt"/>
+          <metrics statements="16" coveredstatements="7" conditionals="6" coveredconditionals="2" methods="11" coveredmethods="4"/>
           <line num="25" count="1" type="stmt"/>
-          <line num="28" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="31" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="36" count="1" type="stmt"/>
-          <line num="37" count="0" type="stmt"/>
-          <line num="45" count="0" type="stmt"/>
-          <line num="47" count="0" type="stmt"/>
-          <line num="53" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="54" count="0" type="stmt"/>
-          <line num="55" count="0" type="stmt"/>
-          <line num="64" count="0" type="stmt"/>
-          <line num="66" count="0" type="stmt"/>
-          <line num="78" count="1" type="stmt"/>
-          <line num="86" count="0" type="stmt"/>
-          <line num="98" count="0" type="stmt"/>
+          <line num="26" count="1" type="stmt"/>
+          <line num="31" count="1" type="stmt"/>
+          <line num="34" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="37" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="42" count="1" type="stmt"/>
+          <line num="50" count="0" type="stmt"/>
+          <line num="52" count="0" type="stmt"/>
+          <line num="58" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="59" count="0" type="stmt"/>
+          <line num="60" count="0" type="stmt"/>
+          <line num="69" count="0" type="stmt"/>
+          <line num="71" count="0" type="stmt"/>
+          <line num="83" count="1" type="stmt"/>
+          <line num="91" count="0" type="stmt"/>
+          <line num="103" count="0" type="stmt"/>
         </file>
       </package>
     </metrics>

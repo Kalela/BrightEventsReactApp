@@ -1,11 +1,13 @@
-import React from 'react'
-import Events from './Events.js'
-import MyEvents from './MyEvents.js'
-import ViewSingleEvent from './ViewSingleEvent.js'
-import Enzyme, { shallow } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import React from 'react';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
-Enzyme.configure({ adapter: new Adapter() })
+import Events from './Events';
+import MyEvents from './MyEvents';
+import ViewSingleEvent from './ViewSingleEvent';
+
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('Events and My events page', () => {
   it('loads the event page', () => {

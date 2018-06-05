@@ -1,9 +1,11 @@
-import React from 'react'
-import Paginate from './paginate.js'
-import Enzyme, { shallow } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import React from 'react';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
-Enzyme.configure({ adapter: new Adapter() })
+import Paginate from './paginate';
+
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('the pagination component', () => {
   it('defines pagination component', () => {
