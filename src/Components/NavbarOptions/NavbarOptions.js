@@ -50,11 +50,19 @@ class NavbarOptions extends Component {
     this.setState(prevState => ({
       dropdownOpen: !prevState.dropdownOpen
     }));
+    this.forceUpdate();
   }
-  render(){
+
+  componentWillUpdate(){
     if(this.state.redirect === true) {
       <Redirect to="/" />
     }
+  }
+  shouldComponentUpdate(nextProps, nextState){
+    return this.props.engagement !== nextProps.engagement ||
+      nextState.input !== this.state.input
+  }
+  render(){
     return(
         <Dropdown id="navbarDropdown"isOpen={this.state.dropdownOpen} toggle={this.toggle}>
           <DropdownToggle caret>

@@ -6,7 +6,7 @@ import NavbarOptions from '../NavbarOptions/NavbarOptions';
 Presentational component that renders the webapps navbar if a user is
 logged in.
 */
-const Navbar = ({current_user},{search_bar}) => (
+const Navbar = ({current_user}) => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <a className="navbar-brand" href="/">BrightEvents</a>
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

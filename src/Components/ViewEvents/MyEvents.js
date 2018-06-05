@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import EditModal from '../EditEvent/EditEvent.js';
 import DeleteModal from '../DashBoard/DeleteModal.js';
 import Navbar from '../Navbar/Navbar.js';
+import Paginate from '../Pagination/paginate.js';
 
 import Tryouts from '../../img/event_stock_images/pexels-photo.jpg';
 
@@ -34,7 +35,7 @@ class MyEvents extends Component{
     }
     componentDidMount() {
       const user = jwt.decode(this.state.JWTtoken)
-      fetch(`http://localhost:5000/api/v2/events/${user.public_id}`, {
+      fetch(`http://localhost:5000/api/v2/events/${user.public_id}?limit=1&page=1`, {
           method:'GET',
           headers:{
               'Accept':'application/json, text/plain, */*',
@@ -78,10 +79,10 @@ class MyEvents extends Component{
       }
     }
     render(){
-      console.log(this.state.my_events)
       return (
         <div className="container">
         < Navbar current_user={this.state.current_user}/>
+        <h3 id="eventsTitle"> All Events </h3>
         <ToastContainer />
           { this.state.my_events ?
             <div>
@@ -114,6 +115,7 @@ class MyEvents extends Component{
                 <i className="glyphicon glyphicon-align-left"></i>
                 <span>Create an Event</span>
               </a>
+              <Paginate />
             </div>:
             <div>
               <Alert color="danger">

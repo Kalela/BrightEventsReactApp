@@ -1,17 +1,16 @@
 language: node_js
-node:
+
+node_js:
   - 9.8.0
+
+install:
+  - npm install
 
 notifications:
     email: false
 
-cache:
-  directories:
-    - node_modules
-
 # command to run tests
 script:
-  - npm run build
   - npm test
 
 after_success: npm coveralls

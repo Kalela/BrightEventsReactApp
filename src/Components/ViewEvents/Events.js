@@ -7,6 +7,7 @@ import { Card, CardImg, CardText, CardBody, Button, ButtonGroup,
 import DeleteModal from '../DashBoard/DeleteModal';
 import EditModal from '../EditEvent/EditEvent.js';
 import Navbar from '../Navbar/Navbar.js';
+import Paginate from '../Pagination/paginate.js';
 
 import Tryouts from '../../img/event_stock_images/pexels-photo.jpg';
 
@@ -41,7 +42,7 @@ class Events extends Component {
   Fetch events data
   */
   fetchData = () => {
-    fetch('http://localhost:5000/api/v2/events')
+    fetch('http://localhost:5000/api/v2/events?limit=2&page=1')
     .then(response => response.json())
     .then((findresp) => {
         console.log(findresp.Events)
@@ -85,6 +86,7 @@ class Events extends Component {
     return (
         <div className="container">
           < Navbar current_user={this.state.current_user}/>
+          <h3 id="eventsTitle"> All Events </h3>
           <ToastContainer />
           <CardDeck>
           {
@@ -92,7 +94,7 @@ class Events extends Component {
             <div key={dynamicData.id}>
               <Card>
                 <CardBody>
-                  <CardTitle>{dynamicData.eventname}</CardTitle>
+                  <CardTitle><a href={`/${dynamicData.owner}/${dynamicData.eventname}`}>{dynamicData.eventname}</a></CardTitle>
                   <CardSubtitle id="cardSubtitle">At {dynamicData.location}</CardSubtitle>
                   <CardSubtitle id="cardSubtitle">On {dynamicData.date.split('00')[0]}</CardSubtitle>
                   <CardSubtitle id="cardSubtitle">By <a href={`/${dynamicData.owner}/dashboard`}>{dynamicData.owner}</a></CardSubtitle>
@@ -115,6 +117,7 @@ class Events extends Component {
             )
           }
           </CardDeck>
+          <Paginate />
         </div>
     );
   }

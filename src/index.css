@@ -110,11 +110,17 @@ body {
 #CreateEventForm {
   padding: 80px 320px;
 }
+#eventsTitle{
+  padding: 16px 5px;
+}
 #rsvpButton {
   margin-left: 34%;
 }
 #eventButtons {
   margin-left: 3%
+}
+#pagination {
+  padding: 22px 387px;
 }
 #sidebarTitle {
   color: #fff;
