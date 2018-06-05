@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { InputGroup, InputGroupAddon, Input, Button } from 'reactstrap';
+import { InputGroup, InputGroupAddon, Button } from 'reactstrap';
 import Navbar from '../Navbar/Navbar.js';
 
 class ResetPassword extends Component {

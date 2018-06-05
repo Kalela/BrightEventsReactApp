@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Route, Redirect, NavLink, Switch } from 'react-router-dom'
+import { Route, Redirect, Switch } from 'react-router-dom'
 
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';

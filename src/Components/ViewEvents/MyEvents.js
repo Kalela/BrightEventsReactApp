@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import jwt from 'jsonwebtoken'
-import { Card, CardImg, CardText, CardBody, Button, ButtonGroup,
+import { Card, CardBody, Button, ButtonGroup,
   CardTitle, CardSubtitle, CardDeck, Alert } from 'reactstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

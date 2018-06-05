@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { InputGroup, InputGroupAddon, Input,
-  Alert, Card, CardImg, CardText, CardBody, Button, ButtonGroup,
+import { InputGroup, InputGroupAddon,
+  Alert, Card, CardBody, Button, ButtonGroup,
     CardTitle, CardSubtitle, CardDeck } from 'reactstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -105,6 +105,7 @@ class SearchPage extends Component {
     return(
       <div className="SearchPage" >
         < Navbar current_user={this.state.current_user} search_bar={false} />
+        <ToastContainer />
         <div id="searchForm">
           <InputGroup>
             <input type="text" ref="q" className="form-control" id="eventname" required/>

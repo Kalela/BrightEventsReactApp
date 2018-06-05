@@ -1,8 +1,5 @@
 //  Dependencies
 import React, { Component } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { Route } from 'react-router-dom'
 
 import Sidebar from '../Sidebar/Sidebar.js'
 
@@ -62,7 +59,6 @@ class Dashboard extends Component {
                 </div>
               </div>
             </nav>
-            <ToastContainer />
             <nav className="navbar navbar-default">
               <div className="container-fluid">
                 <div className="navbar-header">

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
 
 import NavbarOptions from '../NavbarOptions/NavbarOptions';
-import DeleteModal from '../DashBoard/DeleteModal';
-import EditModal from '../EditEvent/EditEvent.js';
 
 /**
 The view all events component
