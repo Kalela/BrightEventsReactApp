@@ -2,10 +2,6 @@ language: node_js
 node:
   - 9.8.0
 
-# command to install dependencies
-install:
-  - npm install
-
 notifications:
     email: false
 
