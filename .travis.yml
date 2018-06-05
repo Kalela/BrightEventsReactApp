@@ -1,0 +1,15 @@
+language: node
+node:
+  - 9.8.0
+
+# command to install dependencies
+install:
+  - npm install
+
+notifications:
+    email: false
+
+# command to run tests
+script: npm test
+
+after_success: coveralls
