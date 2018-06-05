@@ -1,5 +1,5 @@
 import React from 'react'
-import MyGuests from './MyGuests'
+import MyGuests from './MyGuests.js'
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 

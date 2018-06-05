@@ -1,5 +1,5 @@
 import React from 'react'
-import Dashboard from './Dashboard'
+import Dashboard from './Dashboard.js'
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 

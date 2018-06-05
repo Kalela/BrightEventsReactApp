@@ -1,5 +1,5 @@
 import React from 'react'
-import MyRSVPs from './MyRSVPs'
+import MyRSVPs from './myRSVPs.js'
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 

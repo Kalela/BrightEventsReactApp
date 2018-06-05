@@ -1,5 +1,5 @@
 import React from 'react'
-import ResetPassword from './ResetPassword'
+import ResetPassword from './ResetPassword.js'
 import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 

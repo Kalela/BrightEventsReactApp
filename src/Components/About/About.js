@@ -1,7 +1,7 @@
 import React from 'react';
 import { UncontrolledCarousel } from 'reactstrap';
 
-import Navbar from '../Navbar/Navbar';
+import Navbar from '../Navbar/Navbar.js';
 import BottlePic from '../../img/barbottle.jpg';
 
 
