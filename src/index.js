@@ -7,6 +7,7 @@ import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
 //App Components
+import AboutUs from './Components/About/About';
 import CreateEvent from './Components/CreateEvent/CreateEvent';
 import Dashboard from './Components/DashBoard/Dashboard';
 import Events from './Components/ViewEvents/Events';
@@ -37,6 +38,7 @@ ReactDOM.render(
       <ProtectedRoute exact path='/:username/guests' component={ MyGuests }/>
       <ProtectedRoute exact path='/:username/rsvps' component={ MyRSVPs }/>
       <Route exact path='/' component={ LandingPage }/>
+      <Route exact path='/aboutus' component={ AboutUs }/>
       <Route exact path='/register' component={ Register }/>
       <Route exact path='/login' component={ Login }/>
       <Route exact path='/reset_password' component={ ResetPassword }/>

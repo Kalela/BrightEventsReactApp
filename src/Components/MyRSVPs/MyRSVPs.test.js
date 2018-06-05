@@ -9,6 +9,5 @@ describe('MyRSVPs page', () => {
   it('loads the create event page', () => {
     const wrapper = shallow(<MyRSVPs />);
     expect(wrapper).toBeDefined();
-    expect(wrapper.find('nav').length).toEqual(1);
   });
 });

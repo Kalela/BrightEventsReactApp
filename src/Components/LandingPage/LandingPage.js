@@ -34,7 +34,7 @@ class LandingPage extends Component {
             <div className="jumbotron jumbotron-fluid" id="landingPageJumbotron">
               <div className="container">
                 <h1 className="display-4">Bright Events</h1>
-                <p className="lead">We handle your event needs.</p>
+                <p className="lead">We handle your event needs. More<a href="/aboutus"> about us</a></p>
                 <a href="/register">
                   <button className="btn btn-outline-success my-2 my-sm-0" >Register</button>
                 </a>

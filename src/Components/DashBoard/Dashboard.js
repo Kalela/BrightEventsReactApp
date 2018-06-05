@@ -1,4 +1,4 @@
-//Dependencies
+//  Dependencies
 import React, { Component } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,15 +13,11 @@ class Dashboard extends Component {
   constructor(props){
     super(props);
     this.state = {
-        my_events: [],
-        all_events: [],
-        guests: [],
         current_user: "Guest",
         JWTtoken:"",
         toggled:true
     };
     this.toggleWrapper = this.toggleWrapper.bind(this)
-    this.showGuests = this.showGuests.bind(this)
   }
 
   componentWillMount(){
@@ -42,75 +38,6 @@ class Dashboard extends Component {
     })
   }
 
-  /**
-  Use fetch API to send rsvps
-  */
-  sendRSVP(dynamicData) {
-    if(this.state.JWTtoken){
-      const owner = {owner:dynamicData.owner}
-      fetch(`http://localhost:5000/api/v2/events/${dynamicData.eventname}/rsvp`, {
-        method:'POST',
-        headers:{
-            'Accept':'application/json, text/plain, */*',
-            'Content-type':'application/json',
-            'x-access-token': this.state.JWTtoken
-        },
-        body:JSON.stringify(owner)
-      })
-      .then(response => response.json())
-      .then((findresp) => {
-           toast.success(findresp.message,{
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: true,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true
-           })
-      })
-    }
-  }
-
-  /**
-  Use fetch API to get guests to specific events
-  */
-  showGuests(dynamicData) {
-    fetch(`http://localhost:5000/api/v2/events/${dynamicData.eventname}/rsvp`, {
-        method:'GET',
-        headers:{
-            'Accept':'application/json, text/plain, */*',
-            'Content-type':'application/json',
-            'x-access-token': this.state.JWTtoken
-        }
-      })
-    .then(response => response.json())
-    .then((findresp) => {
-        this.setState({
-          myguests:findresp.Guests
-      })
-    })
-    .catch(error => console.log('parsing failed', error))
-  }
-
-  componentDidMount(){
-      fetch(`http://localhost:5000/api/v2/events`, {
-          method:'GET',
-          headers:{
-              'Accept':'application/json, text/plain, */*',
-              'Content-type':'application/json',
-              'x-access-token': this.state.JWTtoken
-          }
-        })
-      .then(response => response.json())
-      .then((findresp) => {
-            this.setState({
-              all_events:findresp.Events,
-              current_user: this.state.current_user
-          })
-      })
-      .catch(error => console.log('parsing failed', error))
-   }
-   
   render(){
     return (
       <div className="Events">

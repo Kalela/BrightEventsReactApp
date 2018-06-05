@@ -2,10 +2,11 @@
 
 > React front-end for [Bright Events](https://github.com/Kalela/BrightEvents).
 
+[![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest) [![jest](https://facebook.github.io/jest/img/jest-badge.svg)](https://github.com/facebook/jest)
 
 ## Install
 
-1. Clone the repo: 
+1. Clone the repo:
 ```
 $ git clone [URL]
 ```
@@ -26,7 +27,7 @@ $ npm test
 
 ## Maintainer
 
-[@Kalela](https://github.com/Kalela) 
+[@Kalela](https://github.com/Kalela)
 
 ## License
 
