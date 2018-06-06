@@ -41,10 +41,14 @@ class DeleteModal extends Component {
         'Content-type': 'application/json',
         'x-access-token': this.state.JWTtoken,
       },
-    });
-    this.setState({
-      delete_modal: !this.state.delete_modal,
-    });
+    })
+      .then()
+      .then(() => {
+        const { onDelete } = this.props;
+        this.setState({
+          delete_modal: !this.state.delete_modal,
+        }, () => onDelete(eventname));
+      });
   }
 
   toggleDeleteModal() {

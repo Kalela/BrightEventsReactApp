@@ -10,8 +10,8 @@ class LandingPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      search: '',
       current_user: '',
+      JWTtoken: '',
     };
   }
 
@@ -32,13 +32,20 @@ class LandingPage extends Component {
           <div className="jumbotron jumbotron-fluid" id="landingPageJumbotron">
             <div className="container">
               <h1 className="display-4">Bright Events</h1>
-              <p className="lead">We handle your event needs. More<a href="/aboutus"> about us</a></p>
-              <a href="/register">
-                <button className="btn btn-outline-success my-2 my-sm-0" >Register</button>
-              </a>
-              <a href="/login" id="loginButton">
-                <button className="btn btn-outline-success my-2 my-sm-0">Log In</button>
-              </a>
+              {
+                !this.state.current_user ?
+                  <div>
+                    <p className="lead">We handle your event needs. More<a href="/aboutus"> about us</a></p>
+                    <a href="/register">
+                      <button className="btn btn-outline-success my-2 my-sm-0" >Register</button>
+                    </a>
+                    <a href="/login" id="loginButton">
+                      <button className="btn btn-outline-success my-2 my-sm-0">Log In</button>
+                    </a>
+                  </div>
+              :
+              ''
+            }
             </div>
           </div>
         </div>

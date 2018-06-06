@@ -27,12 +27,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">50% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>4/8</span>
+        <span class='fraction'>3/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">60% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/5</span>
+        <span class='fraction'>3/6</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">58.33% </span>
@@ -174,15 +174,7 @@
 129
 130
 131
-132
-133
-134
-135
-136
-137
-138
-139
-140</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+132</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -195,8 +187,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -241,20 +231,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -331,133 +315,125 @@ import NavbarOptions from '../NavbarOptions/NavbarOptions';
 The view all events component
 */
 class CreateEvent extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-        events: [],
-        JWTtoken: '',
-        category: 'Other',
-        current_user: '',
-        created: false
+      JWTtoken: '',
+      category: 'Other',
+      current_user: '',
     };
-    this.addEvent = this.addEvent.bind(this)
-    this.handleDropdown = this.handleDropdown.bind(this)
+    this.addEvent = this.addEvent.bind(this);
+    this.handleDropdown = this.handleDropdown.bind(this);
   }
 &nbsp;
-  componentWillMount(){
-      localStorage.getItem("BrightEventsJWTtoken") &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
-          JWTtoken: localStorage.getItem("BrightEventsJWTtoken")
-      })
-      localStorage.getItem("Logged_in") &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
-          current_user: localStorage.getItem("Logged_in")
-      })
+  componentWillMount() {
+    localStorage.getItem("BrightEventsJWTtoken") &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
+      JWTtoken: localStorage.getItem("BrightEventsJWTtoken")
+    });
+    localStorage.getItem("Logged_in") &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
+      current_user: localStorage.getItem("Logged_in")
+    });
   }
 &nbsp;
   /**
   Handle toggling the category dropdown
   */
 <span class="fstat-no" title="function not covered" >  ha</span>ndleDropdown(event) {
-<span class="cstat-no" title="statement not covered" >    this.setState({category: event.target.value});</span>
+<span class="cstat-no" title="statement not covered" >    this.setState({ category: event.target.value });</span>
   }
 &nbsp;
   /**
   Collect data from user and post to api
   */
-  addEvent = <span class="fstat-no" title="function not covered" >(e</span>vent) =&gt; {
-<span class="cstat-no" title="statement not covered" >      event.preventDefault();</span>
-      const new_event = <span class="cstat-no" title="statement not covered" >{</span>
+<span class="fstat-no" title="function not covered" >  ad</span>dEvent(event) {
+<span class="cstat-no" title="statement not covered" >    event.preventDefault();</span>
+    const newEvent = <span class="cstat-no" title="statement not covered" >{</span>
       eventname: this.refs.eventname.value,
       location: this.refs.location.value,
       date: this.refs.date.value,
       category: this.state.category,
-      }
-<span class="cstat-no" title="statement not covered" >      fetch('http://localhost:5000/api/v2/events', {</span>
-          method:'POST',
-          headers:{
-              'Accept':'application/json, text/plain, */*',
-              'Content-type':'application/json',
-              'x-access-token': this.state.JWTtoken
-          },
-          body:JSON.stringify(new_event)
-      })
-<span class="cstat-no" title="statement not covered" >      this.setState({</span>
-        created: true
-      })
+    };
+<span class="cstat-no" title="statement not covered" >    fetch('http://localhost:5000/api/v2/events', {</span>
+      method: 'POST',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-type': 'application/json',
+        'x-access-token': this.state.JWTtoken,
+      },
+      body: JSON.stringify(newEvent),
+    })
+      .then()
+      .then(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >        this.props.history.push(`/${this.state.current_user}/${this.refs.eventname.value}`)</span>
+      });
   }
 &nbsp;
-  render(){
+  render() {
     return (
-        &lt;div className="CreateEvent"&gt;
-          &lt;nav className="navbar navbar-expand-lg navbar-light bg-light"&gt;
-            &lt;a className="navbar-brand" href="/"&gt;BrightEvents&lt;/a&gt;
-            &lt;button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"&gt;
-              &lt;span className="navbar-toggler-icon"&gt;&lt;/span&gt;
-            &lt;/button&gt;
+      &lt;div className="CreateEvent"&gt;
+        &lt;nav className="navbar navbar-expand-lg navbar-light bg-light"&gt;
+          &lt;a className="navbar-brand" href="/"&gt;BrightEvents&lt;/a&gt;
+          &lt;button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"&gt;
+            &lt;span className="navbar-toggler-icon"&gt;&lt;/span&gt;
+          &lt;/button&gt;
 &nbsp;
-            &lt;div className="collapse navbar-collapse" id="navbarSupportedContent"&gt;
-              &lt;ul className="navbar-nav mr-auto"&gt;
-              &lt;/ul&gt;
-              {
+          &lt;div className="collapse navbar-collapse" id="navbarSupportedContent"&gt;
+            &lt;ul className="navbar-nav mr-auto"&gt;
+            &lt;/ul&gt;
+            {
                 this.state.current_user ?
-<span class="branch-0 cbranch-no" title="branch not covered" >                &lt; NavbarOptions current_user={this.state.current_user} JWTtoken={this.state.JWTtoken}/&gt;</span>
+<span class="branch-0 cbranch-no" title="branch not covered" >                  &lt; NavbarOptions current_user={this.state.current_user} JWTtoken={this.state.JWTtoken} /&gt;</span>
                 :
-                ""
+                ''
               }
+          &lt;/div&gt;
+        &lt;/nav&gt;
+        &lt;div className="container"&gt;
+          &lt;nav className="navbar navbar-default"&gt;
+            &lt;div className="container-fluid"&gt;
+              &lt;div className="navbar-header"&gt;
+                &lt;div className="col-md-12"&gt;
+                  &lt;div className="g" id="CreateEventForm"&gt;
+                    &lt;h1 className="head"&gt;Create Event&lt;/h1&gt;
+                    &lt;form className="formnow" onSubmit={this.addEvent} &gt;
+                      &lt;div className="form-group required"&gt;
+                        &lt;label className="control-label"&gt;Eventname&lt;/label&gt;
+                        &lt;input type="text" ref="eventname" className="form-control" id="eventname" required/&gt;
+                      &lt;/div&gt;
+                      &lt;div className="form-group required"&gt;
+                        &lt;label className="control-label"&gt;Location&lt;/label&gt;
+                        &lt;input className="form-control" ref="location" id="location" required type="text"/&gt;
+                      &lt;/div&gt;
+                      &lt;div className="form-group required"&gt;
+                        &lt;label className="control-label"&gt;Date&lt;/label&gt;
+                        &lt;input className="form-control" ref="date" id="date" required type="date"/&gt;
+                      &lt;/div&gt;
+                      &lt;div className="form-group"&gt;
+                        &lt;label className="control-label"&gt;Category&lt;/label&gt;
+                        &lt;select value={this.state.category} onChange={this.handleDropdown} id="categorySelect" className="form-control"&gt;
+                          &lt;option value="Other"&gt;Other&lt;/option&gt;
+                          &lt;option value="Bridal"&gt;Bridal&lt;/option&gt;
+                          &lt;option value="Educational"&gt;Educational&lt;/option&gt;
+                          &lt;option value="Commemorative"&gt;Commemorative&lt;/option&gt;
+                          &lt;option value="Product Launch"&gt;Product Launch&lt;/option&gt;
+                          &lt;option value="Social"&gt;Social&lt;/option&gt;
+                          &lt;option value="VIP"&gt;VIP&lt;/option&gt;
+                        &lt;/select&gt;
+                      &lt;/div&gt;
+                      &lt;button className="btn btn-info" id="createEvent" &gt;
+                              Create Event
+                      &lt;/button&gt;
+                    &lt;/form&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
             &lt;/div&gt;
           &lt;/nav&gt;
-          &lt;div className="container"&gt;
-            &lt;nav className="navbar navbar-default"&gt;
-              &lt;div className="container-fluid"&gt;
-                &lt;div className="navbar-header"&gt;
-                  &lt;div className="col-md-12"&gt;
-                    &lt;div className="g" id="CreateEventForm"&gt;
-                    &lt;h1 className="head"&gt;Create Event&lt;/h1&gt;
-                        {
-                          this.state.created ?
-<span class="branch-0 cbranch-no" title="branch not covered" >                          &lt;Alert color="success"&gt;</span>
-                            Event created! &lt;a href={`/${this.state.current_user}/${this.refs.eventname.value}`}&gt; Check it out &lt;/a&gt;
-                          &lt;/Alert&gt;:
-                          ""
-                        }
-                          &lt;form className="formnow" onSubmit={ this.addEvent } &gt;
-                            &lt;div className="form-group required"&gt;
-                              &lt;label className="control-label"&gt;Eventname&lt;/label&gt;
-                                &lt;input type="text" ref="eventname" className="form-control" id="eventname" required/&gt;
-                            &lt;/div&gt;
-                            &lt;div className="form-group required"&gt;
-                              &lt;label className="control-label"&gt;Location&lt;/label&gt;
-                                &lt;input className="form-control" ref="location" id="location" required type="text"/&gt;
-                            &lt;/div&gt;
-                            &lt;div className="form-group required"&gt;
-                              &lt;label className="control-label"&gt;Date&lt;/label&gt;
-                                &lt;input className="form-control" ref="date" id="date" required type="date"/&gt;
-                            &lt;/div&gt;
-                            &lt;div className="form-group"&gt;
-                              &lt;label className="control-label"&gt;Category&lt;/label&gt;
-                              &lt;select value={this.state.category} onChange={this.handleDropdown} id="categorySelect" className="form-control"&gt;
-                                &lt;option value="Other"&gt;Other&lt;/option&gt;
-                                &lt;option value="Bridal"&gt;Bridal&lt;/option&gt;
-                                &lt;option value="Educational"&gt;Educational&lt;/option&gt;
-                                &lt;option value="Commemorative"&gt;Commemorative&lt;/option&gt;
-                                &lt;option value="Product Launch"&gt;Product Launch&lt;/option&gt;
-                                &lt;option value="Social"&gt;Social&lt;/option&gt;
-                                &lt;option value="VIP"&gt;VIP&lt;/option&gt;
-                              &lt;/select&gt;
-                            &lt;/div&gt;
-                            &lt;button className="btn btn-info" id="createEvent" &gt;
-                              Create Event
-                            &lt;/button&gt;
-                          &lt;/form&gt;
-                        &lt;/div&gt;
-                    &lt;/div&gt;
-                  &lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/nav&gt;
-          &lt;/div&gt;
         &lt;/div&gt;
+      &lt;/div&gt;
     );
   }
-};
+}
 &nbsp;
 export default CreateEvent;
 &nbsp;</pre></td></tr>
@@ -466,7 +442,7 @@ export default CreateEvent;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 06 2018 14:02:57 GMT+0300 (EAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 06 2018 23:19:19 GMT+0300 (EAT)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

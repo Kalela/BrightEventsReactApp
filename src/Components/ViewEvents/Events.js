@@ -9,9 +9,6 @@ import {
   CardTitle,
   CardSubtitle,
   CardDeck,
-  Pagination,
-  PaginationItem,
-  PaginationLink,
 } from 'reactstrap';
 
 import DeleteModal from '../DashBoard/DeleteModal';
@@ -33,19 +30,46 @@ class Events extends Component {
       page: 1,
     };
     this.sendDeleteRSVP = this.sendDeleteRSVP.bind(this);
+    this.onDelete = this.onDelete.bind(this);
+    this.onEdit = this.onEdit.bind(this);
+    this.filterEvent = this.filterEvent.bind(this);
+    this.updateEvent = this.updateEvent.bind(this);
   }
 
   componentWillMount() {
     localStorage.getItem('BrightEventsJWTtoken') && this.setState({
-      JWTtoken: localStorage.getItem('BrightEventsJWTtoken')
+      JWTtoken: localStorage.getItem('BrightEventsJWTtoken'),
     });
     localStorage.getItem('Logged_in') && this.setState({
-      current_user: localStorage.getItem('Logged_in')
+      current_user: localStorage.getItem('Logged_in'),
     });
   }
 
   componentDidMount() {
     this.fetchData();
+  }
+
+  onDelete(name) {
+    this.setState({ events: this.filterEvent(name) });
+  }
+
+  onEdit(event) {
+    this.setState({ events: this.updateEvent(event) });
+  }
+
+  filterEvent(name) {
+    return this.state.events.filter(event => event.eventname !== name);
+  }
+
+  updateEvent(updatedEvent) {
+    return this.state.events.map((event) => {
+      if(event.event_name === updatedEvent.event_name) {
+        console.log("the event we've found", updatedEvent)
+        return updatedEvent
+      } else {
+           return event
+      }
+    })
   }
 
   /**
@@ -91,48 +115,6 @@ class Events extends Component {
     }
   }
 
-  selectPage(page) {
-    switch (page) {
-      case 1:
-        this.setState({
-          page: 1,
-        });
-        break;
-      case 2:
-        this.setState({
-          page: 2,
-        });
-        break;
-      case 3:
-        this.setState({
-          page: 3,
-        });
-        break;
-      case 4:
-        this.setState({
-          page: 4,
-        });
-        break;
-      case 5:
-        this.setState({
-          page: 5,
-        });
-        break;
-      case 'next':
-        this.setState({
-          page: this.state.page + 1,
-        });
-        break;
-      case 'prev':
-        this.setState({
-          page: this.state.page - 1,
-        });
-        break;
-      default:
-        break;
-    }
-  }
-
   render() {
     return (
       <div className="container">
@@ -142,67 +124,32 @@ class Events extends Component {
         <CardDeck>
           {
             this.state.events.map((dynamicData, key) =>
-            (<div key={dynamicData.id}>
-              <Card id="eventCards">
-                <CardBody>
-                  <CardTitle><a href={`/${dynamicData.owner}/${dynamicData.eventname}`}>{dynamicData.eventname}</a></CardTitle>
-                  <CardSubtitle id="cardSubtitle">At {dynamicData.location}</CardSubtitle>
-                  <CardSubtitle id="cardSubtitle">On {dynamicData.date.split('00')[0]}</CardSubtitle>
-                  <CardSubtitle id="cardSubtitle">By <a href={`/${dynamicData.owner}/dashboard`}>{dynamicData.owner}</a></CardSubtitle>
-                  <CardSubtitle id="cardSubtitle">Category: {dynamicData.category}</CardSubtitle>
-                </CardBody>
-                <img width="100%" src={Tryouts} alt="Card image cap" />
-                <CardBody>
-                  {
+            (
+              <div key={dynamicData.id}>
+                <Card id="eventCards">
+                  <CardBody>
+                    <CardTitle><a href={`/${dynamicData.owner}/${dynamicData.eventname}`}>{dynamicData.eventname}</a></CardTitle>
+                    <CardSubtitle id="cardSubtitle">At {dynamicData.location}</CardSubtitle>
+                    <CardSubtitle id="cardSubtitle">On {dynamicData.date.split('00')[0]}</CardSubtitle>
+                    <CardSubtitle id="cardSubtitle">By <a href={`/${dynamicData.owner}/dashboard`}>{dynamicData.owner}</a></CardSubtitle>
+                    <CardSubtitle id="cardSubtitle">Category: {dynamicData.category}</CardSubtitle>
+                  </CardBody>
+                  <img width="100%" src={Tryouts} alt="Card cap" />
+                  <CardBody>
+                    {
                      dynamicData.owner === this.state.current_user ?
-                    <ButtonGroup id="eventButtons">
-                      <Button size="sm" onClick={() => this.sendDeleteRSVP(dynamicData)}>Send RSVP</Button>
-                      <EditModal dynamicData={dynamicData}/>
-                      <DeleteModal dynamicData={dynamicData}/>
-                    </ButtonGroup>:
-                    <Button id="rsvpButton"size="sm" onClick={() => this.sendDeleteRSVP(dynamicData)}>Send RSVP</Button>
+                       <ButtonGroup id="eventButtons">
+                         <Button size="sm" onClick={() => this.sendDeleteRSVP(dynamicData)}>Send RSVP</Button>
+                         <EditModal onEdit={this.onEdit} dynamicData={dynamicData} />
+                         <DeleteModal onDelete={this.onDelete} dynamicData={dynamicData} />
+                       </ButtonGroup> :
+                       <Button id="rsvpButton"size="sm" onClick={() => this.sendDeleteRSVP(dynamicData)}>Send RSVP</Button>
                   }
-                </CardBody>
-              </Card>
-            </div>)
-            )
+                  </CardBody>
+                </Card>
+              </div>))
           }
         </CardDeck>
-        <div>
-          <Pagination id="pagination" aria-label="Page navigation">
-            <PaginationItem>
-              <PaginationLink previous onClick={() => this.selectPage('prev')} />
-            </PaginationItem>
-            <PaginationItem active>
-              <PaginationLink onClick={() => this.selectPage(1)}>
-                      1
-              </PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink onClick={() => this.selectPage(2)}>
-                      2
-              </PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink onClick={() => this.selectPage(3)}>
-                      3
-              </PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink onClick={() => this.selectPage(4)}>
-                      4
-              </PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink onClick={() => this.selectPage(5)}>
-                      5
-              </PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink next onClick={() => this.selectPage('next')} />
-            </PaginationItem>
-          </Pagination>
-        </div>
       </div>
     );
   }

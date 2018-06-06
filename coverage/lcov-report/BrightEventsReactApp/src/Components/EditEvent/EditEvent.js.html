@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">58.33% </span>
+        <span class="strong">46.67% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>7/12</span>
+        <span class='fraction'>7/15</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">50% </span>
@@ -30,18 +30,18 @@
         <span class='fraction'>2/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">33.33% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/6</span>
+        <span class='fraction'>3/9</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">58.33% </span>
+        <span class="strong">46.67% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>7/12</span>
+        <span class='fraction'>7/15</span>
       </div>
     </div>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -173,17 +173,7 @@
 128
 129
 130
-131
-132
-133
-134
-135
-136
-137
-138
-139</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+131</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -204,6 +194,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -239,6 +230,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -247,29 +243,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -330,8 +314,6 @@ import {
   Form,
   FormGroup,
   Label,
-  Input,
-  FormText,
 } from 'reactstrap';
 &nbsp;
 &nbsp;
@@ -344,6 +326,7 @@ class EditModal extends Component {
     this.state = {
       JWTtoken: '',
       edit_modal: false,
+      category: 'Other',
     };
     this.editEvent = this.editEvent.bind(this);
     this.toggleEditModal = this.toggleEditModal.bind(this);
@@ -363,7 +346,7 @@ class EditModal extends Component {
   */
 <span class="fstat-no" title="function not covered" >  ed</span>itEvent(eventName) {
     const editEvent = <span class="cstat-no" title="statement not covered" >{</span>
-      eventname: this.refs.eventname.value,
+      event_name: this.refs.eventname.value,
       location: this.refs.location.value,
       date: this.refs.date.value,
       category: this.state.category,
@@ -376,10 +359,14 @@ class EditModal extends Component {
         'x-access-token': this.state.JWTtoken,
       },
       body: JSON.stringify(editEvent),
-    });
-<span class="cstat-no" title="statement not covered" >    this.setState({</span>
-      edit_modal: !this.state.edit_modal,
-    });
+    })
+      .then()
+      .then(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
+        const { onEdit } = <span class="cstat-no" title="statement not covered" >this.props;</span>
+<span class="cstat-no" title="statement not covered" >        this.setState({</span>
+          edit_modal: !this.state.edit_modal,
+        }, <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >onEdit(editEvent))</span>;
+      });
   }
 &nbsp;
   /**
@@ -389,6 +376,10 @@ class EditModal extends Component {
 <span class="cstat-no" title="statement not covered" >    this.setState({</span>
       edit_modal: !this.state.edit_modal,
     });
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  ha</span>ndleDropdown(event) {
+<span class="cstat-no" title="statement not covered" >    this.setState({ category: event.target.value });</span>
   }
 &nbsp;
   render() {
@@ -402,24 +393,24 @@ class EditModal extends Component {
               &lt;FormGroup row&gt;
                 &lt;Label sm={2}&gt;Eventname&lt;/Label&gt;
                 &lt;Col sm={10}&gt;
-                  &lt;Input type="text" ref="eventname" placeholder="Edit event name" /&gt;
+                  &lt;input className="form-control" type="text" ref="eventname" placeholder="Edit event name" /&gt;
                 &lt;/Col&gt;
               &lt;/FormGroup&gt;
               &lt;FormGroup row&gt;
                 &lt;Label sm={2}&gt;Location&lt;/Label&gt;
                 &lt;Col sm={10}&gt;
-                  &lt;Input type="text" ref="location" placeholder="Edit event location" /&gt;
+                  &lt;input className="form-control" type="text" ref="location" placeholder="Edit event location" /&gt;
                 &lt;/Col&gt;
               &lt;/FormGroup&gt;
               &lt;FormGroup row&gt;
                 &lt;Label sm={2}&gt;Date&lt;/Label&gt;
                 &lt;Col sm={10}&gt;
-                  &lt;Input type="date" ref="date" placeholder="Edit event date" /&gt;
+                  &lt;input type="date" className="form-control" ref="date" placeholder="Edit event date" /&gt;
                 &lt;/Col&gt;
               &lt;/FormGroup&gt;
               &lt;FormGroup row&gt;
                 &lt;Label sm={2}&gt;Category&lt;/Label&gt;
-                &lt;select value={this.state.category} onChange={this.handleDropdown} id="categorySelect" className="form-control"&gt;
+                &lt;select value={this.state.category} onChange={this.handleDropdown} id="categorySelectEdit" className="form-control"&gt;
                   &lt;option value="Other"&gt;Other&lt;/option&gt;
                   &lt;option value="Bridal"&gt;Bridal&lt;/option&gt;
                   &lt;option value="Educational"&gt;Educational&lt;/option&gt;
@@ -428,21 +419,6 @@ class EditModal extends Component {
                   &lt;option value="Social"&gt;Social&lt;/option&gt;
                   &lt;option value="VIP"&gt;VIP&lt;/option&gt;
                 &lt;/select&gt;
-              &lt;/FormGroup&gt;
-              &lt;FormGroup row&gt;
-                &lt;Label for="exampleText" sm={2}&gt;Description&lt;/Label&gt;
-                &lt;Col sm={10}&gt;
-                  &lt;Input type="textarea" ref="description" placeholder="Edit event description" /&gt;
-                &lt;/Col&gt;
-              &lt;/FormGroup&gt;
-              &lt;FormGroup row&gt;
-                &lt;Label for="exampleFile" sm={2}&gt;Event Image&lt;/Label&gt;
-                &lt;Col sm={10}&gt;
-                  &lt;Input type="file" ref="file" id="eventImageFile" /&gt;
-                  &lt;FormText color="muted"&gt;
-                  Add an image for the event.
-                  &lt;/FormText&gt;
-                &lt;/Col&gt;
               &lt;/FormGroup&gt;
             &lt;/Form&gt;
           &lt;/ModalBody&gt;
@@ -463,7 +439,7 @@ export default EditModal;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 06 2018 14:02:57 GMT+0300 (EAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 06 2018 23:19:19 GMT+0300 (EAT)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

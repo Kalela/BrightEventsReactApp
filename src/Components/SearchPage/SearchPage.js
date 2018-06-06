@@ -121,22 +121,6 @@ class SearchPage extends Component {
               <Button color="success" onClick={this.runSearch} >Search Events</Button>
             </InputGroupAddon>
           </InputGroup>
-          <div className="form-group" id="searchCategory">
-            <label className="control-label" id="searchCategorylabel">Category</label>
-            <select value={this.state.category} onChange={this.handleDropdown} id="categorySelect" className="form-control">
-              <option value="Other">Other</option>
-              <option value="Bridal">Bridal</option>
-              <option value="Educational">Educational</option>
-              <option value="Commemorative">Commemorative</option>
-              <option value="Product Launch">Product Launch</option>
-              <option value="Social">Social</option>
-              <option value="VIP">VIP</option>
-            </select>
-          </div>
-          <div>
-            <label className="control-label" id="searchLocationlabel">Location</label>
-            <input id="searchLocation" type="text" ref="location" className="form-control" />
-          </div>
         </div>
         <div id="searchEventsContainer" className="container">
           {

@@ -9,8 +9,6 @@ import {
   Form,
   FormGroup,
   Label,
-  Input,
-  FormText,
 } from 'reactstrap';
 
 
@@ -23,6 +21,7 @@ class EditModal extends Component {
     this.state = {
       JWTtoken: '',
       edit_modal: false,
+      category: 'Other',
     };
     this.editEvent = this.editEvent.bind(this);
     this.toggleEditModal = this.toggleEditModal.bind(this);
@@ -42,7 +41,7 @@ class EditModal extends Component {
   */
   editEvent(eventName) {
     const editEvent = {
-      eventname: this.refs.eventname.value,
+      event_name: this.refs.eventname.value,
       location: this.refs.location.value,
       date: this.refs.date.value,
       category: this.state.category,
@@ -55,10 +54,14 @@ class EditModal extends Component {
         'x-access-token': this.state.JWTtoken,
       },
       body: JSON.stringify(editEvent),
-    });
-    this.setState({
-      edit_modal: !this.state.edit_modal,
-    });
+    })
+      .then()
+      .then(() => {
+        const { onEdit } = this.props;
+        this.setState({
+          edit_modal: !this.state.edit_modal,
+        }, () => onEdit(editEvent));
+      });
   }
 
   /**
@@ -68,6 +71,10 @@ class EditModal extends Component {
     this.setState({
       edit_modal: !this.state.edit_modal,
     });
+  }
+
+  handleDropdown(event) {
+    this.setState({ category: event.target.value });
   }
 
   render() {
@@ -81,24 +88,24 @@ class EditModal extends Component {
               <FormGroup row>
                 <Label sm={2}>Eventname</Label>
                 <Col sm={10}>
-                  <Input type="text" ref="eventname" placeholder="Edit event name" />
+                  <input className="form-control" type="text" ref="eventname" placeholder="Edit event name" />
                 </Col>
               </FormGroup>
               <FormGroup row>
                 <Label sm={2}>Location</Label>
                 <Col sm={10}>
-                  <Input type="text" ref="location" placeholder="Edit event location" />
+                  <input className="form-control" type="text" ref="location" placeholder="Edit event location" />
                 </Col>
               </FormGroup>
               <FormGroup row>
                 <Label sm={2}>Date</Label>
                 <Col sm={10}>
-                  <Input type="date" ref="date" placeholder="Edit event date" />
+                  <input type="date" className="form-control" ref="date" placeholder="Edit event date" />
                 </Col>
               </FormGroup>
               <FormGroup row>
                 <Label sm={2}>Category</Label>
-                <select value={this.state.category} onChange={this.handleDropdown} id="categorySelect" className="form-control">
+                <select value={this.state.category} onChange={this.handleDropdown} id="categorySelectEdit" className="form-control">
                   <option value="Other">Other</option>
                   <option value="Bridal">Bridal</option>
                   <option value="Educational">Educational</option>
@@ -107,21 +114,6 @@ class EditModal extends Component {
                   <option value="Social">Social</option>
                   <option value="VIP">VIP</option>
                 </select>
-              </FormGroup>
-              <FormGroup row>
-                <Label for="exampleText" sm={2}>Description</Label>
-                <Col sm={10}>
-                  <Input type="textarea" ref="description" placeholder="Edit event description" />
-                </Col>
-              </FormGroup>
-              <FormGroup row>
-                <Label for="exampleFile" sm={2}>Event Image</Label>
-                <Col sm={10}>
-                  <Input type="file" ref="file" id="eventImageFile" />
-                  <FormText color="muted">
-                  Add an image for the event.
-                  </FormText>
-                </Col>
               </FormGroup>
             </Form>
           </ModalBody>

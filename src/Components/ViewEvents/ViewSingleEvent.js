@@ -147,25 +147,24 @@ class ViewSingleEvent extends Component {
                 <tbody>
                   {
              this.state.eventguests.map((dynamicData, key) =>
-             (<tr>
+             (<tr key={dynamicData.id}>
                <th scope="row">1</th>
                <td>{dynamicData}</td>
-                <td>
+               <td>
                  <div id="guestOptions">
                    {
                      dynamicData.owner === this.state.current_user ?
-                    <Button color="danger" size="sm">
+                       <Button color="danger" size="sm">
                       Remove
-                    </Button>:
+                       </Button> :
                     ''
                     }
                    <Button color="info" size="sm">
                       View Profile
                    </Button>
-                  </div>
-                 </td>
-              </tr>)
-             )
+                 </div>
+               </td>
+              </tr>))
            }
                 </tbody>
               </Table>

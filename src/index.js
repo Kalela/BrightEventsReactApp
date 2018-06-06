@@ -13,7 +13,6 @@ import registerServiceWorker from './registerServiceWorker';
 //  App Components
 import AboutUs from './Components/About/About';
 import CreateEvent from './Components/CreateEvent/CreateEvent';
-import Dashboard from './Components/DashBoard/Dashboard';
 import Events from './Components/ViewEvents/Events';
 import Login from './Components/Login/Login';
 import LandingPage from './Components/LandingPage/LandingPage';
@@ -29,7 +28,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={(props) => (
     localStorage.getItem("Logged_in") ?
      <Component {...props} />
-     : <Redirect to='/login' />
+      : <Redirect to='/login' />
   )}/>
 )
 
@@ -37,7 +36,6 @@ ReactDOM.render(
   <Router>
     <Switch>
       <ProtectedRoute exact path="/:username/createevent" component={CreateEvent} />
-      <ProtectedRoute exact path="/:username/dashboard" component={Dashboard} />
       <ProtectedRoute exact path="/:username/events" component={MyEvents} />
       <ProtectedRoute exact path="/:username/guests" component={MyGuests} />
       <ProtectedRoute exact path="/:username/rsvps" component={MyRSVPs} />

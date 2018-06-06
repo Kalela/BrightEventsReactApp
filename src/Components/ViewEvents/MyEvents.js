@@ -89,47 +89,6 @@ class MyEvents extends Component {
         });
     }
   }
-  selectPage(page) {
-    switch (page) {
-      case 1:
-        this.setState({
-          page: 1,
-        });
-        break;
-      case 2:
-        this.setState({
-          page: 2,
-        });
-        break;
-      case 3:
-        this.setState({
-          page: 3,
-        });
-        break;
-      case 4:
-        this.setState({
-          page: 4,
-        });
-        break;
-      case 5:
-        this.setState({
-          page: 5,
-        });
-        break;
-      case 'next':
-        this.setState({
-          page: this.state.page + 1,
-        });
-        break;
-      case 'prev':
-        this.setState({
-          page: this.state.page - 1,
-        });
-        break;
-      default:
-        break;
-    }
-  }
   render() {
     return (
       <div className="container">
@@ -141,68 +100,33 @@ class MyEvents extends Component {
             <div>
               <CardDeck>
                 {
-                this.state.my_events.map((dynamicData,key) =>
-                (<div key={dynamicData.id}>
-                  <Card id="eventCards">
-                    <CardBody>
-                      <CardTitle>{dynamicData.eventname}</CardTitle>
-                      <CardSubtitle id="cardSubtitle">At {dynamicData.location}</CardSubtitle>
-                      <CardSubtitle id="cardSubtitle">On {dynamicData.date.split('00')[0]}</CardSubtitle>
-                      <CardSubtitle id="cardSubtitle">By {dynamicData.owner}</CardSubtitle>
-                      <CardSubtitle id="cardSubtitle">Category: {dynamicData.category}</CardSubtitle>
-                    </CardBody>
-                    <img width="100%" src={Tryouts} alt="Card image cap" />
-                    <CardBody>
-                      <ButtonGroup>
-                        <Button size="sm" onClick={() => this.sendRSVP(dynamicData)}>Send RSVP</Button>
-                        <EditModal dynamicData={dynamicData}/>
-                        <DeleteModal dynamicData={dynamicData}/>
-                      </ButtonGroup>
-                    </CardBody>
-                  </Card>
-                </div>)
-                )
+                this.state.my_events.map((dynamicData, key) =>
+                (
+                  <div key={dynamicData.id}>
+                    <Card id="eventCards">
+                      <CardBody>
+                        <CardTitle><a href={`/${dynamicData.owner}/${dynamicData.eventname}`}>{dynamicData.eventname}</a></CardTitle>
+                        <CardSubtitle id="cardSubtitle">At {dynamicData.location}</CardSubtitle>
+                        <CardSubtitle id="cardSubtitle">On {dynamicData.date.split('00')[0]}</CardSubtitle>
+                        <CardSubtitle id="cardSubtitle">By {dynamicData.owner}</CardSubtitle>
+                        <CardSubtitle id="cardSubtitle">Category: {dynamicData.category}</CardSubtitle>
+                      </CardBody>
+                      <img width="100%" src={Tryouts} alt="Card cap" />
+                      <CardBody>
+                        <ButtonGroup>
+                          <Button size="sm" onClick={() => this.sendRSVP(dynamicData)}>Send RSVP</Button>
+                          <EditModal dynamicData={dynamicData} />
+                          <DeleteModal dynamicData={dynamicData} />
+                        </ButtonGroup>
+                      </CardBody>
+                    </Card>
+                  </div>))
               }
               </CardDeck>
               <a href={`/${this.state.current_user}/createevent`} id="dashboardCreateEvent" className="btn btn-info navbar-btn">
                 <i className="glyphicon glyphicon-align-left"></i>
                 <span>Create an Event</span>
               </a>
-              <div>
-                <Pagination id="pagination" aria-label="Page navigation">
-                  <PaginationItem>
-                    <PaginationLink previous onClick={() => this.selectPage('prev')} />
-                  </PaginationItem>
-                  <PaginationItem active>
-                    <PaginationLink onClick={() => this.selectPage(1)}>
-                            1
-                    </PaginationLink>
-                  </PaginationItem>
-                  <PaginationItem>
-                    <PaginationLink onClick={() => this.selectPage(2)}>
-                            2
-                    </PaginationLink>
-                  </PaginationItem>
-                  <PaginationItem>
-                    <PaginationLink onClick={() => this.selectPage(3)}>
-                            3
-                    </PaginationLink>
-                  </PaginationItem>
-                  <PaginationItem>
-                    <PaginationLink onClick={() => this.selectPage(4)}>
-                            4
-                    </PaginationLink>
-                  </PaginationItem>
-                  <PaginationItem>
-                    <PaginationLink onClick={() => this.selectPage(5)}>
-                            5
-                    </PaginationLink>
-                  </PaginationItem>
-                  <PaginationItem>
-                    <PaginationLink next onClick={() => this.selectPage('next')} />
-                  </PaginationItem>
-                </Pagination>
-              </div>
             </div> :
             <div>
               <Alert color="info">

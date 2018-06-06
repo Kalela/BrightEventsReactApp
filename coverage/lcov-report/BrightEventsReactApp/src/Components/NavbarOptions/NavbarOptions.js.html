@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">35.71% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>5/14</span>
+        <span class='fraction'>0/15</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">33.33% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/6</span>
+        <span class='fraction'>0/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">38.46% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>5/13</span>
+        <span class='fraction'>0/14</span>
       </div>
     </div>
   </div>
@@ -120,7 +120,15 @@
 75
 76
 77
-78</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+78
+79
+80
+81
+82
+83
+84
+85
+86</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -132,12 +140,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -167,6 +176,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -179,7 +189,13 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -198,6 +214,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 &nbsp;
@@ -208,13 +225,13 @@ It allows users to logout, access the dashboard and settings from anywhere on
 the site that has the navbar.
 */
 class NavbarOptions extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+<span class="fstat-no" title="function not covered" >  co</span>nstructor(props) {
+<span class="cstat-no" title="statement not covered" >    super(props);</span>
+<span class="cstat-no" title="statement not covered" >    this.state = {</span>
       dropdownOpen: false,
     };
-    this.logout = this.logout.bind(this);
-    this.toggle = this.toggle.bind(this);
+<span class="cstat-no" title="statement not covered" >    this.logout = this.logout.bind(this);</span>
+<span class="cstat-no" title="statement not covered" >    this.toggle = this.toggle.bind(this);</span>
   }
 &nbsp;
   // shouldComponentUpdate(nextProps, nextState) {
@@ -233,7 +250,7 @@ class NavbarOptions extends Component {
   */
 <span class="fstat-no" title="function not covered" >  lo</span>gout() {
     const history = <span class="cstat-no" title="statement not covered" >createHistory();</span>
-<span class="cstat-no" title="statement not covered" >    fetch('http://localhost:5000/api/v2/logout', {</span>
+<span class="cstat-no" title="statement not covered" >    fetch('http://localhost:5000/api/v2/auth/logout', {</span>
       method: 'POST',
       headers: {
         Accept: 'application/json, text/plain, */*',
@@ -243,7 +260,8 @@ class NavbarOptions extends Component {
     });
 <span class="cstat-no" title="statement not covered" >    localStorage.removeItem('Logged_in');</span>
 <span class="cstat-no" title="statement not covered" >    localStorage.removeItem('BrightEventsJWTtoken');</span>
-<span class="cstat-no" title="statement not covered" >    history.push('/');</span>
+<span class="cstat-no" title="statement not covered" >    this.props.history.push('/');</span>
+<span class="cstat-no" title="statement not covered" >    this.forceUpdate();</span>
   }
 &nbsp;
   /**
@@ -255,15 +273,21 @@ class NavbarOptions extends Component {
     }));
 <span class="cstat-no" title="statement not covered" >    this.forceUpdate();</span>
   }
-  render() {
-    return (
+<span class="fstat-no" title="function not covered" >  re</span>nder() {
+<span class="cstat-no" title="statement not covered" >    return (</span>
       &lt;Dropdown id="navbarDropdown"isOpen={this.state.dropdownOpen} toggle={this.toggle}&gt;
         &lt;DropdownToggle caret&gt;
           {this.props.current_user}
         &lt;/DropdownToggle&gt;
         &lt;DropdownMenu id="navbarDropdownMenu"&gt;
           &lt;DropdownItem header&gt;Bright Events&lt;/DropdownItem&gt;
-          &lt;DropdownItem href={`/${this.props.current_user}/dashboard`}&gt;Dashboard&lt;/DropdownItem&gt;
+          &lt;DropdownItem divider /&gt;
+          &lt;DropdownItem href={`/${this.props.current_user}/createevent`}&gt;Create an Event&lt;/DropdownItem&gt;
+          &lt;DropdownItem divider /&gt;
+          &lt;DropdownItem href="/events"&gt;All Events&lt;/DropdownItem&gt;
+          &lt;DropdownItem href={`/${this.props.current_user}/events`}&gt;My Events&lt;/DropdownItem&gt;
+          &lt;DropdownItem href={`/${this.props.current_user}/guests`}&gt;My Guests&lt;/DropdownItem&gt;
+          &lt;DropdownItem href={`/${this.props.current_user}/rsvps`}&gt;My Event Wishlist&lt;/DropdownItem&gt;
           &lt;DropdownItem&gt;Settings&lt;/DropdownItem&gt;
           &lt;DropdownItem divider /&gt;
           &lt;DropdownItem onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >this.logout()}</span> &gt;Logout&lt;/DropdownItem&gt;
@@ -273,14 +297,14 @@ class NavbarOptions extends Component {
   }
 }
 &nbsp;
-export default NavbarOptions;
+export default withRouter(NavbarOptions);
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 06 2018 14:02:57 GMT+0300 (EAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 06 2018 23:19:19 GMT+0300 (EAT)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

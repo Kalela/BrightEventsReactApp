@@ -36,7 +36,7 @@ class Login extends Component {
         localStorage.setItem('BrightEventsJWTtoken', findresp.access_token);
         localStorage.setItem('Logged_in', user.username);
         if (findresp.access_token) {
-          this.props.history.push(`/${user.username}/dashboard`);
+          this.props.history.push(`/${user.username}/events`);
         } else {
           toast.error(findresp.message, {
             position: 'top-right',

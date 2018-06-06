@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
@@ -44,7 +45,7 @@ class NavbarOptions extends Component {
     });
     localStorage.removeItem('Logged_in');
     localStorage.removeItem('BrightEventsJWTtoken');
-    history.push('/');
+    this.props.history.push('/');
     this.forceUpdate();
   }
 
@@ -65,7 +66,13 @@ class NavbarOptions extends Component {
         </DropdownToggle>
         <DropdownMenu id="navbarDropdownMenu">
           <DropdownItem header>Bright Events</DropdownItem>
-          <DropdownItem href={`/${this.props.current_user}/dashboard`}>Dashboard</DropdownItem>
+          <DropdownItem divider />
+          <DropdownItem href={`/${this.props.current_user}/createevent`}>Create an Event</DropdownItem>
+          <DropdownItem divider />
+          <DropdownItem href="/events">All Events</DropdownItem>
+          <DropdownItem href={`/${this.props.current_user}/events`}>My Events</DropdownItem>
+          <DropdownItem href={`/${this.props.current_user}/guests`}>My Guests</DropdownItem>
+          <DropdownItem href={`/${this.props.current_user}/rsvps`}>My Event Wishlist</DropdownItem>
           <DropdownItem>Settings</DropdownItem>
           <DropdownItem divider />
           <DropdownItem onClick={() => this.logout()} >Logout</DropdownItem>
@@ -75,4 +82,4 @@ class NavbarOptions extends Component {
   }
 }
 
-export default NavbarOptions;
+export default withRouter(NavbarOptions);

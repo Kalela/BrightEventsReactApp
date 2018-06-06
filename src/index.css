@@ -60,20 +60,18 @@ a{
   margin-top: -27px;
 }
 #categorySelect {
-  width: 77%;
-  margin-left: 15px;
+  width: 100%;
+  margin-left: 0px;
+}
+#categorySelectEdit {
+  width: 384px;
+  margin-left: 14px;
 }
 #landingFooter {
     position: relative;
     left:500px;
     bottom:-340px;
     color:#fff;
-}
-#searchCategorylabel {
-    margin-right: 60%;
-}
-#searchLocationlabel {
-
 }
 #searchLocation {
     width: 65%;
