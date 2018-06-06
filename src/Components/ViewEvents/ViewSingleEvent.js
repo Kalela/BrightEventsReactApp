@@ -9,6 +9,8 @@ import {
   CardTitle,
   CardSubtitle,
   CardDeck,
+  Table,
+  Alert,
 } from 'reactstrap';
 
 import EditModal from '../EditEvent/EditEvent';
@@ -27,6 +29,7 @@ class ViewSingleEvent extends Component {
       event: [],
       JWTtoken: '',
       current_user: '',
+      eventguests: [],
     };
     this.sendRSVP = this.sendRSVP.bind(this);
   }
@@ -51,6 +54,21 @@ class ViewSingleEvent extends Component {
       .then((findresp) => {
         this.setState({
           event: findresp.Event,
+        });
+      });
+
+    fetch(`http://localhost:5000/api/v2/events/${this.props.match.params.eventname}/rsvp?owner=${this.props.match.params.username}`, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-type': 'application/json',
+        'x-access-token': this.state.JWTtoken,
+      },
+    })
+      .then(response => response.json())
+      .then((findresp) => {
+        this.setState({
+          eventguests: findresp.Guests,
         });
       });
   }
@@ -82,13 +100,13 @@ class ViewSingleEvent extends Component {
   render() {
     return (
       <div className="container">
-        <Navbar current_user={this.state.current_user} />
+        <Navbar current_user={this.state.current_user} JWTtoken={this.state.JWTtoken} />
         <ToastContainer />
         <div>
           <CardDeck>
             {
             this.state.event.map((dynamicData, key) =>
-            <div key={dynamicData.id}>
+            (<div key={dynamicData.id}>
               <Card>
                 <CardBody>
                   <CardTitle>{dynamicData.eventname}</CardTitle>
@@ -97,20 +115,65 @@ class ViewSingleEvent extends Component {
                   <CardSubtitle id="cardSubtitle">By {dynamicData.owner}</CardSubtitle>
                   <CardSubtitle id="cardSubtitle">Category: {dynamicData.category}</CardSubtitle>
                 </CardBody>
-                <img width="100%" src={Tryouts} alt="Card image cap" />
+                <img width="100%" src={Tryouts} alt="Card cap" />
                 <CardBody>
-                  <ButtonGroup>
-                    <Button size="sm" onClick={() => this.sendRSVP(dynamicData)}>Send RSVP</Button>
-                    <EditModal dynamicData={dynamicData}/>
-                    <DeleteModal dynamicData={dynamicData}/>
-                  </ButtonGroup>
+                  {
+                   dynamicData.owner === this.state.current_user ?
+                     <ButtonGroup id="eventButtons">
+                       <Button size="sm" onClick={() => this.sendRSVP(dynamicData)}>Send RSVP</Button>
+                       <EditModal dynamicData={dynamicData} />
+                       <DeleteModal dynamicData={dynamicData} />
+                     </ButtonGroup> :
+                     <Button id="rsvpButton"size="sm" onClick={() => this.sendRSVP(dynamicData)}>Send RSVP</Button>
+                }
                 </CardBody>
               </Card>
-            </div>
+            </div>)
             )
           }
           </CardDeck>
         </div>
+        {
+          this.state.eventguests ?
+            <div id="singleEventGuests">
+              <Table>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Guest List</th>
+                    <th>Options</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {
+             this.state.eventguests.map((dynamicData, key) =>
+             (<tr>
+               <th scope="row">1</th>
+               <td>{dynamicData}</td>
+                <td>
+                 <div id="guestOptions">
+                   {
+                     dynamicData.owner === this.state.current_user ?
+                    <Button color="danger" size="sm">
+                      Remove
+                    </Button>:
+                    ''
+                    }
+                   <Button color="info" size="sm">
+                      View Profile
+                   </Button>
+                  </div>
+                 </td>
+              </tr>)
+             )
+           }
+                </tbody>
+              </Table>
+            </div> :
+            <Alert color="info" id="singleEventGuests">
+          Event has no guests yet. Share it with friends.
+            </Alert>
+      }
       </div>
     );
   }

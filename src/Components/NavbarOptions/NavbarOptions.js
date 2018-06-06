@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 /**
@@ -13,40 +13,39 @@ class NavbarOptions extends Component {
     super(props);
     this.state = {
       dropdownOpen: false,
-      redirect: false,
     };
     this.logout = this.logout.bind(this);
     this.toggle = this.toggle.bind(this);
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.props.engagement !== nextProps.engagement ||
-      nextState.input !== this.state.input;
-  }
-
-  componentWillUpdate() {
-    if (this.state.redirect === true) {
-      <Redirect to="/" />
-    }
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return this.props.engagement !== nextProps.engagement ||
+  //     nextState.input !== this.state.input;
+  // }
+  //
+  // componentWillUpdate() {
+  //   if (this.state.redirect === true) {
+  //     <Redirect to="/" />
+  //   }
+  // }
 
   /**
   Logout a user
   */
   logout() {
-    fetch('http://localhost:5000/api/v2/logout', {
+    const history = createHistory();
+    fetch('http://localhost:5000/api/v2/auth/logout', {
       method: 'POST',
       headers: {
         Accept: 'application/json, text/plain, */*',
         'Content-type': 'application/json',
-        'x-access-token': this.state.JWTtoken,
+        'x-access-token': this.props.JWTtoken,
       },
     });
     localStorage.removeItem('Logged_in');
     localStorage.removeItem('BrightEventsJWTtoken');
-    this.setState({
-      redirect: true,
-    });
+    history.push('/');
+    this.forceUpdate();
   }
 
   /**

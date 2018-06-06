@@ -53,6 +53,12 @@ a{
 #dashb {
   color: fafafa;
 }
+#eventCards {
+  margin-bottom: 21px;
+}
+#guestOptions {
+  margin-top: -27px;
+}
 #categorySelect {
   width: 77%;
   margin-left: 15px;
@@ -62,6 +68,15 @@ a{
     left:500px;
     bottom:-340px;
     color:#fff;
+}
+#searchCategorylabel {
+    margin-right: 60%;
+}
+#searchLocationlabel {
+
+}
+#searchLocation {
+    width: 65%;
 }
 #landingPageJumbotron {
     margin-top: -3%;
@@ -84,6 +99,18 @@ a{
   margin: auto;
   width: 250px;
   text-align: center;
+  margin-left: 595px;
+  margin-bottom: -69px;
+}
+#searchAlert{
+  margin-top: -6%;
+  width: 38%;
+  margin-left: 31%;
+}
+#singleEventGuests {
+  width: 63%;
+  margin-left: 37%;
+  margin-top: -40%;
 }
 #resetEmailForm {
   margin: auto;

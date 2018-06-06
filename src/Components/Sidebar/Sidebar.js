@@ -1,12 +1,12 @@
 import React from 'react';
-import { NavLink, Redirect } from 'react-router-dom'
+import { NavLink, Redirect } from 'react-router-dom';
 
 /**
 Logout a user
 */
 const logout = () => {
   const token = localStorage.getItem('BrightEventsJWTtoken');
-  fetch('http://localhost:5000/api/v2/logout', {
+  fetch('http://localhost:5000/api/v2/auth/logout', {
     method: 'POST',
     headers: {
       Accept: 'application/json, text/plain, */*',

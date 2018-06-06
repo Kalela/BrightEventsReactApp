@@ -45,7 +45,7 @@ class MyRSVPs extends Component {
   render() {
     return (
       <div className="container">
-        <Navbar current_user={this.state.current_user} />
+        <Navbar current_user={this.state.current_user} JWTtoken={this.state.JWTtoken} />
         <Table>
           <thead>
             <tr>

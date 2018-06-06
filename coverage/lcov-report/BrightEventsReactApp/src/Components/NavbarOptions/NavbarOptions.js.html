@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">31.25% </span>
+        <span class="strong">35.71% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>5/16</span>
+        <span class='fraction'>5/14</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/4</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">25% </span>
-        <span class="quiet">Functions</span>
-        <span class='fraction'>2/8</span>
+        <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">33.33% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>2/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">38.46% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>5/15</span>
+        <span class='fraction'>5/13</span>
       </div>
     </div>
   </div>
@@ -120,9 +120,7 @@
 75
 76
 77
-78
-79
-80</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+78</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -138,19 +136,11 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -158,7 +148,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -168,9 +157,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -202,7 +198,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 &nbsp;
 /**
@@ -216,40 +212,38 @@ class NavbarOptions extends Component {
     super(props);
     this.state = {
       dropdownOpen: false,
-      redirect: false,
     };
     this.logout = this.logout.bind(this);
     this.toggle = this.toggle.bind(this);
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  sh</span>ouldComponentUpdate(nextProps, nextState) {
-<span class="cstat-no" title="statement not covered" >    return this.props.engagement !== nextProps.engagement ||</span>
-      nextState.input !== this.state.input;
-  }
-&nbsp;
-<span class="fstat-no" title="function not covered" >  co</span>mponentWillUpdate() {
-<span class="cstat-no" title="statement not covered" >    if (this.state.redirect === true) {</span>
-<span class="cstat-no" title="statement not covered" >      &lt;Redirect to="/" /&gt;</span>
-    }
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return this.props.engagement !== nextProps.engagement ||
+  //     nextState.input !== this.state.input;
+  // }
+  //
+  // componentWillUpdate() {
+  //   if (this.state.redirect === true) {
+  //     &lt;Redirect to="/" /&gt;
+  //   }
+  // }
 &nbsp;
   /**
   Logout a user
   */
 <span class="fstat-no" title="function not covered" >  lo</span>gout() {
+    const history = <span class="cstat-no" title="statement not covered" >createHistory();</span>
 <span class="cstat-no" title="statement not covered" >    fetch('http://localhost:5000/api/v2/logout', {</span>
       method: 'POST',
       headers: {
         Accept: 'application/json, text/plain, */*',
         'Content-type': 'application/json',
-        'x-access-token': this.state.JWTtoken,
+        'x-access-token': this.props.JWTtoken,
       },
     });
 <span class="cstat-no" title="statement not covered" >    localStorage.removeItem('Logged_in');</span>
 <span class="cstat-no" title="statement not covered" >    localStorage.removeItem('BrightEventsJWTtoken');</span>
-<span class="cstat-no" title="statement not covered" >    this.setState({</span>
-      redirect: true,
-    });
+<span class="cstat-no" title="statement not covered" >    history.push('/');</span>
   }
 &nbsp;
   /**
@@ -286,7 +280,7 @@ export default NavbarOptions;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 06 2018 01:53:57 GMT+0300 (EAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 06 2018 14:02:57 GMT+0300 (EAT)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

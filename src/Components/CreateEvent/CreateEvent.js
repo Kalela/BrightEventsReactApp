@@ -12,9 +12,9 @@ class CreateEvent extends Component {
     super(props);
     this.state = {
         events: [],
-        JWTtoken: "",
-        category: "Other",
-        current_user: "",
+        JWTtoken: '',
+        category: 'Other',
+        current_user: '',
         created: false
     };
     this.addEvent = this.addEvent.bind(this)
@@ -76,7 +76,7 @@ class CreateEvent extends Component {
               </ul>
               {
                 this.state.current_user ?
-                < NavbarOptions current_user={this.state.current_user}/>
+                < NavbarOptions current_user={this.state.current_user} JWTtoken={this.state.JWTtoken}/>
                 :
                 ""
               }

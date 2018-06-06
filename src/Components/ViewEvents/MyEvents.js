@@ -9,6 +9,9 @@ import {
   CardSubtitle,
   CardDeck,
   Alert,
+  Pagination,
+  PaginationItem,
+  PaginationLink,
 } from 'reactstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -16,7 +19,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import EditModal from '../EditEvent/EditEvent';
 import DeleteModal from '../DashBoard/DeleteModal';
 import Navbar from '../Navbar/Navbar';
-import Paginate from '../Pagination/paginate';
 
 import Tryouts from '../../img/event_stock_images/pexels-photo.jpg';
 
@@ -30,6 +32,7 @@ class MyEvents extends Component {
       my_events: [],
       current_user: '',
       JWTtoken: '',
+      page: 1,
     };
     this.sendRSVP = this.sendRSVP.bind(this);
   }
@@ -43,7 +46,7 @@ class MyEvents extends Component {
   }
   componentDidMount() {
     const user = jwt.decode(this.state.JWTtoken);
-    fetch(`http://localhost:5000/api/v2/events/${user.public_id}?limit=1&page=1`, {
+    fetch(`http://localhost:5000/api/v2/events/${user.public_id}?limit=1&page=${this.state.page}`, {
       method: 'GET',
       headers: {
         Accept: 'application/json, text/plain, */*',
@@ -86,11 +89,52 @@ class MyEvents extends Component {
         });
     }
   }
+  selectPage(page) {
+    switch (page) {
+      case 1:
+        this.setState({
+          page: 1,
+        });
+        break;
+      case 2:
+        this.setState({
+          page: 2,
+        });
+        break;
+      case 3:
+        this.setState({
+          page: 3,
+        });
+        break;
+      case 4:
+        this.setState({
+          page: 4,
+        });
+        break;
+      case 5:
+        this.setState({
+          page: 5,
+        });
+        break;
+      case 'next':
+        this.setState({
+          page: this.state.page + 1,
+        });
+        break;
+      case 'prev':
+        this.setState({
+          page: this.state.page - 1,
+        });
+        break;
+      default:
+        break;
+    }
+  }
   render() {
     return (
       <div className="container">
-        <Navbar current_user={this.state.current_user} />
-        <h3 id="eventsTitle"> All Events </h3>
+        <Navbar current_user={this.state.current_user} JWTtoken={this.state.JWTtoken} />
+        <h3 id="eventsTitle"> My Events </h3>
         <ToastContainer />
         {
           this.state.my_events ?
@@ -98,8 +142,8 @@ class MyEvents extends Component {
               <CardDeck>
                 {
                 this.state.my_events.map((dynamicData,key) =>
-                <div key={dynamicData.id}>
-                  <Card>
+                (<div key={dynamicData.id}>
+                  <Card id="eventCards">
                     <CardBody>
                       <CardTitle>{dynamicData.eventname}</CardTitle>
                       <CardSubtitle id="cardSubtitle">At {dynamicData.location}</CardSubtitle>
@@ -116,7 +160,7 @@ class MyEvents extends Component {
                       </ButtonGroup>
                     </CardBody>
                   </Card>
-                </div>
+                </div>)
                 )
               }
               </CardDeck>
@@ -124,11 +168,45 @@ class MyEvents extends Component {
                 <i className="glyphicon glyphicon-align-left"></i>
                 <span>Create an Event</span>
               </a>
-              <Paginate />
-            </div>:
+              <div>
+                <Pagination id="pagination" aria-label="Page navigation">
+                  <PaginationItem>
+                    <PaginationLink previous onClick={() => this.selectPage('prev')} />
+                  </PaginationItem>
+                  <PaginationItem active>
+                    <PaginationLink onClick={() => this.selectPage(1)}>
+                            1
+                    </PaginationLink>
+                  </PaginationItem>
+                  <PaginationItem>
+                    <PaginationLink onClick={() => this.selectPage(2)}>
+                            2
+                    </PaginationLink>
+                  </PaginationItem>
+                  <PaginationItem>
+                    <PaginationLink onClick={() => this.selectPage(3)}>
+                            3
+                    </PaginationLink>
+                  </PaginationItem>
+                  <PaginationItem>
+                    <PaginationLink onClick={() => this.selectPage(4)}>
+                            4
+                    </PaginationLink>
+                  </PaginationItem>
+                  <PaginationItem>
+                    <PaginationLink onClick={() => this.selectPage(5)}>
+                            5
+                    </PaginationLink>
+                  </PaginationItem>
+                  <PaginationItem>
+                    <PaginationLink next onClick={() => this.selectPage('next')} />
+                  </PaginationItem>
+                </Pagination>
+              </div>
+            </div> :
             <div>
-              <Alert color="danger">
-                User has no events yet!
+              <Alert color="info">
+                No events yet.
               </Alert>
               <a href={`/${this.state.current_user}/createevent`} id="dashboardCreateEvent" className="btn btn-info navbar-btn">
                 <i className="glyphicon glyphicon-align-left"></i>

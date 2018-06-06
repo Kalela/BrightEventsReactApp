@@ -112,17 +112,17 @@ class SearchPage extends Component {
   render() {
     return (
       <div className="SearchPage" >
-        <Navbar current_user={this.state.current_user} search_bar={false} />
+        <Navbar current_user={this.state.current_user} JWTtoken={this.state.JWTtoken} />
         <ToastContainer />
         <div id="searchForm">
           <InputGroup>
-            <input type="text" ref="q" className="form-control" id="eventname" required/>
+          <input type="text" ref="q" className="form-control" id="eventname" required/>
             <InputGroupAddon addonType="prepend">
               <Button color="success" onClick={this.runSearch} >Search Events</Button>
             </InputGroupAddon>
           </InputGroup>
           <div className="form-group" id="searchCategory">
-            <label className="control-label">Category</label>
+            <label className="control-label" id="searchCategorylabel">Category</label>
             <select value={this.state.category} onChange={this.handleDropdown} id="categorySelect" className="form-control">
               <option value="Other">Other</option>
               <option value="Bridal">Bridal</option>
@@ -133,40 +133,45 @@ class SearchPage extends Component {
               <option value="VIP">VIP</option>
             </select>
           </div>
+          <div>
+            <label className="control-label" id="searchLocationlabel">Location</label>
+            <input id="searchLocation" type="text" ref="location" className="form-control" />
+          </div>
         </div>
         <div id="searchEventsContainer" className="container">
           {
-          this.state.events ?
+          this.state.events[0] ?
             <CardDeck>
               {
-            this.state.events.map((dynamicData,key) =>
-            <div key={dynamicData.id}>
-              <Card>
+            this.state.events.map((dynamicData, key) =>
+            (<div key={dynamicData.id}>
+              <Card id="eventCards">
                 <CardBody>
-                  <CardTitle>{dynamicData.eventname}</CardTitle>
+                  <CardTitle><a href={`/${dynamicData.owner}/${dynamicData.eventname}`}>{dynamicData.eventname}</a></CardTitle>
                   <CardSubtitle id="cardSubtitle">At {dynamicData.location}</CardSubtitle>
                   <CardSubtitle id="cardSubtitle">On {dynamicData.date.split('00')[0]}</CardSubtitle>
                   <CardSubtitle id="cardSubtitle">By <a href={`/${dynamicData.owner}/dashboard`}>{dynamicData.owner}</a></CardSubtitle>
                   <CardSubtitle id="cardSubtitle">Category: {dynamicData.category}</CardSubtitle>
                 </CardBody>
-                <img width="100%" src={Tryouts} alt="Card image cap" />
+                <img width="100%" src={Tryouts} alt="Card cap" />
                 <CardBody>
-                    {
+                  {
                      dynamicData.owner === this.state.current_user ?
-                    <ButtonGroup id="eventButtons">
-                      <Button size="sm" onClick={() => this.sendDeleteRSVP(dynamicData)}>Send RSVP</Button>
-                      <EditModal dynamicData={dynamicData}/>
-                      <DeleteModal dynamicData={dynamicData}/>
-                    </ButtonGroup>:
-                    <Button id="rsvpButton"size="sm" onClick={() => this.sendDeleteRSVP(dynamicData)}>Send RSVP</Button>
+                       <ButtonGroup id="eventButtons">
+                         <Button size="sm" onClick={() => this.sendRSVP(dynamicData)}>Send RSVP</Button>
+                         <EditModal dynamicData={dynamicData} />
+                         <DeleteModal dynamicData={dynamicData} />
+                       </ButtonGroup> :
+                       <Button id="rsvpButton" size="sm" onClick={() => this.sendRSVP(dynamicData)}>Send RSVP</Button>
                     }
                 </CardBody>
               </Card>
-            </div>
+            </div>)
           )
           }
-            </CardDeck> :
-            <Alert color="info">
+            </CardDeck>
+             :
+            <Alert color="info" id="searchAlert">
             No events match your current search parameters.
             </Alert>
          }

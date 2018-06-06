@@ -9,12 +9,14 @@ import {
   CardTitle,
   CardSubtitle,
   CardDeck,
+  Pagination,
+  PaginationItem,
+  PaginationLink,
 } from 'reactstrap';
 
 import DeleteModal from '../DashBoard/DeleteModal';
 import EditModal from '../EditEvent/EditEvent';
 import Navbar from '../Navbar/Navbar';
-import Paginate from '../Pagination/paginate';
 
 import Tryouts from '../../img/event_stock_images/pexels-photo.jpg';
 
@@ -28,6 +30,7 @@ class Events extends Component {
       events: [],
       JWTtoken: '',
       current_user: '',
+      page: 1,
     };
     this.sendDeleteRSVP = this.sendDeleteRSVP.bind(this);
   }
@@ -49,7 +52,7 @@ class Events extends Component {
   Fetch events data
   */
   fetchData() {
-    fetch('http://localhost:5000/api/v2/events?limit=10&page=1')
+    fetch(`http://localhost:5000/api/v2/events?limit=10&page=${this.state.page}`)
       .then(response => response.json())
       .then((findresp) => {
         this.setState({
@@ -88,17 +91,59 @@ class Events extends Component {
     }
   }
 
+  selectPage(page) {
+    switch (page) {
+      case 1:
+        this.setState({
+          page: 1,
+        });
+        break;
+      case 2:
+        this.setState({
+          page: 2,
+        });
+        break;
+      case 3:
+        this.setState({
+          page: 3,
+        });
+        break;
+      case 4:
+        this.setState({
+          page: 4,
+        });
+        break;
+      case 5:
+        this.setState({
+          page: 5,
+        });
+        break;
+      case 'next':
+        this.setState({
+          page: this.state.page + 1,
+        });
+        break;
+      case 'prev':
+        this.setState({
+          page: this.state.page - 1,
+        });
+        break;
+      default:
+        break;
+    }
+  }
+
   render() {
     return (
       <div className="container">
-        <Navbar current_user={this.state.current_user} />
+        <Navbar current_user={this.state.current_user} JWTtoken={this.state.JWTtoken} />
         <h3 id="eventsTitle"> All Events </h3>
         <ToastContainer />
         <CardDeck>
           {
             this.state.events.map((dynamicData, key) =>
-            <div key={dynamicData.id}>
-              <Card>
+            (<div key={dynamicData.id}>
+              <Card id="eventCards">
                 <CardBody>
                   <CardTitle><a href={`/${dynamicData.owner}/${dynamicData.eventname}`}>{dynamicData.eventname}</a></CardTitle>
                   <CardSubtitle id="cardSubtitle">At {dynamicData.location}</CardSubtitle>
@@ -119,11 +164,45 @@ class Events extends Component {
                   }
                 </CardBody>
               </Card>
-            </div>
+            </div>)
             )
           }
         </CardDeck>
-        <Paginate />
+        <div>
+          <Pagination id="pagination" aria-label="Page navigation">
+            <PaginationItem>
+              <PaginationLink previous onClick={() => this.selectPage('prev')} />
+            </PaginationItem>
+            <PaginationItem active>
+              <PaginationLink onClick={() => this.selectPage(1)}>
+                      1
+              </PaginationLink>
+            </PaginationItem>
+            <PaginationItem>
+              <PaginationLink onClick={() => this.selectPage(2)}>
+                      2
+              </PaginationLink>
+            </PaginationItem>
+            <PaginationItem>
+              <PaginationLink onClick={() => this.selectPage(3)}>
+                      3
+              </PaginationLink>
+            </PaginationItem>
+            <PaginationItem>
+              <PaginationLink onClick={() => this.selectPage(4)}>
+                      4
+              </PaginationLink>
+            </PaginationItem>
+            <PaginationItem>
+              <PaginationLink onClick={() => this.selectPage(5)}>
+                      5
+              </PaginationLink>
+            </PaginationItem>
+            <PaginationItem>
+              <PaginationLink next onClick={() => this.selectPage('next')} />
+            </PaginationItem>
+          </Pagination>
+        </div>
       </div>
     );
   }

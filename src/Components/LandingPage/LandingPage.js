@@ -28,7 +28,7 @@ class LandingPage extends Component {
     return (
       <div className="LandingPage" id="aboutUs">
         <div id="landingPageDiv">
-          <Navbar current_user={this.state.current_user} />
+          <Navbar current_user={this.state.current_user} JWTtoken={this.state.JWTtoken} />
           <div className="jumbotron jumbotron-fluid" id="landingPageJumbotron">
             <div className="container">
               <h1 className="display-4">Bright Events</h1>

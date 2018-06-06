@@ -43,21 +43,6 @@ class Dashboard extends Component {
             <nav className="navbar navbar-default">
               <div className="container-fluid">
                 <div className="navbar-header">
-                  <button type="button" id="sidebarCollapse" onClick={this.toggleWrapper} className="btn btn-info navbar-btn">
-                    <i className="glyphicon glyphicon-align-left" />
-                    <span>Toggle Sidebar</span>
-                  </button>
-                </div>
-                <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <ul className="nav navbar-nav navbar-right">
-                    <li>Page</li>
-                  </ul>
-                </div>
-              </div>
-            </nav>
-            <nav className="navbar navbar-default">
-              <div className="container-fluid">
-                <div className="navbar-header">
                   <a href={`/${this.state.current_user}/createevent`} id="dashboardCreateEvent" className="btn btn-info navbar-btn">
                     <i className="glyphicon glyphicon-align-left" />
                     <span>Create an Event</span>
