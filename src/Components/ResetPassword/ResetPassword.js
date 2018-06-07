@@ -43,7 +43,7 @@ class ResetPassword extends Component {
           {
             this.state.alert === true ?
               <Alert color="info" id="searchAlert">
-                Please wait while we send you the email.
+                Please wait while we send you a password reset link. Check your mail.
               </Alert>
             :
             ''
