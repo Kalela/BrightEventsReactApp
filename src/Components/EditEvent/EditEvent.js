@@ -25,6 +25,7 @@ class EditModal extends Component {
     };
     this.editEvent = this.editEvent.bind(this);
     this.toggleEditModal = this.toggleEditModal.bind(this);
+    this.handleDropdown = this.handleDropdown.bind(this);
   }
 
   componentWillMount() {
@@ -61,6 +62,8 @@ class EditModal extends Component {
       date: this.refs.date.value,
       category: this.state.category,
     };
+    console.log(editEvent)
+    console.log(this.state.category)
     fetch(`http://localhost:5000/api/v2/events/${eventName}`, {
       method: 'PUT',
       headers: {
@@ -93,6 +96,7 @@ class EditModal extends Component {
   }
 
   render() {
+    console.log(this.state.category)
     return (
       <div>
         <Button size="sm" color="light" onClick={this.toggleEditModal}>Edit Event</Button>
@@ -120,12 +124,9 @@ class EditModal extends Component {
                 <FormGroup row>
                   <Label sm={2}>Date</Label>
                   <Col sm={10}>
-                    <input type="date" defaultValue={dynamicData.date.split('00')[0]} className="form-control" ref="date" placeholder="Edit event date" />
+                    <input type="date" defaultValue={dynamicData.date} className="form-control" ref="date" placeholder="Edit event date" />
                   </Col>
                 </FormGroup>
-                {
-                  // console.log(Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(dynamicData.date.split('00')[0]))
-                }
                 <FormGroup row>
                   <Label sm={2}>Category</Label>
                   <select defaultValue={dynamicData.category} onChange={this.handleDropdown} id="categorySelectEdit" className="form-control">

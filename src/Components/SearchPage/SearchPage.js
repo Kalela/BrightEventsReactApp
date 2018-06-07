@@ -34,8 +34,11 @@ class SearchPage extends Component {
       none: false,
     };
     this.runSearch = this.runSearch.bind(this);
-    this.handleDropdown = this.handleDropdown.bind(this);
     this.sendRSVP = this.sendRSVP.bind(this);
+    this.onDelete = this.onDelete.bind(this);
+    this.filterEvent = this.filterEvent.bind(this);
+    this.onEdit = this.onEdit.bind(this);
+    this.updateEvent = this.updateEvent.bind(this);
   }
 
   componentWillMount() {
@@ -47,7 +50,27 @@ class SearchPage extends Component {
     });
   }
 
+  onDelete(name) {
+    this.setState({ my_events: this.filterEvent(name) });
+  }
 
+  onEdit(event) {
+    this.setState({ my_events: this.updateEvent(event) });
+  }
+
+  updateEvent(updatedEvent) {
+    return this.state.events.map((event) => {
+      if (event.id === updatedEvent.id) {
+        return updatedEvent
+      } else {
+           return event
+      }
+    });
+  }
+
+  filterEvent(name) {
+    return this.state.events.filter(event => event.eventname !== name);
+  }
   /**
   perform an event search with user given input
   */
@@ -107,13 +130,6 @@ class SearchPage extends Component {
     }
   }
 
-  /**
-  Handle the category dropdown for filtering events
-  */
-  handleDropdown(event) {
-    this.setState({ category: event.target.value });
-  }
-
   render() {
     return (
       <div className="SearchPage" >
@@ -165,8 +181,8 @@ class SearchPage extends Component {
                      dynamicData.owner === this.state.current_user ?
                        <ButtonGroup id="eventButtons">
                          <Button size="sm" onClick={() => this.sendRSVP(dynamicData)}>Send RSVP</Button>
-                         <EditModal dynamicData={dynamicData} />
-                         <DeleteModal dynamicData={dynamicData} />
+                         <EditModal onEdit={this.onEdit} dynamicData={dynamicData} />
+                         <DeleteModal onEdit={this.onDelete} dynamicData={dynamicData} />
                        </ButtonGroup> :
                        <Button id="rsvpButton" size="sm" onClick={() => this.sendRSVP(dynamicData)}>Send RSVP</Button>
                     }

@@ -34,6 +34,8 @@ class MyEvents extends Component {
     this.sendRSVP = this.sendRSVP.bind(this);
     this.onDelete = this.onDelete.bind(this);
     this.filterEvent = this.filterEvent.bind(this);
+    this.onEdit = this.onEdit.bind(this);
+    this.updateEvent = this.updateEvent.bind(this);
   }
   componentWillMount() {
     localStorage.getItem("BrightEventsJWTtoken") && this.setState({
@@ -66,6 +68,20 @@ class MyEvents extends Component {
 
   onDelete(name) {
     this.setState({ my_events: this.filterEvent(name) });
+  }
+
+  onEdit(event) {
+    this.setState({ my_events: this.updateEvent(event) });
+  }
+
+  updateEvent(updatedEvent) {
+    return this.state.my_events.map((event) => {
+      if (event.id === updatedEvent.id) {
+        return updatedEvent
+      } else {
+           return event
+      }
+    })
   }
 
   filterEvent(name) {
@@ -124,7 +140,7 @@ class MyEvents extends Component {
                       <CardBody>
                         <ButtonGroup>
                           <Button size="sm" onClick={() => this.sendRSVP(dynamicData)}>Send RSVP</Button>
-                          <EditModal dynamicData={dynamicData} />
+                          <EditModal onEdit={this.onEdit} dynamicData={dynamicData} />
                           <DeleteModal onDelete={this.onDelete} dynamicData={dynamicData} />
                         </ButtonGroup>
                       </CardBody>
