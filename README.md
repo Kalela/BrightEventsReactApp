@@ -6,7 +6,7 @@
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest) [![jest](https://facebook.github.io/jest/img/jest-badge.svg)](https://github.com/facebook/jest)
 
 ## Project Information
-Bright Events is a event management app that allows users to create, manage and view other users events. You can find the app's backend [here](https://github.com/Kalela/BrightEvents).
+Bright Events is an event management app that allows users to create, manage and view other users events. You can find the app's backend [here](https://github.com/Kalela/BrightEvents).
 
 ## Install
 
