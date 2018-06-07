@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import createHistory from 'history/createBrowserHistory';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 /**
@@ -19,22 +18,10 @@ class NavbarOptions extends Component {
     this.toggle = this.toggle.bind(this);
   }
 
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   return this.props.engagement !== nextProps.engagement ||
-  //     nextState.input !== this.state.input;
-  // }
-  //
-  // componentWillUpdate() {
-  //   if (this.state.redirect === true) {
-  //     <Redirect to="/" />
-  //   }
-  // }
-
   /**
   Logout a user
   */
   logout() {
-    const history = createHistory();
     fetch('http://localhost:5000/api/v2/auth/logout', {
       method: 'POST',
       headers: {

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Alert } from 'reactstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -12,9 +11,6 @@ Registration.
 class Register extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      success: false,
-    };
     this.runRegistration = this.runRegistration.bind(this);
   }
 
@@ -28,7 +24,7 @@ class Register extends Component {
       email: this.refs.email.value,
       password: this.refs.password.value,
       confirmpassword: this.refs.confirmpassword.value,
-    }
+    };
 
     fetch('http://localhost:5000/api/v2/auth/register', {
       method: 'POST',

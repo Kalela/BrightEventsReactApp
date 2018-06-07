@@ -2,15 +2,15 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import MyGuests from './MyGuests';
+import NotFound from './NotFound';
 
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('MyGuests page', () => {
-  it('loads the my guests page', () => {
-    const wrapper = shallow(<MyGuests />);
+describe('404 page', () => {
+  it('loads the 404 page', () => {
+    const wrapper = shallow(<NotFound />);
     expect(wrapper).toBeDefined();
-    expect(wrapper.find('nav').length).toEqual(1);
+    expect(wrapper.find('h1').length).toEqual(1);
   });
 });

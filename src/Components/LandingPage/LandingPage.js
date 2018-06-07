@@ -35,7 +35,7 @@ class LandingPage extends Component {
               {
                 !this.state.current_user ?
                   <div>
-                    <p className="lead">We handle your event needs. More<a href="/aboutus"> about us</a></p>
+                    <p className="lead">We handle your event needs.</p>
                     <a href="/register">
                       <button className="btn btn-outline-success my-2 my-sm-0" >Register</button>
                     </a>

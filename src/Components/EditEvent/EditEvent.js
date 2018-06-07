@@ -11,7 +11,6 @@ import {
   Label,
 } from 'reactstrap';
 
-
 /**
 Component for event edit modal
 */
@@ -106,35 +105,30 @@ class EditModal extends Component {
               <Form key={dynamicData.id}>
                 <FormGroup row>
                   <Label sm={2}>Eventname</Label>
-                  <Label sm={2}>{dynamicData.eventname}</Label>
-                  <i className="far fa-edit" />
                   {
                     <Col sm={10}>
-                      <input className="form-control" type="text" ref="eventname" placeholder="Edit event name" />
+                      <input defaultValue={dynamicData.eventname} className="form-control" type="text" ref="eventname" placeholder="Edit event name" />
                     </Col>
                 }
                 </FormGroup>
                 <FormGroup row>
                   <Label sm={2}>Location</Label>
-                  <Label sm={2}>{dynamicData.location}</Label>
-                  <i className="far fa-edit" />
                   <Col sm={10}>
-                    <input className="form-control" type="text" ref="location" placeholder="Edit event location" />
+                    <input defaultValue={dynamicData.location} className="form-control" type="text" ref="location" placeholder="Edit event location" />
                   </Col>
                 </FormGroup>
                 <FormGroup row>
                   <Label sm={2}>Date</Label>
-                  <Label sm={2}>{dynamicData.date.split('00')[0]}</Label>
-                  <i className="far fa-edit" />
                   <Col sm={10}>
-                    <input type="date" className="form-control" ref="date" placeholder="Edit event date" />
+                    <input type="date" defaultValue={dynamicData.date.split('00')[0]} className="form-control" ref="date" placeholder="Edit event date" />
                   </Col>
                 </FormGroup>
+                {
+                  // console.log(Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(dynamicData.date.split('00')[0]))
+                }
                 <FormGroup row>
                   <Label sm={2}>Category</Label>
-                  <Label sm={2}>{dynamicData.category}</Label>
-                  <i className="far fa-edit" />
-                  <select value={this.state.category} onChange={this.handleDropdown} id="categorySelectEdit" className="form-control">
+                  <select defaultValue={dynamicData.category} onChange={this.handleDropdown} id="categorySelectEdit" className="form-control">
                     <option value="Other">Other</option>
                     <option value="Bridal">Bridal</option>
                     <option value="Educational">Educational</option>

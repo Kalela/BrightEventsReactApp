@@ -25,9 +25,7 @@ class ResetPassword extends Component {
     })
       .then(response => response.json())
       .then((findresp) => {
-        this.setState({
-          alert: true,
-        });
+        this.props.history.push('/')
       });
   }
   /**

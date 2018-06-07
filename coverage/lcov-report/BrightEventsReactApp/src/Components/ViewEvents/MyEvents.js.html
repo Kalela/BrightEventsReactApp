@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">42.11% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>8/19</span>
+        <span class='fraction'>0/19</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">30% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>3/10</span>
+        <span class='fraction'>0/10</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">33.33% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>4/12</span>
+        <span class='fraction'>0/12</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">42.11% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>8/19</span>
+        <span class='fraction'>0/19</span>
       </div>
     </div>
   </div>
@@ -186,10 +186,7 @@
 141
 142
 143
-144
-145
-146
-147</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+144</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -215,29 +212,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -281,7 +275,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -346,9 +340,6 @@ import {
   CardSubtitle,
   CardDeck,
   Alert,
-  Pagination,
-  PaginationItem,
-  PaginationLink,
 } from 'reactstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -363,27 +354,27 @@ import Tryouts from '../../img/event_stock_images/pexels-photo.jpg';
 Functional component to render all logged in users events from the database.
 */
 class MyEvents extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+<span class="fstat-no" title="function not covered" >  co</span>nstructor(props) {
+<span class="cstat-no" title="statement not covered" >    super(props);</span>
+<span class="cstat-no" title="statement not covered" >    this.state = {</span>
       my_events: [],
       current_user: '',
       JWTtoken: '',
       page: 1,
     };
-    this.sendRSVP = this.sendRSVP.bind(this);
+<span class="cstat-no" title="statement not covered" >    this.sendRSVP = this.sendRSVP.bind(this);</span>
   }
-  componentWillMount() {
-    localStorage.getItem("BrightEventsJWTtoken") &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
+<span class="fstat-no" title="function not covered" >  co</span>mponentWillMount() {
+<span class="cstat-no" title="statement not covered" >    localStorage.getItem("BrightEventsJWTtoken") &amp;&amp; this.setState({</span>
       JWTtoken: localStorage.getItem("BrightEventsJWTtoken")
     });
-    localStorage.getItem("Logged_in") &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
+<span class="cstat-no" title="statement not covered" >    localStorage.getItem("Logged_in") &amp;&amp; this.setState({</span>
       current_user: localStorage.getItem("Logged_in")
     });
   }
-  componentDidMount() {
-    const user = jwt.decode(this.state.JWTtoken);
-    fetch(`http://localhost:5000/api/v2/events/${user.public_id}?limit=1&amp;page=${this.state.page}`, {
+<span class="fstat-no" title="function not covered" >  co</span>mponentDidMount() {
+    const user = <span class="cstat-no" title="statement not covered" >jwt.decode(this.state.JWTtoken);</span>
+<span class="cstat-no" title="statement not covered" >    fetch(`http://localhost:5000/api/v2/events/${user.public_id}?limit=1&amp;page=${this.state.page}`, {</span>
       method: 'GET',
       headers: {
         Accept: 'application/json, text/plain, */*',
@@ -426,8 +417,8 @@ class MyEvents extends Component {
         });
     }
   }
-  render() {
-    return (
+<span class="fstat-no" title="function not covered" >  re</span>nder() {
+<span class="cstat-no" title="statement not covered" >    return (</span>
       &lt;div className="container"&gt;
         &lt;Navbar current_user={this.state.current_user} JWTtoken={this.state.JWTtoken} /&gt;
         &lt;h3 id="eventsTitle"&gt; My Events &lt;/h3&gt;
@@ -465,7 +456,7 @@ class MyEvents extends Component {
                 &lt;span&gt;Create an Event&lt;/span&gt;
               &lt;/a&gt;
             &lt;/div&gt; :
-<span class="branch-1 cbranch-no" title="branch not covered" >            &lt;div&gt;</span>
+            &lt;div&gt;
               &lt;Alert color="info"&gt;
                 No events yet.
               &lt;/Alert&gt;
@@ -487,7 +478,7 @@ export default MyEvents;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Jun 07 2018 12:41:20 GMT+0300 (EAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Jun 07 2018 23:27:46 GMT+0300 (EAT)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

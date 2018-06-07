@@ -43,7 +43,7 @@ class MyGuests extends Component {
         this.setState({
           myevents: findresp.MyEvents
         });
-        let events = findresp.MyEvents;
+        const events = findresp.MyEvents;
         if (user.public_id) {
           let guestsList = [];
           events.map((dynamicEvents, key) =>
@@ -58,24 +58,20 @@ class MyGuests extends Component {
               .then(response => response.json())
               .then((newfindresp) => {
                 const name = dynamicEvents.eventname;
-                console.log("name--->", String(name));
-                console.log("guestlist--->", newfindresp.Guests);
                 guestsList = [...guestsList, ...newfindresp.Guests];
-                console.log("guests_list--->", guestsList)
                 this.setState({
                   myguests: guestsList,
                 });
               })
-              .catch(error => console.log('parsing failed', error)),
-          )
+              .catch(error => console.log('parsing failed', error)));
         }
       })
-      .catch(error => console.log('parsing failed', error))
+      .catch(error => console.log('parsing failed', error));
   }
 
   toggle() {
     this.setState(prevState => ({
-      dropdownOpen: !prevState.dropdownOpen
+      dropdownOpen: !prevState.dropdownOpen,
     }));
   }
 
@@ -92,35 +88,32 @@ class MyGuests extends Component {
              <th>Options</th>
            </tr>
          </thead>
-         <tbody>
-         {
-           console.log("state--->", this.state.myguests)
-         }
-         {
-           this.state.myguests.map((dynamicData,key) =>
-           <tr>
-             <th scope="row">1</th>
-             <td>{dynamicData}</td>
-             <td></td>
-             <td>
-               <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                  <DropdownToggle caret>
+          <tbody>
+            {
+           this.state.myguests.map((dynamicData, key) =>
+             (
+               <tr key={key}>
+                 <th scope="row">1</th>
+                 <td>{dynamicData}</td>
+                 <td />
+                 <td>
+                   <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                     <DropdownToggle caret>
                     Guest Options
-                  </DropdownToggle>
-                  <DropdownMenu>
-                    <DropdownItem>Remove Guest</DropdownItem>
-                    <DropdownItem>View Profile</DropdownItem>
-                  </DropdownMenu>
-                </Dropdown>
-              </td>
-           </tr>
-           )
+                     </DropdownToggle>
+                     <DropdownMenu>
+                       <DropdownItem>Remove Guest</DropdownItem>
+                       <DropdownItem>View Profile</DropdownItem>
+                     </DropdownMenu>
+                   </Dropdown>
+                 </td>
+               </tr>))
          }
-         </tbody>
-       </Table>
+          </tbody>
+        </Table>
       </div>
     );
   }
-};
+}
 
 export default MyGuests;

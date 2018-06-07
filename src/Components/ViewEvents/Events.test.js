@@ -14,12 +14,4 @@ describe('Events and My events page', () => {
     const wrapper = shallow(<Events />);
     expect(wrapper).toBeDefined();
   });
-  it('loads the my event page', () => {
-    const wrapper = shallow(<MyEvents />);
-    expect(wrapper).toBeDefined();
-  });
-  it('loads single event page', () => {
-    const wrapper = shallow(<ViewSingleEvent />);
-    expect(wrapper).toBeDefined();
-  });
 });

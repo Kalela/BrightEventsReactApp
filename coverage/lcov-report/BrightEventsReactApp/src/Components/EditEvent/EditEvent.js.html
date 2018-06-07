@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">36.84% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>7/19</span>
+        <span class='fraction'>0/19</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>2/4</span>
+        <span class='fraction'>0/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">23.08% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/13</span>
+        <span class='fraction'>0/13</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">36.84% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>7/19</span>
+        <span class='fraction'>0/19</span>
       </div>
     </div>
   </div>
@@ -197,13 +197,7 @@
 152
 153
 154
-155
-156
-157
-158
-159
-160
-161</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+155</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -221,23 +215,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -299,7 +292,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -309,11 +302,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -376,28 +364,27 @@ import {
   Label,
 } from 'reactstrap';
 &nbsp;
-&nbsp;
 /**
 Component for event edit modal
 */
 class EditModal extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+<span class="fstat-no" title="function not covered" >  co</span>nstructor(props) {
+<span class="cstat-no" title="statement not covered" >    super(props);</span>
+<span class="cstat-no" title="statement not covered" >    this.state = {</span>
       JWTtoken: '',
       edit_modal: false,
       category: 'Other',
       event: [],
     };
-    this.editEvent = this.editEvent.bind(this);
-    this.toggleEditModal = this.toggleEditModal.bind(this);
+<span class="cstat-no" title="statement not covered" >    this.editEvent = this.editEvent.bind(this);</span>
+<span class="cstat-no" title="statement not covered" >    this.toggleEditModal = this.toggleEditModal.bind(this);</span>
   }
 &nbsp;
-  componentWillMount() {
-    localStorage.getItem('BrightEventsJWTtoken') &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
+<span class="fstat-no" title="function not covered" >  co</span>mponentWillMount() {
+<span class="cstat-no" title="statement not covered" >    localStorage.getItem('BrightEventsJWTtoken') &amp;&amp; this.setState({</span>
       JWTtoken: localStorage.getItem('BrightEventsJWTtoken')
     });
-      localStorage.getItem('Logged_in') &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
+<span class="cstat-no" title="statement not covered" >      localStorage.getItem('Logged_in') &amp;&amp; this.setState({</span>
       current_user: localStorage.getItem('Logged_in')
     });
   }
@@ -458,8 +445,8 @@ class EditModal extends Component {
 <span class="cstat-no" title="statement not covered" >    this.setState({ category: event.target.value });</span>
   }
 &nbsp;
-  render() {
-    return (
+<span class="fstat-no" title="function not covered" >  re</span>nder() {
+<span class="cstat-no" title="statement not covered" >    return (</span>
       &lt;div&gt;
         &lt;Button size="sm" color="light" onClick={this.toggleEditModal}&gt;Edit Event&lt;/Button&gt;
         &lt;Modal isOpen={this.state.edit_modal} toggle={this.toggleEditModal} className={this.props.className}&gt;
@@ -471,35 +458,30 @@ class EditModal extends Component {
 <span class="cstat-no" title="statement not covered" >              &lt;Form key={dynamicData.id}&gt;</span>
                 &lt;FormGroup row&gt;
                   &lt;Label sm={2}&gt;Eventname&lt;/Label&gt;
-                  &lt;Label sm={2}&gt;{dynamicData.eventname}&lt;/Label&gt;
-                  &lt;i className="far fa-edit" /&gt;
                   {
                     &lt;Col sm={10}&gt;
-                      &lt;input className="form-control" type="text" ref="eventname" placeholder="Edit event name" /&gt;
+                      &lt;input defaultValue={dynamicData.eventname} className="form-control" type="text" ref="eventname" placeholder="Edit event name" /&gt;
                     &lt;/Col&gt;
                 }
                 &lt;/FormGroup&gt;
                 &lt;FormGroup row&gt;
                   &lt;Label sm={2}&gt;Location&lt;/Label&gt;
-                  &lt;Label sm={2}&gt;{dynamicData.location}&lt;/Label&gt;
-                  &lt;i className="far fa-edit" /&gt;
                   &lt;Col sm={10}&gt;
-                    &lt;input className="form-control" type="text" ref="location" placeholder="Edit event location" /&gt;
+                    &lt;input defaultValue={dynamicData.location} className="form-control" type="text" ref="location" placeholder="Edit event location" /&gt;
                   &lt;/Col&gt;
                 &lt;/FormGroup&gt;
                 &lt;FormGroup row&gt;
                   &lt;Label sm={2}&gt;Date&lt;/Label&gt;
-                  &lt;Label sm={2}&gt;{dynamicData.date.split('00')[0]}&lt;/Label&gt;
-                  &lt;i className="far fa-edit" /&gt;
                   &lt;Col sm={10}&gt;
-                    &lt;input type="date" className="form-control" ref="date" placeholder="Edit event date" /&gt;
+                    &lt;input type="date" defaultValue={dynamicData.date.split('00')[0]} className="form-control" ref="date" placeholder="Edit event date" /&gt;
                   &lt;/Col&gt;
                 &lt;/FormGroup&gt;
+                {
+                  // console.log(Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(dynamicData.date.split('00')[0]))
+                }
                 &lt;FormGroup row&gt;
                   &lt;Label sm={2}&gt;Category&lt;/Label&gt;
-                  &lt;Label sm={2}&gt;{dynamicData.category}&lt;/Label&gt;
-                  &lt;i className="far fa-edit" /&gt;
-                  &lt;select value={this.state.category} onChange={this.handleDropdown} id="categorySelectEdit" className="form-control"&gt;
+                  &lt;select defaultValue={dynamicData.category} onChange={this.handleDropdown} id="categorySelectEdit" className="form-control"&gt;
                     &lt;option value="Other"&gt;Other&lt;/option&gt;
                     &lt;option value="Bridal"&gt;Bridal&lt;/option&gt;
                     &lt;option value="Educational"&gt;Educational&lt;/option&gt;
@@ -529,7 +511,7 @@ export default EditModal;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Jun 07 2018 12:41:20 GMT+0300 (EAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Jun 07 2018 23:27:46 GMT+0300 (EAT)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>
