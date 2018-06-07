@@ -10,7 +10,7 @@
 ## Project Information
 Bright Events is an event management app that allows users to create, manage and view other users events. You can find the app's backend [here](https://github.com/Kalela/BrightEvents).
 
-See it live [here](https://bright-events-frontend.herokuapp.com/)
+See it live [on Heroku here](https://bright-events-frontend.herokuapp.com/)
 
 ### Features
 - Users can register an account.
