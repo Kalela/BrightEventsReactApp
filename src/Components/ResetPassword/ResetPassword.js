@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { InputGroup, InputGroupAddon, Button } from 'reactstrap';
+import { InputGroup, InputGroupAddon, Button, Alert } from 'reactstrap';
 import Navbar from '../Navbar/Navbar';
 
 class ResetPassword extends Component {
@@ -15,6 +15,9 @@ class ResetPassword extends Component {
       email: this.refs.email.value,
       option: 'reset-password',
     };
+    this.setState({
+      alert: true,
+    });
     fetch('http://localhost:5000/api/v2/emails', {
       method: 'POST',
       headers: {
@@ -37,6 +40,14 @@ class ResetPassword extends Component {
         <Navbar />
         <div id="resetEmailForm">
           <h4>Please insert email to recieve password reset link</h4>
+          {
+            this.state.alert === true ?
+              <Alert color="info" id="searchAlert">
+                Please wait while we send you the email.
+              </Alert>
+            :
+            ''
+          }
           <InputGroup>
             <input className="form-control" ref="email" id="email" required type="text"/>
             <InputGroupAddon addonType="prepend">
