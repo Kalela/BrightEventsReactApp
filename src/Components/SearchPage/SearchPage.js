@@ -30,7 +30,6 @@ class SearchPage extends Component {
     this.state = {
       events: [],
       current_user: '',
-      category: '',
       JWTtoken: '',
     };
     this.runSearch = this.runSearch.bind(this);
@@ -56,12 +55,11 @@ class SearchPage extends Component {
     const searchParams = {
       q: this.refs.q.value,
     };
-    fetch(`http://localhost:5000/api/v2/events?q=${searchParams.q}`, {
+    fetch(`http://localhost:5000/api/v2/search?q=${searchParams.q}`, {
       method: 'GET',
       headers: {
         Accept: 'application/json, text/plain, */*',
         'Content-type': 'application/json',
-        'x-access-token': this.state.JWTtoken,
       },
     })
       .then(response => response.json())

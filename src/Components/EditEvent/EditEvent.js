@@ -22,18 +22,34 @@ class EditModal extends Component {
       JWTtoken: '',
       edit_modal: false,
       category: 'Other',
+      event: [],
     };
     this.editEvent = this.editEvent.bind(this);
     this.toggleEditModal = this.toggleEditModal.bind(this);
   }
 
   componentWillMount() {
-    localStorage.getItem("BrightEventsJWTtoken") && this.setState({
-      JWTtoken: localStorage.getItem("BrightEventsJWTtoken")
+    localStorage.getItem('BrightEventsJWTtoken') && this.setState({
+      JWTtoken: localStorage.getItem('BrightEventsJWTtoken')
     });
-      localStorage.getItem("Logged_in") && this.setState({
-      current_user: localStorage.getItem("Logged_in")
+      localStorage.getItem('Logged_in') && this.setState({
+      current_user: localStorage.getItem('Logged_in')
     });
+  }
+
+  componentDidMount() {
+    fetch(`http://localhost:5000/api/v2/events/${this.state.current_user}/${this.props.dynamicData.eventname}`, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-type': 'application/json',
+        'x-access-token': this.state.JWTtoken,
+      },
+    })
+      .then(response => response.json())
+      .then((findresp) => {
+        this.setState({ event: findresp.Event });
+      });
   }
 
   /**
@@ -84,38 +100,52 @@ class EditModal extends Component {
         <Modal isOpen={this.state.edit_modal} toggle={this.toggleEditModal} className={this.props.className}>
           <ModalHeader toggle={this.toggleEditModal}>{this.props.dynamicData.eventname}</ModalHeader>
           <ModalBody>
-            <Form>
-              <FormGroup row>
-                <Label sm={2}>Eventname</Label>
-                <Col sm={10}>
-                  <input className="form-control" type="text" ref="eventname" placeholder="Edit event name" />
-                </Col>
-              </FormGroup>
-              <FormGroup row>
-                <Label sm={2}>Location</Label>
-                <Col sm={10}>
-                  <input className="form-control" type="text" ref="location" placeholder="Edit event location" />
-                </Col>
-              </FormGroup>
-              <FormGroup row>
-                <Label sm={2}>Date</Label>
-                <Col sm={10}>
-                  <input type="date" className="form-control" ref="date" placeholder="Edit event date" />
-                </Col>
-              </FormGroup>
-              <FormGroup row>
-                <Label sm={2}>Category</Label>
-                <select value={this.state.category} onChange={this.handleDropdown} id="categorySelectEdit" className="form-control">
-                  <option value="Other">Other</option>
-                  <option value="Bridal">Bridal</option>
-                  <option value="Educational">Educational</option>
-                  <option value="Commemorative">Commemorative</option>
-                  <option value="Product Launch">Product Launch</option>
-                  <option value="Social">Social</option>
-                  <option value="VIP">VIP</option>
-                </select>
-              </FormGroup>
-            </Form>
+            {
+            this.state.event.map((dynamicData, key) =>
+            (
+              <Form key={dynamicData.id}>
+                <FormGroup row>
+                  <Label sm={2}>Eventname</Label>
+                  <Label sm={2}>{dynamicData.eventname}</Label>
+                  <i className="far fa-edit" />
+                  {
+                    <Col sm={10}>
+                      <input className="form-control" type="text" ref="eventname" placeholder="Edit event name" />
+                    </Col>
+                }
+                </FormGroup>
+                <FormGroup row>
+                  <Label sm={2}>Location</Label>
+                  <Label sm={2}>{dynamicData.location}</Label>
+                  <i className="far fa-edit" />
+                  <Col sm={10}>
+                    <input className="form-control" type="text" ref="location" placeholder="Edit event location" />
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Label sm={2}>Date</Label>
+                  <Label sm={2}>{dynamicData.date.split('00')[0]}</Label>
+                  <i className="far fa-edit" />
+                  <Col sm={10}>
+                    <input type="date" className="form-control" ref="date" placeholder="Edit event date" />
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Label sm={2}>Category</Label>
+                  <Label sm={2}>{dynamicData.category}</Label>
+                  <i className="far fa-edit" />
+                  <select value={this.state.category} onChange={this.handleDropdown} id="categorySelectEdit" className="form-control">
+                    <option value="Other">Other</option>
+                    <option value="Bridal">Bridal</option>
+                    <option value="Educational">Educational</option>
+                    <option value="Commemorative">Commemorative</option>
+                    <option value="Product Launch">Product Launch</option>
+                    <option value="Social">Social</option>
+                    <option value="VIP">VIP</option>
+                  </select>
+                </FormGroup>
+              </Form>))
+          }
           </ModalBody>
           <ModalFooter>
             <Button color="success" onClick={() => this.editEvent(this.props.dynamicData.eventname)}>Edit</Button>{' '}

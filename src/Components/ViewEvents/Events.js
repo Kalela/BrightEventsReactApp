@@ -63,7 +63,7 @@ class Events extends Component {
 
   updateEvent(updatedEvent) {
     return this.state.events.map((event) => {
-      if(event.event_name === updatedEvent.event_name) {
+      if (event.id === updatedEvent.id) {
         console.log("the event we've found", updatedEvent)
         return updatedEvent
       } else {

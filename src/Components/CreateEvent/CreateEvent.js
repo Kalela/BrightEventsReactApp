@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Alert } from 'reactstrap';
-import { Redirect } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import NavbarOptions from '../NavbarOptions/NavbarOptions';
 
@@ -55,9 +55,20 @@ class CreateEvent extends Component {
       },
       body: JSON.stringify(newEvent),
     })
-      .then()
-      .then(() => {
-        this.props.history.push(`/${this.state.current_user}/${this.refs.eventname.value}`)
+      .then(response => response.json())
+      .then((findresp) => {
+        if (findresp.message) {
+          toast.error(findresp.message, {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+        } else {
+          this.props.history.push(`/${this.state.current_user}/${this.refs.eventname.value}`)
+        }
       });
   }
 
@@ -83,6 +94,7 @@ class CreateEvent extends Component {
         </nav>
         <div className="container">
           <nav className="navbar navbar-default">
+            <ToastContainer />
             <div className="container-fluid">
               <div className="navbar-header">
                 <div className="col-md-12">
