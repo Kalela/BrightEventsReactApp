@@ -3,12 +3,18 @@ import React, { Component } from 'react';
 import Navbar from '../Navbar/Navbar';
 
 class ConfirmResetPassword extends Component {
-  runReset() {
+  constructor(props) {
+    super(props);
+    this.runReset = this.runReset.bind(this);
+  }
+
+  runReset(event) {
+    event.preventDefault();
+    console.log(this.props.match.params.token)
     const password = {
       password: this.refs.password.value,
     };
-    console.log(this.props.match.params.token)
-    fetch(`http://localhost:5000/confirm_email/reset-password/${this.props.match.params.token}`,{
+    fetch(`http://localhost:5000/api/v2/confirm_email/reset-password/${this.props.match.params.token}`,{
       method: 'POST',
       headers: {
         Accept: 'application/json, text/plain, */*',
@@ -37,11 +43,11 @@ class ConfirmResetPassword extends Component {
                     <form id="RegisterForm" className="formnow" onSubmit={this.runReset} >
                       <div className="form-group required">
                         <label className="control-label">Password</label>
-                        <input type="password" ref="password" className="form-control" required />
+                        <input type="password" ref="password" id="password" className="form-control" required />
                       </div>
                       <div className="form-group required">
                         <label className="control-label">Confirm Password</label>
-                        <input className="form-control" ref="confirmpassword" required type="password" />
+                        <input className="form-control" ref="confirmpassword" id="confirmpassword" required type="password" />
                       </div>
                       <button className="btn btn-info" id="sendRegister" >
                               Reset Password

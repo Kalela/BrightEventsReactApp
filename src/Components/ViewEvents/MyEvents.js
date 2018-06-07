@@ -32,6 +32,8 @@ class MyEvents extends Component {
       page: 1,
     };
     this.sendRSVP = this.sendRSVP.bind(this);
+    this.onDelete = this.onDelete.bind(this);
+    this.filterEvent = this.filterEvent.bind(this);
   }
   componentWillMount() {
     localStorage.getItem("BrightEventsJWTtoken") && this.setState({
@@ -61,6 +63,16 @@ class MyEvents extends Component {
       })
       .catch(error => console.log('parsing failed', error));
   }
+
+  onDelete(name) {
+    this.setState({ my_events: this.filterEvent(name) });
+  }
+
+  filterEvent(name) {
+    return this.state.my_events.filter(event => event.eventname !== name);
+  }
+
+
   sendRSVP(dynamicData) {
     if (this.state.JWTtoken) {
       const owner = { owner: dynamicData.owner };
@@ -113,7 +125,7 @@ class MyEvents extends Component {
                         <ButtonGroup>
                           <Button size="sm" onClick={() => this.sendRSVP(dynamicData)}>Send RSVP</Button>
                           <EditModal dynamicData={dynamicData} />
-                          <DeleteModal dynamicData={dynamicData} />
+                          <DeleteModal onDelete={this.onDelete} dynamicData={dynamicData} />
                         </ButtonGroup>
                       </CardBody>
                     </Card>

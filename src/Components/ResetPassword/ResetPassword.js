@@ -49,7 +49,7 @@ class ResetPassword extends Component {
             ''
           }
           <InputGroup>
-            <input className="form-control" ref="email" id="email" required type="text"/>
+            <input className="form-control" ref="email" id="email" required type="text" />
             <InputGroupAddon addonType="prepend">
               <Button color="success" onClick={this.handleReset}>Send Email</Button>
             </InputGroupAddon>

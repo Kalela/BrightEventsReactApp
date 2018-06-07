@@ -66,19 +66,19 @@ class Register extends Component {
                     <form id="RegisterForm" className="formnow" onSubmit={this.runRegistration} >
                       <div className="form-group required">
                         <label className="control-label">Username</label>
-                        <input type="text" ref="username" className="form-control" id="username" required/>
+                        <input type="text" ref="username" className="form-control" id="username" required />
                       </div>
                       <div className="form-group required">
                         <label className="control-label">Email</label>
-                        <input className="form-control" ref="email" id="email" required type="email"/>
+                        <input className="form-control" ref="email" id="email" required type="email" />
                       </div>
                       <div className="form-group required">
                         <label className="control-label">Password</label>
-                        <input className="form-control" ref="password" id="password" required type="password"/>
+                        <input className="form-control" ref="password" id="password" required type="password" />
                       </div>
                       <div className="form-group required">
                         <label className="control-label">Confirm Password</label>
-                        <input className="form-control" ref="confirmpassword" id="confirmpassword" required type="password"/>
+                        <input className="form-control" ref="confirmpassword" id="confirmpassword" required type="password" />
                       </div>
                       <button className="btn btn-info" id="sendRegister" >
                               Sign Up

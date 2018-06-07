@@ -58,9 +58,6 @@ class NavbarOptions extends Component {
           <DropdownItem divider />
           <DropdownItem href="/events">All Events</DropdownItem>
           <DropdownItem href={`/${this.props.current_user}/events`}>My Events</DropdownItem>
-          <DropdownItem href={`/${this.props.current_user}/guests`}>My Guests</DropdownItem>
-          <DropdownItem href={`/${this.props.current_user}/rsvps`}>My Event Wishlist</DropdownItem>
-          <DropdownItem>Settings</DropdownItem>
           <DropdownItem divider />
           <DropdownItem onClick={() => this.logout()} >Logout</DropdownItem>
         </DropdownMenu>

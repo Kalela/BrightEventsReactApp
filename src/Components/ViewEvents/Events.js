@@ -125,7 +125,7 @@ class Events extends Component {
           {
             this.state.events.map((dynamicData, key) =>
             (
-              <div key={dynamicData.id}>
+              <div key={key}>
                 <Card id="eventCards">
                   <CardBody>
                     <CardTitle><a href={`/${dynamicData.owner}/${dynamicData.eventname}`}>{dynamicData.eventname}</a></CardTitle>
