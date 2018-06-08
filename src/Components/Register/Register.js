@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -83,7 +84,7 @@ class Register extends Component {
                       <button className="btn btn-info" id="sendRegister" >
                               Sign Up
                       </button>
-                      <p>Already have an Account? <a href="/login" id="loginsignupLink">Log In</a></p>
+                      <p>Already have an Account? <Link to="/login" id="loginsignupLink">Log In</Link></p>
                     </form>
                   </div>
                 </div>

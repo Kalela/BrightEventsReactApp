@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 /**
@@ -54,10 +54,10 @@ class NavbarOptions extends Component {
         <DropdownMenu id="navbarDropdownMenu">
           <DropdownItem header>Bright Events</DropdownItem>
           <DropdownItem divider />
-          <DropdownItem href={`/${this.props.current_user}/createevent`}>Create an Event</DropdownItem>
+          <Link to={`/${this.props.current_user}/createevent`} className="dropdown-item">Create an Event</Link>
           <DropdownItem divider />
-          <DropdownItem href="/events">All Events</DropdownItem>
-          <DropdownItem href={`/${this.props.current_user}/events`}>My Events</DropdownItem>
+          <Link to="/events" className="dropdown-item">All Events</Link>
+          <Link to={`/${this.props.current_user}/events`} className="dropdown-item">My Events</Link>
           <DropdownItem divider />
           <DropdownItem onClick={() => this.logout()} >Logout</DropdownItem>
         </DropdownMenu>

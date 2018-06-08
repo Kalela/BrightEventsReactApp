@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import NavbarOptions from '../NavbarOptions/NavbarOptions';
 
@@ -8,7 +9,7 @@ logged in.
 */
 const Navbar = props => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
-    <a className="navbar-brand" href="/">BrightEvents</a>
+    <Link to="/" className="navbar-brand">BrightEvents</Link>
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon" />
     </button>
@@ -22,9 +23,9 @@ const Navbar = props => (
         :
         ''
       }
-      <form className="form-inline my-2 my-lg-0">
-        <button className="btn btn-outline-success my-2 my-sm-0"><a href="/search">Search Events</a></button>
-      </form>
+
+      <Link to="/search" className="btn btn-outline-success my-2 my-sm-0">Search Events</Link>
+
     </div>
   </nav>
 );

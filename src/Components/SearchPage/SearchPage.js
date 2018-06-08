@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import {
   InputGroup,
   InputGroupAddon,
@@ -134,7 +135,7 @@ class SearchPage extends Component {
     return (
       <div className="SearchPage" >
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <a className="navbar-brand" href="/">BrightEvents</a>
+          <Link to="/" className="navbar-brand">BrightEvents</Link>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -169,10 +170,10 @@ class SearchPage extends Component {
               <div key={dynamicData.id}>
                 <Card id="eventCards">
                   <CardBody>
-                    <CardTitle><a href={`/${dynamicData.owner}/${dynamicData.eventname}`}>{dynamicData.eventname}</a></CardTitle>
+                    <CardTitle><Link to={`/${dynamicData.owner}/${dynamicData.eventname}`}>{dynamicData.eventname}</Link></CardTitle>
                     <CardSubtitle id="cardSubtitle">At {dynamicData.location}</CardSubtitle>
                     <CardSubtitle id="cardSubtitle">On {dynamicData.date.split('00')[0]}</CardSubtitle>
-                    <CardSubtitle id="cardSubtitle">By <a href={`/${dynamicData.owner}/dashboard`}>{dynamicData.owner}</a></CardSubtitle>
+                    <CardSubtitle id="cardSubtitle">By {dynamicData.owner}</CardSubtitle>
                     <CardSubtitle id="cardSubtitle">Category: {dynamicData.category}</CardSubtitle>
                   </CardBody>
                   <img width="100%" src={Tryouts} alt="Card cap" />

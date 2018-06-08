@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import Navbar from '../Navbar/Navbar';
 
@@ -36,12 +37,12 @@ class LandingPage extends Component {
                 !this.state.current_user ?
                   <div>
                     <p className="lead">We handle your event needs.</p>
-                    <a href="/register">
+                    <Link to="/register">
                       <button className="btn btn-outline-success my-2 my-sm-0" >Register</button>
-                    </a>
-                    <a href="/login" id="loginButton">
+                    </Link>
+                    <Link to="/login" id="loginButton">
                       <button className="btn btn-outline-success my-2 my-sm-0">Log In</button>
-                    </a>
+                    </Link>
                   </div>
               :
               ''

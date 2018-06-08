@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {
@@ -128,10 +129,10 @@ class Events extends Component {
               <div key={key}>
                 <Card id="eventCards">
                   <CardBody>
-                    <CardTitle><a href={`/${dynamicData.owner}/${dynamicData.eventname}`}>{dynamicData.eventname}</a></CardTitle>
+                    <CardTitle><Link to={`/${dynamicData.owner}/${dynamicData.eventname}`}>{dynamicData.eventname}</Link></CardTitle>
                     <CardSubtitle id="cardSubtitle">At {dynamicData.location}</CardSubtitle>
                     <CardSubtitle id="cardSubtitle">On {dynamicData.date.split('00')[0]}</CardSubtitle>
-                    <CardSubtitle id="cardSubtitle">By <a href={`/${dynamicData.owner}/dashboard`}>{dynamicData.owner}</a></CardSubtitle>
+                    <CardSubtitle id="cardSubtitle">By {dynamicData.owner}</CardSubtitle>
                     <CardSubtitle id="cardSubtitle">Category: {dynamicData.category}</CardSubtitle>
                   </CardBody>
                   <img width="100%" src={Tryouts} alt="Card cap" />

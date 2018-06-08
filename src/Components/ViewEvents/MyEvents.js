@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import jwt from 'jsonwebtoken';
 import {
   Card,
@@ -130,7 +131,7 @@ class MyEvents extends Component {
                   <div key={dynamicData.id}>
                     <Card id="eventCards">
                       <CardBody>
-                        <CardTitle><a href={`/${dynamicData.owner}/${dynamicData.eventname}`}>{dynamicData.eventname}</a></CardTitle>
+                        <CardTitle><Link to={`/${dynamicData.owner}/${dynamicData.eventname}`}>{dynamicData.eventname}</Link></CardTitle>
                         <CardSubtitle id="cardSubtitle">At {dynamicData.location}</CardSubtitle>
                         <CardSubtitle id="cardSubtitle">On {dynamicData.date.split('00')[0]}</CardSubtitle>
                         <CardSubtitle id="cardSubtitle">By {dynamicData.owner}</CardSubtitle>
@@ -148,19 +149,19 @@ class MyEvents extends Component {
                   </div>))
               }
               </CardDeck>
-              <a href={`/${this.state.current_user}/createevent`} id="dashboardCreateEvent" className="btn btn-info navbar-btn">
+              <Link to={`/${this.state.current_user}/createevent`} id="dashboardCreateEvent" className="btn btn-info navbar-btn">
                 <i className="glyphicon glyphicon-align-left"></i>
                 <span>Create an Event</span>
-              </a>
+              </Link>
             </div> :
             <div>
               <Alert color="info">
                 No events yet.
               </Alert>
-              <a href={`/${this.state.current_user}/createevent`} id="dashboardCreateEvent" className="btn btn-info navbar-btn">
+              <Link to={`/${this.state.current_user}/createevent`} id="dashboardCreateEvent" className="btn btn-info navbar-btn">
                 <i className="glyphicon glyphicon-align-left"></i>
                 <span>Create an Event</span>
-              </a>
+              </Link>
             </div>
           }
       </div>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -71,8 +72,8 @@ class Login extends Component {
                         <input className="form-control" ref="password" required type="password" />
                       </div>
                       <button className="btn btn-info">Log In</button>
-                      <p>Dont have an Account? <a href="/register" id="loginsignupLink" >Sign Up</a></p>
-                      <a href="/reset_password" id="loginsignupLink" >Forgot Password?</a>
+                      <p>Dont have an Account? <Link to="/register" id="loginsignupLink" >Sign Up</Link></p>
+                      <Link to="/reset_password" id="loginsignupLink" >Forgot Password?</Link>
                     </form>
                   </div>
                 </div>
