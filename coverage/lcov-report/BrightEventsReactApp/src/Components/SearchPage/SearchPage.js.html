@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">32% </span>
+        <span class="strong">31.43% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>8/25</span>
+        <span class='fraction'>11/35</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">28.57% </span>
+        <span class="strong">25% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>4/14</span>
+        <span class='fraction'>4/16</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">21.43% </span>
+        <span class="strong">15.79% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/14</span>
+        <span class='fraction'>3/19</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">32% </span>
+        <span class="strong">32.35% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>8/25</span>
+        <span class='fraction'>11/34</span>
       </div>
     </div>
   </div>
@@ -232,7 +232,25 @@
 187
 188
 189
-190</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -270,6 +288,9 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -282,6 +303,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -339,13 +380,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -422,6 +456,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import {
   InputGroup,
   InputGroupAddon,
@@ -457,8 +492,11 @@ class SearchPage extends Component {
       none: false,
     };
     this.runSearch = this.runSearch.bind(this);
-    this.handleDropdown = this.handleDropdown.bind(this);
     this.sendRSVP = this.sendRSVP.bind(this);
+    this.onDelete = this.onDelete.bind(this);
+    this.filterEvent = this.filterEvent.bind(this);
+    this.onEdit = this.onEdit.bind(this);
+    this.updateEvent = this.updateEvent.bind(this);
   }
 &nbsp;
   componentWillMount() {
@@ -470,7 +508,27 @@ class SearchPage extends Component {
     });
   }
 &nbsp;
+<span class="fstat-no" title="function not covered" >  on</span>Delete(name) {
+<span class="cstat-no" title="statement not covered" >    this.setState({ my_events: this.filterEvent(name) });</span>
+  }
 &nbsp;
+<span class="fstat-no" title="function not covered" >  on</span>Edit(event) {
+<span class="cstat-no" title="statement not covered" >    this.setState({ my_events: this.updateEvent(event) });</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  up</span>dateEvent(updatedEvent) {
+<span class="cstat-no" title="statement not covered" >    return this.state.events.map(<span class="fstat-no" title="function not covered" >(e</span>vent) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if (event.id === updatedEvent.id) {</span>
+<span class="cstat-no" title="statement not covered" >        return updatedEvent</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >           return event</span>
+      }
+    });
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  fi</span>lterEvent(name) {
+<span class="cstat-no" title="statement not covered" >    return this.state.events.filter(<span class="fstat-no" title="function not covered" >ev</span>ent =&gt; <span class="cstat-no" title="statement not covered" >event.eventname !== name)</span>;</span>
+  }
   /**
   perform an event search with user given input
   */
@@ -530,18 +588,11 @@ class SearchPage extends Component {
     }
   }
 &nbsp;
-  /**
-  Handle the category dropdown for filtering events
-  */
-<span class="fstat-no" title="function not covered" >  ha</span>ndleDropdown(event) {
-<span class="cstat-no" title="statement not covered" >    this.setState({ category: event.target.value });</span>
-  }
-&nbsp;
   render() {
     return (
       &lt;div className="SearchPage" &gt;
         &lt;nav className="navbar navbar-expand-lg navbar-light bg-light"&gt;
-          &lt;a className="navbar-brand" href="/"&gt;BrightEvents&lt;/a&gt;
+          &lt;Link to="/" className="navbar-brand"&gt;BrightEvents&lt;/Link&gt;
           &lt;button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"&gt;
             &lt;span className="navbar-toggler-icon"&gt;&lt;/span&gt;
           &lt;/button&gt;
@@ -576,10 +627,10 @@ class SearchPage extends Component {
 <span class="cstat-no" title="statement not covered" >              &lt;div key={dynamicData.id}&gt;</span>
                 &lt;Card id="eventCards"&gt;
                   &lt;CardBody&gt;
-                    &lt;CardTitle&gt;&lt;a href={`/${dynamicData.owner}/${dynamicData.eventname}`}&gt;{dynamicData.eventname}&lt;/a&gt;&lt;/CardTitle&gt;
+                    &lt;CardTitle&gt;&lt;Link to={`/${dynamicData.owner}/${dynamicData.eventname}`}&gt;{dynamicData.eventname}&lt;/Link&gt;&lt;/CardTitle&gt;
                     &lt;CardSubtitle id="cardSubtitle"&gt;At {dynamicData.location}&lt;/CardSubtitle&gt;
                     &lt;CardSubtitle id="cardSubtitle"&gt;On {dynamicData.date.split('00')[0]}&lt;/CardSubtitle&gt;
-                    &lt;CardSubtitle id="cardSubtitle"&gt;By &lt;a href={`/${dynamicData.owner}/dashboard`}&gt;{dynamicData.owner}&lt;/a&gt;&lt;/CardSubtitle&gt;
+                    &lt;CardSubtitle id="cardSubtitle"&gt;By {dynamicData.owner}&lt;/CardSubtitle&gt;
                     &lt;CardSubtitle id="cardSubtitle"&gt;Category: {dynamicData.category}&lt;/CardSubtitle&gt;
                   &lt;/CardBody&gt;
                   &lt;img width="100%" src={Tryouts} alt="Card cap" /&gt;
@@ -588,8 +639,8 @@ class SearchPage extends Component {
                      dynamicData.owner === this.state.current_user ?
                        &lt;ButtonGroup id="eventButtons"&gt;
                          &lt;Button size="sm" onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >this.sendRSVP(dynamicData)}</span>&gt;Send RSVP&lt;/Button&gt;
-                         &lt;EditModal dynamicData={dynamicData} /&gt;
-                         &lt;DeleteModal dynamicData={dynamicData} /&gt;
+                         &lt;EditModal onEdit={this.onEdit} dynamicData={dynamicData} /&gt;
+                         &lt;DeleteModal onEdit={this.onDelete} dynamicData={dynamicData} /&gt;
                        &lt;/ButtonGroup&gt; :
                        &lt;Button id="rsvpButton" size="sm" onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >this.sendRSVP(dynamicData)}</span>&gt;Send RSVP&lt;/Button&gt;
                     }
@@ -616,7 +667,7 @@ export default SearchPage;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Jun 07 2018 23:27:46 GMT+0300 (EAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jun 08 2018 12:27:19 GMT+0300 (EAT)
 </div>
 </div>
 <script src="../../../../prettify.js"></script>

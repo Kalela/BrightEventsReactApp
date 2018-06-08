@@ -16,8 +16,15 @@ describe('Create event page', () => {
   });
   it('takes data from form on click', () => {
     const wrapper = shallow(<CreateEvent />);
+    wrapper.find('#eventname').simulate('change', { target: { name: 'eventname', value: 'Newevent' } });
     const submitButton = wrapper.find('button').at(1);
     submitButton.simulate('click');
-    expect(wrapper.state().category).toEqual("Other")
+    expect(wrapper.state().category).toEqual('Other')
+  });
+  it('takes eventname form on click', () => {
+    const wrapper = shallow(<CreateEvent />);
+    const submitButton = wrapper.find('button').at(1);
+    submitButton.simulate('click');
+    expect(wrapper.state().category).toEqual('Other')
   });
 });

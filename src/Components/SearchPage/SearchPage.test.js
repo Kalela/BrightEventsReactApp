@@ -11,5 +11,7 @@ describe('Search page', () => {
   it('loads the search page', () => {
     const wrapper = shallow(<SearchPage />);
     expect(wrapper).toBeDefined();
+    expect(wrapper.find('nav').length).toEqual(1);
+    expect(wrapper.find('.form-control').length).toEqual(1);
   });
 });
