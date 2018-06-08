@@ -20,9 +20,9 @@ describe('Events and My events page', () => {
     const wrapper = shallow(<ViewSingleEvent {...props} />);
     expect(wrapper).toBeDefined();
   });
-  it('loads the my events page', () => {
-    const wrapper = shallow(<MyEvents />);
-    jwt_token = wrapper.state().JWTtoken;
-    expect(wrapper).toBeDefined();
-  });
+  // it('loads the my events page', () => {
+  //   const wrapper = shallow(<MyEvents />);
+  //   jwt_token = wrapper.state().JWTtoken;
+  //   expect(wrapper).toBeDefined();
+  // });
 });
