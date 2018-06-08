@@ -77,7 +77,7 @@ class Events extends Component {
   Fetch events data
   */
   fetchData() {
-    fetch(`http://localhost:5000/api/v2/events?limit=10&page=${this.state.page}`)
+    fetch(`http://bright-events-api-.herokuapp.com/api/v2/events?limit=10&page=${this.state.page}`)
       .then(response => response.json())
       .then((findresp) => {
         this.setState({
@@ -93,7 +93,7 @@ class Events extends Component {
   sendDeleteRSVP(dynamicData) {
     if (this.state.JWTtoken) {
       const owner = { owner: dynamicData.owner };
-      fetch(`http://localhost:5000/api/v2/events/${dynamicData.eventname}/rsvp`, {
+      fetch(`http://bright-events-api-.herokuapp.com/api/v2/events/${dynamicData.eventname}/rsvp`, {
         method: 'POST',
         headers: {
           Accept: 'application/json, text/plain, */*',

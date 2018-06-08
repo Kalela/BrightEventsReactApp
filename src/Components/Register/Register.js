@@ -27,7 +27,7 @@ class Register extends Component {
       confirmpassword: this.refs.confirmpassword.value,
     };
 
-    fetch('http://localhost:5000/api/v2/auth/register', {
+    fetch('http://bright-events-api-.herokuapp.com/api/v2/auth/register', {
       method: 'POST',
       headers: {
         Accept: 'application/json, text/plain, */*',

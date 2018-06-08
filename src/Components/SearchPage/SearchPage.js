@@ -80,7 +80,7 @@ class SearchPage extends Component {
     const searchParams = {
       q: this.refs.q.value,
     };
-    fetch(`http://localhost:5000/api/v2/search?q=${searchParams.q}`, {
+    fetch(`http://bright-events-api-.herokuapp.com/api/v2/search?q=${searchParams.q}`, {
       method: 'GET',
       headers: {
         Accept: 'application/json, text/plain, */*',
@@ -108,7 +108,7 @@ class SearchPage extends Component {
   sendRSVP(dynamicData) {
     if (this.state.JWTtoken) {
       const owner = { owner: dynamicData.owner };
-      fetch(`http://localhost:5000/api/v2/events/${dynamicData.eventname}/rsvp`, {
+      fetch(`http://bright-events-api-.herokuapp.com/api/v2/events/${dynamicData.eventname}/rsvp`, {
         method: 'POST',
         headers: {
           Accept: 'application/json, text/plain, */*',

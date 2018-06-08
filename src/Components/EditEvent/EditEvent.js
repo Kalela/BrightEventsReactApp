@@ -38,7 +38,7 @@ class EditModal extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:5000/api/v2/events/${this.state.current_user}/${this.props.dynamicData.eventname}`, {
+    fetch(`http://bright-events-api-.herokuapp.com/api/v2/events/${this.state.current_user}/${this.props.dynamicData.eventname}`, {
       method: 'GET',
       headers: {
         Accept: 'application/json, text/plain, */*',
@@ -64,7 +64,7 @@ class EditModal extends Component {
     };
     console.log(editEvent)
     console.log(this.state.category)
-    fetch(`http://localhost:5000/api/v2/events/${eventName}`, {
+    fetch(`http://bright-events-api-.herokuapp.com/api/v2/events/${eventName}`, {
       method: 'PUT',
       headers: {
         Accept: 'application/json, text/plain, */*',

@@ -42,7 +42,7 @@ class ViewSingleEvent extends Component {
     });
   }
   componentDidMount() {
-    fetch(`http://localhost:5000/api/v2/events/${this.props.match.params.username}/${this.props.match.params.eventname}`, {
+    fetch(`http://bright-events-api-.herokuapp.com/api/v2/events/${this.props.match.params.username}/${this.props.match.params.eventname}`, {
       method: 'GET',
       headers: {
         Accept: 'application/json, text/plain, */*',
@@ -57,7 +57,7 @@ class ViewSingleEvent extends Component {
         });
       });
 
-    fetch(`http://localhost:5000/api/v2/events/${this.props.match.params.eventname}/rsvp?owner=${this.props.match.params.username}`, {
+    fetch(`http://bright-events-api-.herokuapp.com/api/v2/events/${this.props.match.params.eventname}/rsvp?owner=${this.props.match.params.username}`, {
       method: 'GET',
       headers: {
         Accept: 'application/json, text/plain, */*',
@@ -75,7 +75,7 @@ class ViewSingleEvent extends Component {
   sendRSVP(dynamicData) {
     if (this.state.JWTtoken) {
       const owner = { owner: dynamicData.owner };
-      fetch(`http://localhost:5000/api/v2/events/${dynamicData.eventname}/rsvp`, {
+      fetch(`http://bright-events-api-.herokuapp.com/api/v2/events/${dynamicData.eventname}/rsvp`, {
         method: 'POST',
         headers: {
           Accept: 'application/json, text/plain, */*',

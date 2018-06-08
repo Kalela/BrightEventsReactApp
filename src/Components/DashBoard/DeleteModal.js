@@ -34,7 +34,7 @@ class DeleteModal extends Component {
   Run delete event
   */
   deleteEvent(eventname) {
-    fetch(`http://localhost:5000/api/v2/events/${eventname}`, {
+    fetch(`http://bright-events-api-.herokuapp.com/api/v2/events/${eventname}`, {
       method: 'DELETE',
       headers: {
         Accept: 'application/json, text/plain, */*',

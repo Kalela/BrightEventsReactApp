@@ -48,7 +48,7 @@ class MyEvents extends Component {
   }
   componentDidMount() {
     const user = jwt.decode(this.state.JWTtoken);
-    fetch(`http://localhost:5000/api/v2/events/${user.public_id}?limit=1&page=${this.state.page}`, {
+    fetch(`http://bright-events-api-.herokuapp.com/api/v2/events/${user.public_id}?limit=1&page=${this.state.page}`, {
       method: 'GET',
       headers: {
         Accept: 'application/json, text/plain, */*',
@@ -93,7 +93,7 @@ class MyEvents extends Component {
   sendRSVP(dynamicData) {
     if (this.state.JWTtoken) {
       const owner = { owner: dynamicData.owner };
-      fetch(`http://localhost:5000/api/v2/events/${dynamicData.eventname}/rsvp`, {
+      fetch(`http://bright-events-api-.herokuapp.com/api/v2/events/${dynamicData.eventname}/rsvp`, {
         method: 'POST',
         headers: {
           Accept: 'application/json, text/plain, */*',
