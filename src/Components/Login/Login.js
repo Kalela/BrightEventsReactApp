@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Alert } from 'reactstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -13,6 +14,9 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.runLogin = this.runLogin.bind(this);
+    this.state = {
+      success: false,
+    };
   }
 
   /**
@@ -37,7 +41,13 @@ class Login extends Component {
         localStorage.setItem('BrightEventsJWTtoken', findresp.access_token);
         localStorage.setItem('Logged_in', user.username);
         if (findresp.access_token) {
-          this.props.history.push(`/${user.username}/events`);
+          this.setState({
+            success: true,
+          })
+          setTimeout(
+            function() {
+              this.props.history.push(`/${user.username}/events`);
+            }.bind(this), 3000);
         } else {
           toast.error(findresp.message, {
             position: 'top-right',
@@ -62,6 +72,12 @@ class Login extends Component {
                 <div className="col-md-12">
                   <div className="g">
                     <h1 className="head">Log In</h1>
+                    { this.state.success === true ?
+                      <Alert color="success">
+                        Logged in! Redirecting you to your events. Please wait...
+                      </Alert> :
+                    ''
+                  }
                     <form action="#" className="login" onSubmit={this.runLogin}>
                       <div className="form-group required">
                         <label className="control-label" >Username</label>
