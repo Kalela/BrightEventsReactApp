@@ -33,7 +33,7 @@ class MyRSVPs extends Component {
   Fetch data for the component
   */
   fetchData() {
-    fetch('http://bright-events-api-.herokuapp.com/api/v2/events')
+    fetch('https://bright-events-api-.herokuapp.com/api/v2/events')
       .then(response => response.json())
       .then((findresp) => {
         this.setState({

@@ -18,7 +18,7 @@ class ResetPassword extends Component {
     this.setState({
       alert: true,
     });
-    fetch('http://bright-events-api-.herokuapp.com/api/v2/emails', {
+    fetch('https://bright-events-api-.herokuapp.com/api/v2/emails', {
       method: 'POST',
       headers: {
         Accept: 'application/json, text/plain, */*',

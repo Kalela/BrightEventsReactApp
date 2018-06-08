@@ -42,7 +42,7 @@ class ViewSingleEvent extends Component {
     });
   }
   componentDidMount() {
-    fetch(`http://bright-events-api-.herokuapp.com/api/v2/events/${this.props.match.params.username}/${this.props.match.params.eventname}`, {
+    fetch(`https://bright-events-api-.herokuapp.com/api/v2/events/${this.props.match.params.username}/${this.props.match.params.eventname}`, {
       method: 'GET',
       headers: {
         Accept: 'application/json, text/plain, */*',
@@ -57,7 +57,7 @@ class ViewSingleEvent extends Component {
         });
       });
 
-    fetch(`http://bright-events-api-.herokuapp.com/api/v2/events/${this.props.match.params.eventname}/rsvp?owner=${this.props.match.params.username}`, {
+    fetch(`https://bright-events-api-.herokuapp.com/api/v2/events/${this.props.match.params.eventname}/rsvp?owner=${this.props.match.params.username}`, {
       method: 'GET',
       headers: {
         Accept: 'application/json, text/plain, */*',
@@ -75,7 +75,7 @@ class ViewSingleEvent extends Component {
   sendRSVP(dynamicData) {
     if (this.state.JWTtoken) {
       const owner = { owner: dynamicData.owner };
-      fetch(`http://bright-events-api-.herokuapp.com/api/v2/events/${dynamicData.eventname}/rsvp`, {
+      fetch(`https://bright-events-api-.herokuapp.com/api/v2/events/${dynamicData.eventname}/rsvp`, {
         method: 'POST',
         headers: {
           Accept: 'application/json, text/plain, */*',
@@ -106,18 +106,19 @@ class ViewSingleEvent extends Component {
           <CardDeck>
             {
             this.state.event.map((dynamicData, key) =>
-            (<div key={dynamicData.id}>
-              <Card>
-                <CardBody>
-                  <CardTitle>{dynamicData.eventname}</CardTitle>
-                  <CardSubtitle id="cardSubtitle">At {dynamicData.location}</CardSubtitle>
-                  <CardSubtitle id="cardSubtitle">On {dynamicData.date.split('00')[0]}</CardSubtitle>
-                  <CardSubtitle id="cardSubtitle">By {dynamicData.owner}</CardSubtitle>
-                  <CardSubtitle id="cardSubtitle">Category: {dynamicData.category}</CardSubtitle>
-                </CardBody>
-                <img width="100%" src={Tryouts} alt="Card cap" />
-                <CardBody>
-                  {
+            (
+              <div key={key}>
+                <Card>
+                  <CardBody>
+                    <CardTitle>{dynamicData.eventname}</CardTitle>
+                    <CardSubtitle id="cardSubtitle">At {dynamicData.location}</CardSubtitle>
+                    <CardSubtitle id="cardSubtitle">On {dynamicData.date.split('00')[0]}</CardSubtitle>
+                    <CardSubtitle id="cardSubtitle">By {dynamicData.owner}</CardSubtitle>
+                    <CardSubtitle id="cardSubtitle">Category: {dynamicData.category}</CardSubtitle>
+                  </CardBody>
+                  <img width="100%" src={Tryouts} alt="Card cap" />
+                  <CardBody>
+                    {
                    dynamicData.owner === this.state.current_user ?
                      <ButtonGroup id="eventButtons">
                        <Button size="sm" onClick={() => this.sendRSVP(dynamicData)}>Send RSVP</Button>
@@ -126,10 +127,9 @@ class ViewSingleEvent extends Component {
                      </ButtonGroup> :
                      <Button id="rsvpButton"size="sm" onClick={() => this.sendRSVP(dynamicData)}>Send RSVP</Button>
                 }
-                </CardBody>
-              </Card>
-            </div>)
-            )
+                  </CardBody>
+                </Card>
+              </div>))
           }
           </CardDeck>
         </div>

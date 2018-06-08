@@ -14,10 +14,11 @@ describe('Events and My events page', () => {
     const wrapper = shallow(<Events />);
     expect(wrapper).toBeDefined();
   });
-  // it('loads the single events page', () => {
-  //   const wrapper = shallow(<ViewSingleEvent />);
-  //   expect(wrapper).toBeDefined();
-  // });
+  it('loads the single events page', () => {
+    const props = { match: { params: { username: 'a', eventname: 'a' } } };
+    const wrapper = shallow(<ViewSingleEvent {...props} />);
+    expect(wrapper).toBeDefined();
+  });
   // it('loads the my events page', () => {
   //   const wrapper = shallow(<MyEvents />);
   //   expect(wrapper).toBeDefined();
