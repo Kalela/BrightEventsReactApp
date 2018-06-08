@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for BrightEventsReactApp/src/Components/SearchPage/SearchPage.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">All files</a> / <a href="index.html">BrightEventsReactApp/src/Components/SearchPage</a> SearchPage.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">31.43% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>11/35</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">25% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>4/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">15.79% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>3/19</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">32.35% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>11/34</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import {
+  InputGroup,
+  InputGroupAddon,
+  Alert,
+  Card,
+  CardBody,
+  Button,
+  ButtonGroup,
+  CardTitle,
+  CardSubtitle,
+  CardDeck,
+} from 'reactstrap';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+&nbsp;
+import DeleteModal from '../DashBoard/DeleteModal';
+import EditModal from '../EditEvent/EditEvent';
+import NavbarOptions from '../NavbarOptions/NavbarOptions';
+&nbsp;
+import Tryouts from '../../img/event_stock_images/pexels-photo.jpg';
+&nbsp;
+/**
+Functional component that runs the search functionality of the app. It allows
+a user to search for events.
+*/
+class SearchPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      events: [],
+      current_user: '',
+      JWTtoken: '',
+      none: false,
+    };
+    this.runSearch = this.runSearch.bind(this);
+    this.sendRSVP = this.sendRSVP.bind(this);
+    this.onDelete = this.onDelete.bind(this);
+    this.filterEvent = this.filterEvent.bind(this);
+    this.onEdit = this.onEdit.bind(this);
+    this.updateEvent = this.updateEvent.bind(this);
+  }
+&nbsp;
+  componentWillMount() {
+    localStorage.getItem('BrightEventsJWTtoken') &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
+      JWTtoken: localStorage.getItem('BrightEventsJWTtoken')
+    });
+    localStorage.getItem('Logged_in') &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >this.setState({</span>
+      current_user: localStorage.getItem('Logged_in')
+    });
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  on</span>Delete(name) {
+<span class="cstat-no" title="statement not covered" >    this.setState({ my_events: this.filterEvent(name) });</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  on</span>Edit(event) {
+<span class="cstat-no" title="statement not covered" >    this.setState({ my_events: this.updateEvent(event) });</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  up</span>dateEvent(updatedEvent) {
+<span class="cstat-no" title="statement not covered" >    return this.state.events.map(<span class="fstat-no" title="function not covered" >(e</span>vent) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if (event.id === updatedEvent.id) {</span>
+<span class="cstat-no" title="statement not covered" >        return updatedEvent</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >           return event</span>
+      }
+    });
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  fi</span>lterEvent(name) {
+<span class="cstat-no" title="statement not covered" >    return this.state.events.filter(<span class="fstat-no" title="function not covered" >ev</span>ent =&gt; <span class="cstat-no" title="statement not covered" >event.eventname !== name)</span>;</span>
+  }
+  /**
+  perform an event search with user given input
+  */
+<span class="fstat-no" title="function not covered" >  ru</span>nSearch(e) {
+<span class="cstat-no" title="statement not covered" >    e.preventDefault();</span>
+    const searchParams = <span class="cstat-no" title="statement not covered" >{</span>
+      q: this.refs.q.value,
+    };
+<span class="cstat-no" title="statement not covered" >    fetch(`http://localhost:5000/api/v2/search?q=${searchParams.q}`, {</span>
+      method: 'GET',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-type': 'application/json',
+      },
+    })
+      .then(<span class="fstat-no" title="function not covered" >re</span>sponse =&gt; <span class="cstat-no" title="statement not covered" >response.json())</span>
+      .then(<span class="fstat-no" title="function not covered" >(f</span>indresp) =&gt; {
+<span class="cstat-no" title="statement not covered" >        this.setState({</span>
+          events: findresp.Events,
+          none: false,
+        });
+<span class="cstat-no" title="statement not covered" >        if (findresp.Events.length === 0) {</span>
+<span class="cstat-no" title="statement not covered" >          this.setState({</span>
+            none: true,
+          });
+        }
+      })
+      .catch(<span class="fstat-no" title="function not covered" >er</span>ror =&gt; <span class="cstat-no" title="statement not covered" >console.log('parsing failed', error))</span>;
+  }
+&nbsp;
+  /**
+  Send rsvp to searched events
+  */
+<span class="fstat-no" title="function not covered" >  se</span>ndRSVP(dynamicData) {
+<span class="cstat-no" title="statement not covered" >    if (this.state.JWTtoken) {</span>
+      const owner = <span class="cstat-no" title="statement not covered" >{ owner: dynamicData.owner };</span>
+<span class="cstat-no" title="statement not covered" >      fetch(`http://localhost:5000/api/v2/events/${dynamicData.eventname}/rsvp`, {</span>
+        method: 'POST',
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'Content-type': 'application/json',
+          'x-access-token': this.state.JWTtoken,
+        },
+        body: JSON.stringify(owner),
+      })
+        .then(<span class="fstat-no" title="function not covered" >re</span>sponse =&gt; <span class="cstat-no" title="statement not covered" >response.json())</span>
+        .then(<span class="fstat-no" title="function not covered" >(f</span>indresp) =&gt; {
+<span class="cstat-no" title="statement not covered" >          toast.success(findresp.message, {</span>
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+        });
+    }
+  }
+&nbsp;
+  render() {
+    return (
+      &lt;div className="SearchPage" &gt;
+        &lt;nav className="navbar navbar-expand-lg navbar-light bg-light"&gt;
+          &lt;Link to="/" className="navbar-brand"&gt;BrightEvents&lt;/Link&gt;
+          &lt;button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"&gt;
+            &lt;span className="navbar-toggler-icon"&gt;&lt;/span&gt;
+          &lt;/button&gt;
+&nbsp;
+          &lt;div className="collapse navbar-collapse" id="navbarSupportedContent"&gt;
+            &lt;ul className="navbar-nav mr-auto"&gt;
+            &lt;/ul&gt;
+            {
+              this.state.current_user ?
+<span class="branch-0 cbranch-no" title="branch not covered" >                &lt; NavbarOptions current_user={this.state.current_user} JWTtoken={this.state.JWTtoken} /&gt;</span>
+              :
+              ''
+            }
+          &lt;/div&gt;
+        &lt;/nav&gt;
+        &lt;ToastContainer /&gt;
+        &lt;div id="searchForm"&gt;
+          &lt;InputGroup&gt;
+            &lt;input type="text" ref="q" className="form-control" id="eventname" required /&gt;
+            &lt;InputGroupAddon addonType="prepend"&gt;
+              &lt;Button color="success" onClick={this.runSearch} &gt;Search Events&lt;/Button&gt;
+            &lt;/InputGroupAddon&gt;
+          &lt;/InputGroup&gt;
+        &lt;/div&gt;
+        &lt;div id="searchEventsContainer" className="container"&gt;
+          {
+          this.state.none === false ?
+            &lt;CardDeck&gt;
+              {
+            this.state.events.map(<span class="fstat-no" title="function not covered" >(d</span>ynamicData, key) =&gt;
+            (
+<span class="cstat-no" title="statement not covered" >              &lt;div key={dynamicData.id}&gt;</span>
+                &lt;Card id="eventCards"&gt;
+                  &lt;CardBody&gt;
+                    &lt;CardTitle&gt;&lt;Link to={`/${dynamicData.owner}/${dynamicData.eventname}`}&gt;{dynamicData.eventname}&lt;/Link&gt;&lt;/CardTitle&gt;
+                    &lt;CardSubtitle id="cardSubtitle"&gt;At {dynamicData.location}&lt;/CardSubtitle&gt;
+                    &lt;CardSubtitle id="cardSubtitle"&gt;On {dynamicData.date.split('00')[0]}&lt;/CardSubtitle&gt;
+                    &lt;CardSubtitle id="cardSubtitle"&gt;By {dynamicData.owner}&lt;/CardSubtitle&gt;
+                    &lt;CardSubtitle id="cardSubtitle"&gt;Category: {dynamicData.category}&lt;/CardSubtitle&gt;
+                  &lt;/CardBody&gt;
+                  &lt;img width="100%" src={Tryouts} alt="Card cap" /&gt;
+                  &lt;CardBody&gt;
+                    {
+                     dynamicData.owner === this.state.current_user ?
+                       &lt;ButtonGroup id="eventButtons"&gt;
+                         &lt;Button size="sm" onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >this.sendRSVP(dynamicData)}</span>&gt;Send RSVP&lt;/Button&gt;
+                         &lt;EditModal onEdit={this.onEdit} dynamicData={dynamicData} /&gt;
+                         &lt;DeleteModal onEdit={this.onDelete} dynamicData={dynamicData} /&gt;
+                       &lt;/ButtonGroup&gt; :
+                       &lt;Button id="rsvpButton" size="sm" onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >this.sendRSVP(dynamicData)}</span>&gt;Send RSVP&lt;/Button&gt;
+                    }
+                  &lt;/CardBody&gt;
+                &lt;/Card&gt;
+              &lt;/div&gt;))
+          }
+            &lt;/CardDeck&gt;
+             :
+<span class="branch-1 cbranch-no" title="branch not covered" >            &lt;Alert color="info" id="searchAlert"&gt;</span>
+            No events match your current search parameters.
+            &lt;/Alert&gt;
+         }
+        &lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+&nbsp;
+export default SearchPage;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jun 08 2018 12:27:19 GMT+0300 (EAT)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+html,
+body {
+    margin: 0;
+    height: 100%;
+    font-family: 'Lato', sans-serif;
+    background-position: center;
+    background-color: #fafafa;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+a{
+  color: #28a745;
+  text-decoration: none;
+}
+.navbar{
+    margin-bottom: 0;
+    background-color: #6B8175;
+    border: 0;
+    border-radius: 0;
+    font-size: 18px !important;
+    letter-spacing: 1px;
+    opacity: 0.8;
+    z-index: 999;
+}
+.g{
+    padding: 80px 50px 0;
+    width: 100%;
+}
+.btn-info{
+    background-color: #43304C;
+    margin: 20px 0;
+    border: 0;
+    transition: all 0.7s;
+    border: 1px solid #43304C;
+}
+.btn-info:hover{
+    background-color: #fff;
+    color: #43304C;
+
+}
+.container{
+    padding: 0 60px;
+}
+.col-md-12{
+  min-height: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: margin-left;
+}
+#aboutUs {
+  height: 100vh;
+}
+#dashb {
+  color: fafafa;
+}
+#eventCards {
+  margin-bottom: 21px;
+}
+#guestOptions {
+  margin-top: -27px;
+}
+#categorySelect {
+  width: 100%;
+  margin-left: 0px;
+}
+#categorySelectEdit {
+  width: 384px;
+  margin-left: 14px;
+}
+#landingFooter {
+    position: relative;
+    left:500px;
+    bottom:-340px;
+    color:#fff;
+}
+#searchLocation {
+    width: 65%;
+}
+#landingPageJumbotron {
+    margin-top: -3%;
+    opacity: 0.8;
+    background-image:url('https://image.ibb.co/hF9ENw/climate_kic_350836.jpg');
+}
+#loginButton {
+  margin-left: auto;
+  padding-left: 8px;
+}
+#landingPageDiv {
+  height: 100vh;
+}
+#searchForm {
+  margin: auto;
+  width: 800px;
+}
+#searchCategory {
+  padding-top: 10px;
+  margin: auto;
+  width: 250px;
+  text-align: center;
+  margin-left: 595px;
+  margin-bottom: -69px;
+}
+#searchAlert{
+  margin-top: -6%;
+  width: 38%;
+  margin-left: 31%;
+}
+#singleEventGuests {
+  width: 63%;
+  margin-left: 37%;
+  margin-top: -40%;
+}
+#resetEmailForm {
+  margin: auto;
+  width: 800px;
+  padding-top: 250px;
+  text-align: center;
+  text-emphasis-position: above;
+}
+#searchEventsContainer {
+  padding: 106px 60px;
+}
+#cardSubtitle {
+  padding: 4px;
+}
+#navbarDropdown {
+  padding: 0px 9px;
+}
+#navbarDropdownMenu {
+  margin-top: 9px;
+}
+#viewAllDashboard {
+  top: auto;
+  padding: 4px;
+}
+#navbarOptions {
+  position: relative;
+  z-index: 99 !important;
+}
+#loginFormJumbotron {
+  background-color: fafafa;
+}
+#loginsignupLink {
+    color: #28a745;
+}
+#CreateEventForm {
+  padding: 80px 320px;
+}
+#eventsTitle{
+  padding: 16px 5px;
+}
+#rsvpButton {
+  margin-left: 34%;
+}
+#eventButtons {
+  margin-left: 3%
+}
+#pagination {
+  padding: 22px 387px;
+}
+#sidebarTitle {
+  color: #fff;
+}
+
+p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1em;
+  font-weight: 300;
+  line-height: 1.7em;
+  color: #999;
+}
+
+
+.navbar {
+  padding: 15px 10px;
+  background: #fff;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 40px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-btn {
+  box-shadow: none;
+  outline: none !important;
+  border: none;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  border-bottom: 1px dashed #ddd;
+  margin: 40px 0;
+}
