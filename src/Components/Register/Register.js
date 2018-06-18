@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Alert } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,6 +14,9 @@ class Register extends Component {
   constructor(props) {
     super(props);
     this.runRegistration = this.runRegistration.bind(this);
+    this.state = {
+      success: false,
+    };
   }
 
   /**
@@ -27,7 +31,7 @@ class Register extends Component {
       confirmpassword: this.refs.confirmpassword.value,
     };
 
-    fetch('http://localhost:5000/api/v2/auth/register', {
+    fetch('https://bright-events-api-.herokuapp.com/api/v2/auth/register', {
       method: 'POST',
       headers: {
         Accept: 'application/json, text/plain, */*',
@@ -38,7 +42,13 @@ class Register extends Component {
       .then(response => response.json())
       .then((findresp) => {
         if (findresp.message === 'Registration successful, log in to access your account') {
-          this.props.history.push('/login')
+          this.setState({
+            success: true,
+          })
+          setTimeout(
+            function() {
+              this.props.history.push('/login')
+            }.bind(this), 3000);
         } else {
           toast.error(findresp.message, {
             position: 'top-right',
@@ -64,6 +74,12 @@ class Register extends Component {
                 <div className="col-md-12">
                   <div className="g">
                     <h1 className="head">Sign Up</h1>
+                    { this.state.success === true ?
+                      <Alert color="success">
+                        Registration successful! Redirecting you to login. Please wait...
+                      </Alert> :
+                    ''
+                  }
                     <form id="RegisterForm" className="formnow" onSubmit={this.runRegistration} >
                       <div className="form-group required">
                         <label className="control-label">Username</label>

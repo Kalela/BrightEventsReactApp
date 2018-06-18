@@ -1,6 +1,7 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import jwt from 'jsonwebtoken';
 
 import Events from './Events';
 import MyEvents from './MyEvents';
@@ -14,12 +15,14 @@ describe('Events and My events page', () => {
     const wrapper = shallow(<Events />);
     expect(wrapper).toBeDefined();
   });
-  // it('loads the single events page', () => {
-  //   const wrapper = shallow(<ViewSingleEvent />);
-  //   expect(wrapper).toBeDefined();
-  // });
+  it('loads the single events page', () => {
+    const props = { match: { params: { username: 'a', eventname: 'a' } } };
+    const wrapper = shallow(<ViewSingleEvent {...props} />);
+    expect(wrapper).toBeDefined();
+  });
   // it('loads the my events page', () => {
   //   const wrapper = shallow(<MyEvents />);
+  //   jwt_token = wrapper.state().JWTtoken;
   //   expect(wrapper).toBeDefined();
   // });
 });
