@@ -17,4 +17,5 @@ notifications:
 script:
   - npm test
 
-after_success: npm coveralls
+after_success:
+  - cat ./coverage/lcov.info | node node_modules/.bin/coveralls
