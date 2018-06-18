@@ -62,8 +62,6 @@ class EditModal extends Component {
       date: this.refs.date.value,
       category: this.state.category,
     };
-    console.log(editEvent)
-    console.log(this.state.category)
     fetch(`https://bright-events-api-.herokuapp.com/api/v2/events/${eventName}`, {
       method: 'PUT',
       headers: {
@@ -96,7 +94,6 @@ class EditModal extends Component {
   }
 
   render() {
-    console.log(this.state.category)
     return (
       <div>
         <Button size="sm" color="light" onClick={this.toggleEditModal}>Edit Event</Button>
