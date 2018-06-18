@@ -2,6 +2,10 @@ language: node_js
 
 node_js:
   - 9.8.0
+  
+env:
+  global:
+  - COVERALLS_REPO_TOKEN="lzZL8abK8jOtViY9FrqEomzb3rDypDT7w"
 
 env:
   global:
@@ -17,4 +21,5 @@ notifications:
 script:
   - npm test
 
-after_success: npm coveralls
+after_success:
+  - cat ./coverage/lcov.info | node node_modules/.bin/coveralls
