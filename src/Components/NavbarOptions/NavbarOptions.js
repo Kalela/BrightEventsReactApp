@@ -22,7 +22,7 @@ class NavbarOptions extends Component {
   Logout a user
   */
   logout() {
-    fetch('https://bright-events-api-.herokuapp.com/api/v2/auth/logout', {
+    fetch('https://brighteventsapinowlive.herokuapp.com/api/v2/auth/logout', {
       method: 'POST',
       headers: {
         Accept: 'application/json, text/plain, */*',
