@@ -32,7 +32,7 @@ class ViewSingleEvent extends Component {
     });
   }
   componentDidMount() {
-    fetch(`https://bright-events-api-.herokuapp.com/api/v2/events/${this.props.match.params.eventname}/rsvp?owner=${this.props.match.params.username}`, {
+    fetch(`https://brighteventsapinowlive.herokuapp.com/api/v2/events/${this.props.match.params.eventname}/rsvp?owner=${this.props.match.params.username}`, {
       method: 'GET',
       headers: {
         Accept: 'application/json, text/plain, */*',
