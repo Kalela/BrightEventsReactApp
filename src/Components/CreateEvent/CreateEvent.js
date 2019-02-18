@@ -47,7 +47,7 @@ class CreateEvent extends Component {
       date: this.refs.date.value,
       category: this.state.category,
     };
-    fetch('https://bright-events-api-.herokuapp.com/api/v2/events', {
+    fetch('https://brighteventsapinowlive.herokuapp.com/api/v2/events', {
       method: 'POST',
       headers: {
         Accept: 'application/json, text/plain, */*',
