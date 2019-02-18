@@ -28,7 +28,7 @@ class Login extends Component {
       username: this.refs.username.value,
       password: this.refs.password.value,
     };
-    fetch('https://bright-events-api-.herokuapp.com/api/v2/auth/login', {
+    fetch('https://brighteventsapinowlive.herokuapp.com/api/v2/auth/login', {
       method: 'POST',
       headers: {
         Accept: 'application/json, text/plain, */*',
