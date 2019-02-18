@@ -45,7 +45,7 @@ class EventCard extends Component {
 
   componentDidMount() {
     if (this.props.type === 'allevents') {
-      fetch(`https://bright-events-api-.herokuapp.com/api/v2/events?limit=10&page=${this.state.page}`)
+      fetch(`https://brighteventsapinowlive.herokuapp.com/api/v2/events?limit=10&page=${this.state.page}`)
         .then(response => response.json())
         .then((findresp) => {
           this.setState({
@@ -73,7 +73,7 @@ class EventCard extends Component {
         })
         .catch(error => console.log('parsing failed', error));
     } else if (this.props.type === 'singleevent') {
-      fetch(`https://bright-events-api-.herokuapp.com/api/v2/events/${this.props.username}/${this.props.eventname}`, {
+      fetch(`https://brighteventsapinowlive.herokuapp.com/api/v2/events/${this.props.username}/${this.props.eventname}`, {
         method: 'GET',
         headers: {
           Accept: 'application/json, text/plain, */*',
@@ -105,7 +105,7 @@ class EventCard extends Component {
     if (this.state.JWTtoken) {
       const owner = { owner: dynamicData.owner };
       console.log(this.state.JWTtoken)
-      fetch(`https://bright-events-api-.herokuapp.com/api/v2/events/${dynamicData.eventname}/rsvp`, {
+      fetch(`https://brighteventsapinowlive.herokuapp.com/api/v2/events/${dynamicData.eventname}/rsvp`, {
         method: 'POST',
         headers: {
           Accept: 'application/json, text/plain, */*',
